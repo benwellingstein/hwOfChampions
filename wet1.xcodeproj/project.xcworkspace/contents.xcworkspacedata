@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:wet1.xcodeproj">
+      location = "group:../wet1">
+   </FileRef>
+   <FileRef
+      location = "self:">
    </FileRef>
 </Workspace>

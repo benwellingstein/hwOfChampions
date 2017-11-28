@@ -142,7 +142,7 @@ public:
   try { \
 std::cerr <<  left  << "Running " << #b <<"..."   ; \
     b(); \
-    std::cerr << "[OK]🤘🏻	" << std::endl; \
+    std::cerr << "[OK]\t🤘🏻" << std::endl; \
   } catch (AssertionError& error) { \
     std::cerr  <<  "\t💀 Failed " <<"(" << error << ")" << std::endl; \
   } catch (std::exception& e) { \
