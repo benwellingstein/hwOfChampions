@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B5FB3BCA1FCDCA98000E0F49 /* exampleSplayTree.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B5FB3BC91FCDCA98000E0F49 /* exampleSplayTree.cpp */; };
+		B5FB3BCC1FCDE5CC000E0F49 /* SplayTree.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B5FB3BC21FCDBE38000E0F49 /* SplayTree.cpp */; };
+		B5FB3BCE1FCDE629000E0F49 /* exampleSplayTree.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B5FB3BC91FCDCA98000E0F49 /* exampleSplayTree.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -171,7 +172,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B5FB3BCA1FCDCA98000E0F49 /* exampleSplayTree.cpp in Sources */,
+				B5FB3BCE1FCDE629000E0F49 /* exampleSplayTree.cpp in Sources */,
+				B5FB3BCC1FCDE5CC000E0F49 /* SplayTree.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

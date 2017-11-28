@@ -183,13 +183,16 @@ public:
 	{
 		if (root)
 		{
+			//go left
 			InOrder(root->lchild);
+			//work
 			cout<< "key: " <<root->key;
 			if(root->lchild)
 				cout<< " | left child: "<< root->lchild->key;
 			if(root->rchild)
 				cout << " | right child: " << root->rchild->key;
 			cout<< "\n";
+			//go right
 			InOrder(root->rchild);
 		}
 	}
