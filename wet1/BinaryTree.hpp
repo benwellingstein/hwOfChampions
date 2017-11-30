@@ -12,69 +12,17 @@
 using std::cout;
 using std::ostream;
 
-class Node {
-public:
-	Node(const int& num): num(num), lChild(NULL), rChild(NULL) {}
-	ostream& print(ostream& os) const {
-		os << "---------" << std::endl;
-		os << "address: " << this << std::endl;
-		os << "data: " << num << std::endl;
-		os << "lchild: " << lChild << std::endl;
-		os << "lchild: " << rChild << std::endl;
-		return os;
-	}
-	
-	bool operator<(const Node& other) {
-		return num< other.num;
-	}
-	
-	bool operator==(const Node& other) {
-		return num == other.num;
-	}
-	
-	bool hasLeft() {
-		return lChild!=NULL;
-	}
-	
-	bool hasRight() {
-		return rChild!=NULL;
-	}
-	
-	Node* getL() const {
-		return lChild;
-	}
-	
-	Node* getR() const {
-		return rChild;
-	}
-	
-	void setL(Node* l) {
-		lChild = l;
-	}
-	
-	void setR(Node* r) {
-		rChild = r;
-	}
-	
-private:
-	int num;
-	Node* lChild;
-	Node* rChild;
-};
 
-
-ostream& operator<<(ostream& os, const Node& node) {
-	node.print(os);
-	return os;
-}
-
-
-
-
-
+template <class T>
 class BinaryTree {
 public:
 	BinaryTree(): head(NULL) {}
+	
+	~BinaryTree() {
+		
+	}
+	
+	
 	
 	bool find(const int& num) {
 		if (!head) {
@@ -101,7 +49,6 @@ public:
 		}
 	}
 	
-
 	bool insert(const int& num) {
 		if (find(num)) return false;
 		Node* newNode = new Node(num);
@@ -135,8 +82,61 @@ public:
 	void inOrder(){
 		inOrderRec(head);
 	}
+	
 		
 private:
+	
+	class Node {
+	public:
+		Node(const T& data): data(data), lChild(NULL), rChild(NULL) {}
+		
+		ostream& print(ostream& os) const {
+			os << "---------" << std::endl;
+			os << "address: " << this << std::endl;
+			os << "data: " << data << std::endl;
+			os << "lchild: " << lChild << std::endl;
+			os << "lchild: " << rChild << std::endl;
+			return os;
+		}
+		
+		bool operator<(const Node& other) {
+			return data< other.data;
+		}
+		
+		bool operator==(const Node& other) {
+			return data == other.data;
+		}
+		
+		bool hasLeft() {
+			return lChild!=NULL;
+		}
+		
+		bool hasRight() {
+			return rChild!=NULL;
+		}
+		
+		Node* getL() const {
+			return lChild;
+		}
+		
+		Node* getR() const {
+			return rChild;
+		}
+		
+		void setL(Node* l) {
+			lChild = l;
+		}
+		
+		void setR(Node* r) {
+			rChild = r;
+		}
+		
+	private:
+		T data;
+		Node* lChild;
+		Node* rChild;
+	};
+
 	Node* head;
 	
 	
@@ -147,6 +147,18 @@ private:
 			inOrderRec(node->getR());
 		}
 	}
+	
 };
+
+
+
+
+
+
+//template <class T>
+//ostream& operator<<(ostream& os, const Node<T>& node) {
+//	node.print(os);
+//	return os;
+//}
 
 #endif /* BinaryTree_hpp */

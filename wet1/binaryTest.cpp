@@ -6,7 +6,7 @@
 
 
 void testBasicTreeInsert() {
-	BinaryTree tree;
+	BinaryTree<int> tree;
 	tree.insert(2);
 	tree.insert(1);
 	tree.insert(3);
@@ -14,7 +14,7 @@ void testBasicTreeInsert() {
 }
 
 void testFind() {
-	BinaryTree tree;
+	BinaryTree<int> tree;
 	tree.insert(2);
 	tree.insert(1);
 	tree.insert(3);
@@ -24,7 +24,7 @@ void testFind() {
 }
 
 void testFindAdvanced() {
-	BinaryTree tree;
+	BinaryTree<int> tree;
 
 	tree.insert(35);
 	tree.insert(9);
@@ -51,7 +51,7 @@ void testFindAdvanced() {
 }
 
 void testInsertAdvanced(){
-	BinaryTree tree;
+	BinaryTree<int> tree;
 	ASSERT_TRUE(tree.insert(2));
 	ASSERT_FALSE(tree.insert(2));
 	//	tree.inOrder();
