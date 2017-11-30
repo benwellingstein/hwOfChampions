@@ -233,7 +233,7 @@ int main()
 				cout<<"Enter value to be deleted: ";
 				cin>>input;
 				root = st.Delete(input, root);
-				cout<<"\nAfter Delete: "<<input<<endl;
+					cout<<"\nAfter Delete: "<<input<<endl;
 				st.InOrder(root);
 				break;
 			case 3:

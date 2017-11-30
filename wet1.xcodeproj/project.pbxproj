@@ -7,8 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B5FB3BCC1FCDE5CC000E0F49 /* SplayTree.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B5FB3BC21FCDBE38000E0F49 /* SplayTree.cpp */; };
-		B5FB3BCE1FCDE629000E0F49 /* exampleSplayTree.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B5FB3BC91FCDCA98000E0F49 /* exampleSplayTree.cpp */; };
+		B5FB3BD51FD01A7B000E0F49 /* binaryTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B5FB3BD31FD01682000E0F49 /* binaryTest.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -36,6 +35,9 @@
 		B5FB3BC31FCDBE38000E0F49 /* SplayTree.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SplayTree.hpp; sourceTree = "<group>"; };
 		B5FB3BC51FCDBE78000E0F49 /* unitTestsSplay.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = unitTestsSplay.cpp; sourceTree = "<group>"; };
 		B5FB3BC91FCDCA98000E0F49 /* exampleSplayTree.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = exampleSplayTree.cpp; sourceTree = "<group>"; };
+		B5FB3BCF1FD0165E000E0F49 /* BinaryTree.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BinaryTree.cpp; sourceTree = "<group>"; };
+		B5FB3BD01FD0165E000E0F49 /* BinaryTree.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = BinaryTree.hpp; sourceTree = "<group>"; };
+		B5FB3BD31FD01682000E0F49 /* binaryTest.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = binaryTest.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +70,7 @@
 		B5FB3BAB1FCB4117000E0F49 /* wet1 */ = {
 			isa = PBXGroup;
 			children = (
+				B5FB3BD21FD01663000E0F49 /* Binary */,
 				B5FB3BC71FCDBE83000E0F49 /* SplayTree */,
 				B5FB3BC81FCDBE90000E0F49 /* Colosseum */,
 				B5FB3BBB1FCB5B24000E0F49 /* main files */,
@@ -113,6 +116,16 @@
 				B5FB3BB71FCB44C7000E0F49 /* Colosseum.hpp */,
 			);
 			name = Colosseum;
+			sourceTree = "<group>";
+		};
+		B5FB3BD21FD01663000E0F49 /* Binary */ = {
+			isa = PBXGroup;
+			children = (
+				B5FB3BCF1FD0165E000E0F49 /* BinaryTree.cpp */,
+				B5FB3BD01FD0165E000E0F49 /* BinaryTree.hpp */,
+				B5FB3BD31FD01682000E0F49 /* binaryTest.cpp */,
+			);
+			name = Binary;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -172,8 +185,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B5FB3BCE1FCDE629000E0F49 /* exampleSplayTree.cpp in Sources */,
-				B5FB3BCC1FCDE5CC000E0F49 /* SplayTree.cpp in Sources */,
+				B5FB3BD51FD01A7B000E0F49 /* binaryTest.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
