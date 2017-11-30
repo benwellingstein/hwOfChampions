@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B5FB3BD51FD01A7B000E0F49 /* binaryTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B5FB3BD31FD01682000E0F49 /* binaryTest.cpp */; };
+		B5FB3BD81FD03F62000E0F49 /* unitTestsSplay.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B5FB3BC51FCDBE78000E0F49 /* unitTestsSplay.cpp */; };
+		B5FB3BD91FD03F62000E0F49 /* SplayTree.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B5FB3BC21FCDBE38000E0F49 /* SplayTree.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -38,6 +39,7 @@
 		B5FB3BCF1FD0165E000E0F49 /* BinaryTree.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BinaryTree.cpp; sourceTree = "<group>"; };
 		B5FB3BD01FD0165E000E0F49 /* BinaryTree.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = BinaryTree.hpp; sourceTree = "<group>"; };
 		B5FB3BD31FD01682000E0F49 /* binaryTest.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = binaryTest.cpp; sourceTree = "<group>"; };
+		B5FB3BD61FD0320F000E0F49 /* testGenericBinary.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = testGenericBinary.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,9 +103,9 @@
 			isa = PBXGroup;
 			children = (
 				B5FB3BC91FCDCA98000E0F49 /* exampleSplayTree.cpp */,
-				B5FB3BC51FCDBE78000E0F49 /* unitTestsSplay.cpp */,
 				B5FB3BC21FCDBE38000E0F49 /* SplayTree.cpp */,
 				B5FB3BC31FCDBE38000E0F49 /* SplayTree.hpp */,
+				B5FB3BC51FCDBE78000E0F49 /* unitTestsSplay.cpp */,
 			);
 			name = SplayTree;
 			sourceTree = "<group>";
@@ -121,6 +123,7 @@
 		B5FB3BD21FD01663000E0F49 /* Binary */ = {
 			isa = PBXGroup;
 			children = (
+				B5FB3BD61FD0320F000E0F49 /* testGenericBinary.cpp */,
 				B5FB3BCF1FD0165E000E0F49 /* BinaryTree.cpp */,
 				B5FB3BD01FD0165E000E0F49 /* BinaryTree.hpp */,
 				B5FB3BD31FD01682000E0F49 /* binaryTest.cpp */,
@@ -185,7 +188,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B5FB3BD51FD01A7B000E0F49 /* binaryTest.cpp in Sources */,
+				B5FB3BD81FD03F62000E0F49 /* unitTestsSplay.cpp in Sources */,
+				B5FB3BD91FD03F62000E0F49 /* SplayTree.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
