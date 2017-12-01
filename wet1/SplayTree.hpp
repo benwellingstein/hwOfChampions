@@ -15,7 +15,7 @@
 
 using std::cout;
 using std::ostream;
-
+using std::endl;
 
 template <class T>
 class SplayTree {
@@ -87,20 +87,43 @@ public:
 		if (*(head->data) == val) return;
 		Node* father = head;
 		Node* current = findNext(head, val);
-		if (*(current->data) == val) {
-			ZigL(&head, father, current);
+	
+		if (*(current->data) == val)  {
+			if (*(father->data) < val)  {
+				ZigR(&head, father, current);
+			} else {
+				ZigL(&head, father, current);
+			}
 		}
-		}
-	
-	
-	
-	void inOrder(){
-		inOrderRecPrint(head);
 	}
 	
 	
 	
+	ostream& inOrder(ostream& os) const{
+		inOrderRecPrint(head,os);
+		os << "|";
+		return os;
+	}
 	
+	ostream& postOrder(ostream& os) const{
+		postOrderRecPrint(head,os);
+		os << "|";
+		return os;
+	}
+	ostream& preOrder(ostream& os) const{
+		preOrderRecPrint(head,os);
+		os << "|";
+		return os;
+	}
+	
+	ostream& print(ostream& os) const {
+		preOrder(os);
+		inOrder(os);
+		postOrder(os);
+		return os;
+	}
+	
+
 private:
 
 	
@@ -109,11 +132,11 @@ private:
 		Node(T* data): data(data), lChild(NULL), rChild(NULL) {}
 		
 		ostream& print(ostream& os) const {
-			os << "---------" << std::endl;
-			os << "address: " << this << std::endl;
-			os << "data: " << *data << std::endl;
-			os << "lchild: " << lChild << std::endl;
-			os << "lchild: " << rChild << std::endl;
+//			os << "---------" << std::endl;
+//			os << "address: " << this << std::endl;
+			os  << *data << " ";
+//			os << "lchild: " << lChild << std::endl;
+//			os << "lchild: " << rChild << std::endl;
 			return os;
 		}
 		
@@ -142,13 +165,43 @@ private:
 		}
 	}
 	
-	void inOrderRecPrint(Node* node) const {
+	
+	
+	
+	
+	ostream& inOrderRecPrint(Node* node, ostream& os) const {
 		if (node) {
-			inOrderRecPrint(node->lChild);
-			node->print(cout);
-			inOrderRecPrint(node->rChild);
+			inOrderRecPrint(node->lChild, os);
+			node->print(os);
+			inOrderRecPrint(node->rChild, os);
 		}
+		return os;
 	}
+	
+	
+	ostream& preOrderRecPrint(Node* node, ostream& os) const {
+		if (node) {
+			node->print(os);
+			preOrderRecPrint(node->lChild, os);
+			preOrderRecPrint(node->rChild, os);
+		}
+		return os;
+
+	}
+	
+	ostream& postOrderRecPrint(Node* node, ostream& os) const {
+		if (node) {
+			postOrderRecPrint(node->lChild, os);
+			postOrderRecPrint(node->rChild, os);
+			node->print(os);
+		}
+		return os;
+
+	}
+	
+	
+	
+	
 
 	Node* findNext( Node* checkAgainst, const T& val) {
 		if (*(checkAgainst->data)< val)  	return checkAgainst->rChild;
@@ -163,6 +216,14 @@ private:
 		father->lChild = child->rChild;
 		child->rChild = father;
 	}
+	
+	static void ZigR(Node** grandFather, Node* father, Node* child ) {
+		*grandFather = child;
+		father->rChild = child->lChild;
+		child->lChild = father;
+	}
+	
+	
 	
 	
 	Node* head;
