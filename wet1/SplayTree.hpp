@@ -28,7 +28,7 @@ public:
 	
 	
 	
-	bool find(const T& val) {
+	bool find(const T& val) const {
 		if (!head) {
 			return false;
 		} else {
@@ -83,12 +83,13 @@ public:
 	}
 	
 	void splay(const T& val) {
-		if (!this->find(val)) return;
-		if (*(this->head->data) == val) return;
-		
-//		(this->Node)* father = this->head;
-//		if (*(this->head->data) < val) {
-		
+		if (!find(val)) return;
+		if (*(head->data) == val) return;
+		Node* father = head;
+		Node* current = findNext(head, val);
+		if (*(current->data) == val) {
+			ZigL(&head, father, current);
+		}
 		}
 	
 	
@@ -149,9 +150,25 @@ private:
 		}
 	}
 
-
-
+	Node* findNext( Node* checkAgainst, const T& val) {
+		if (*(checkAgainst->data)< val)  	return checkAgainst->rChild;
+		if (val < *(checkAgainst->data)) 	return checkAgainst->lChild;
+		if (val == *(checkAgainst->data)) 	return checkAgainst;
+		assert(false);
+		return NULL;
+	}
+	
+	static void ZigL(Node** grandFather, Node* father, Node* child) {
+		*grandFather = child;
+		father->lChild = child->rChild;
+		child->rChild = father;
+	}
+	
+	
 	Node* head;
+	
+	
+	
 };
 
 

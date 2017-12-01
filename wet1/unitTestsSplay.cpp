@@ -5,7 +5,7 @@
 #include "SplayTree.hpp"
 
 
-void testSplay() {
+void testSplayLeft() {
 	SplayTree<int> tree;
 	int* a = new int(1);
 	int* b = new int(2);
@@ -13,13 +13,18 @@ void testSplay() {
 	int* d = new int(4);
 	int* e = new int(5);
 	int* f = new int(6);
-	ASSERT_TRUE(tree.insert(a));
-	ASSERT_TRUE(tree.insert(b));
-	ASSERT_TRUE(tree.insert(c));
+	int* g = new int(7);
+
 	ASSERT_TRUE(tree.insert(d));
-	ASSERT_TRUE(tree.insert(e));
+	ASSERT_TRUE(tree.insert(b));
 	ASSERT_TRUE(tree.insert(f));
-	tree.splay(6);
+	ASSERT_TRUE(tree.insert(a));
+	ASSERT_TRUE(tree.insert(c));
+	ASSERT_TRUE(tree.insert(e));
+	ASSERT_TRUE(tree.insert(g));
+
+	tree.splay(2);
+	
 }
 
 
@@ -62,11 +67,11 @@ void testInsertAdvanced(){
 
 
 int main() {
-	RUN_TEST(testSplay);
-    RUN_TEST(testBasicTreeInsert);
-    RUN_TEST(testFind);
-    //    RUN_TEST(testFindAdvanced);
-    RUN_TEST(testInsertAdvanced);
+	RUN_TEST(testSplayLeft);
+//    RUN_TEST(testBasicTreeInsert);
+//    RUN_TEST(testFind);
+//    //    RUN_TEST(testFindAdvanced);
+//    RUN_TEST(testInsertAdvanced);
 	return 0;
 }
 
