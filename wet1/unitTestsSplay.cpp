@@ -140,7 +140,7 @@ void testSplayRightLeft() {
 		ASSERT_TRUE(out2.str() == "15 10 5 12 20 17 25 |5 10 12 15 17 20 25 |5 12 10 17 25 20 15 |");
 }
 
-void testSplayLeftLeft() {
+void testAdvancedSplayLeftLeft() {
 	SplayTree<int> tree;
 	int* a = new int(1);
 	int* b = new int(2);
@@ -155,25 +155,25 @@ void testSplayLeftLeft() {
 	int* k = new int(9999);
 
 	tree.insert(h);
-	tree.insert(c);
+	tree.insert(f);
 	tree.insert(j);
 	tree.insert(d);
-	tree.insert(f);
+	tree.insert(g);
 	tree.insert(i);
 	tree.insert(k);
-	tree.insert(a);
 	tree.insert(b);
 	tree.insert(e);
-	tree.insert(g);
+	tree.insert(a);
+	tree.insert(c);
 	
 	std::stringstream out1;
-	//	tree.print(cout);
-	//	ASSERT_TRUE(out1.str() == "4 2 1 3 6 5 7 |1 2 3 4 5 6 7 |1 3 2 5 7 6 4 |");
+		tree.print(out1);
+		ASSERT_TRUE(out1.str() == "8 6 4 2 1 3 5 7 1000 500 9999 |1 2 3 4 5 6 7 8 500 1000 9999 |1 3 2 5 4 7 6 500 9999 1000 8 |");
 	
-	tree.splay(3);
-	//	std::stringstream out2;
-	//	tree.print(cout);
-	//	ASSERT_TRUE(out2.str() == "6 4 2 1 3 5 7 |1 2 3 4 5 6 7 |1 3 2 5 4 7 6 |");
+	tree.splay(2);
+		std::stringstream out2;
+	tree.print(out2);
+	ASSERT_TRUE(out2.str() == "8 2 1 4 3 6 5 7 1000 500 9999 |1 2 3 4 5 6 7 8 500 1000 9999 |1 3 5 7 6 4 2 500 9999 1000 8 |");
 }
 
 
@@ -247,9 +247,9 @@ int main() {
 	RUN_TEST(testSplayLeft);
 	RUN_TEST(testSplayRight);
 	RUN_TEST(testSplayLeftRight);
-//	RUN_TEST(testSplayRightLeft);
-////	RUN_TEST(testSplayLeftLeft);
-//	RUN_TEST(testSplayRightRight);
+	RUN_TEST(testSplayRightLeft);
+	RUN_TEST(testAdvancedSplayLeftLeft);
+	RUN_TEST(testSplayRightRight);
 
 
 

@@ -103,31 +103,34 @@ public:
 		
 		Node* grandFather  = head;
 		Node** pGrandFather = NULL;
-//		while
-//		 pointer conga line
+		
+		do {
 		if (pGrandFather == NULL) {
 			pGrandFather = &head;
 		} else {
 			pGrandFather = findDirection(grandFather, father);
 		}
-		
+			
 		
 		grandFather = father;
 		father = current;
 		current = findNext(father, val);
-		
+		}
+		while ( *(current->data) != val);
+			
+			
 	switch (findOrder(grandFather, father, current)) {
 		case LL:
-			cout << "LL" << endl;
+			ZigZigLL(pGrandFather, grandFather, father, current);
 			return;
 		case LR:
 			ZigZagLR(pGrandFather, grandFather, father, current);
 			return;
 		case RL:
-			cout << "RL" << endl;
+			ZigZagRL(pGrandFather, grandFather, father, current);
 			return;
 		case RR:
-			cout << "RR" << endl;
+			ZigZigRR(pGrandFather, grandFather, father, current);
 			return;
 
 		
@@ -196,6 +199,10 @@ private:
 		
 		bool operator==(const Node& other) {
 			return *data == *other.data;
+		}
+		
+		bool operator!=(const Node& other) {
+			return !(this == other);
 		}
 		
 		T* data;
@@ -282,7 +289,33 @@ private:
 		child->rChild = grandFather;
 	}
 
+	static void  ZigZagRL(Node** greatGrandFather, Node* grandFather,
+						  Node* father, Node* child) {
+		*greatGrandFather = child;
+		father->lChild = child->rChild;
+		grandFather->rChild = child->lChild;
+		child->rChild = father;
+		child->lChild = grandFather;
+	}
+
+	static void  ZigZigRR(Node** greatGrandFather, Node* grandFather,
+						  Node* father, Node* child) {
+		*greatGrandFather = child;
+		grandFather->rChild = father->lChild;
+		father->rChild = child->lChild;
+		child->lChild = father;
+		father->lChild = grandFather;
+	}
 	
+	static void  ZigZigLL(Node** greatGrandFather, Node* grandFather,
+						  Node* father, Node* child) {
+		*greatGrandFather = child;
+		grandFather->lChild = father->rChild;
+		father->lChild = child->rChild;
+		child->rChild = father;
+		father->rChild = grandFather;
+	}
+
 	
 	static Order findOrder(Node* grandFather, Node* father, Node* current) {
 		if (*(grandFather->data) < *(father->data) ) {
