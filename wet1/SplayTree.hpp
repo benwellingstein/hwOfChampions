@@ -84,18 +84,57 @@ public:
 	
 	void splay(const T& val) {
 		if (!find(val)) return;
+		//case 1
 		if (*(head->data) == val) return;
+		
 		Node* father = head;
 		Node* current = findNext(head, val);
-	
+		
+		//case2
 		if (*(current->data) == val)  {
 			if (*(father->data) < val)  {
 				ZigR(&head, father, current);
+				return;
 			} else {
 				ZigL(&head, father, current);
+				return;
 			}
 		}
+		
+		// pointer conga line
+		Node* grandFather = father;
+		father = current;
+		current = findNext(father, val);
+		
+	switch (findOrder(grandFather, father, current)) {
+		case LL:
+			cout << "LL" << endl;
+			return;
+		case LR:
+			cout << "LR" << endl;
+			return;
+		case RL:
+			cout << "RL" << endl;
+			return;
+		case RR:
+			cout << "RR" << endl;
+			return;
+
+		
+		}
+	
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	
@@ -123,9 +162,10 @@ public:
 		return os;
 	}
 	
+	
 
 private:
-
+	enum Order { LL, LR, RL, RR} ;
 	
 	struct Node {
 		
@@ -224,7 +264,22 @@ private:
 	}
 	
 	
-	
+	static Order findOrder(Node* grandFather, Node* father, Node* current) {
+		if (*(grandFather->data) < *(father->data) ) {
+			if (*(current->data) < *(father->data) ) {
+				return RL;
+			} else {
+				return RR;
+			}
+		} else {
+			if (*(current->data) < *(father->data)) {
+				return LL;
+			}else {
+				return LR;
+			}
+		}
+
+	}
 	
 	Node* head;
 	
