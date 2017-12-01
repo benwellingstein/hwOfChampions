@@ -27,32 +27,43 @@ public:
 	
 	
 	
-	bool find(const T& val) const {
-		if (!head) {
-			return false;
-		} else {
-			Node* currNode = head;
-			while (1) {
-				if ( (*(*currNode).data) == val ) return true;
-				if ( val< (*(*currNode).data)) {
-					if ( (*currNode).lChild) {
-						currNode = currNode->lChild;
-					} else {
-						return false;
-					}
+	bool findNoSplay(const T& val) const {
+		if (!head) return false;
+		
+		Node* currNode = head;
+		while (1) {
+			if ( (*(*currNode).data) == val ) return true;
+			if ( val< (*(*currNode).data)) {
+				if ( (*currNode).lChild) {
+					currNode = currNode->lChild;
 				} else {
-					if ((*currNode).rChild) {
-						currNode = currNode->rChild;
-					} else {
-						return false;
-					}
+					return false;
+				}
+			} else {
+				if ((*currNode).rChild) {
+					currNode = currNode->rChild;
+				} else {
+					return false;
 				}
 			}
 		}
 	}
 	
+	bool find(const T& val) const {
+		if (!head)  return false;
+		
+		Node* nextNode = head;
+		while ((*nextNode->data) == val) {
+			nextNode = findNext(nextNode, val);
+		}
+	}
+
+	
+	
+	
+	
 	bool insert(T* val) {
-		if (find(*val)) return false;
+		if (findNoSplay(*val)) return false;
 		Node* newNode = new Node(val);
 		if (!head) {
 			head=newNode;
@@ -82,7 +93,7 @@ public:
 	}
 	
 	void splay(const T& val) {
-		if (!find(val)) return;
+		if (!findNoSplay(val)) return;
 		//case 1
 		if (*(head->data) == val) return;
 		

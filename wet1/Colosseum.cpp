@@ -45,6 +45,6 @@ StatusType Colosseum::GetAllGladiatorsByLevel(int trainerID, int **gladiators,
 
 
 
-StatusType Colosseum::UpdateLevels(int stimulantCode, int stimulantFactor){
+StatusType Colosseum	::UpdateLevels(int stimulantCode, int stimulantFactor){
 	return SUCCESS;
 }

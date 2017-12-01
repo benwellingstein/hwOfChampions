@@ -227,9 +227,9 @@ void testFind() {
     tree.insert(a);
     tree.insert(c);
     
-    ASSERT_TRUE(tree.find(3));
-    ASSERT_TRUE(tree.find(1));
-    ASSERT_FALSE(tree.find(31));
+    ASSERT_TRUE(tree.findNoSplay(3));
+    ASSERT_TRUE(tree.findNoSplay(1));
+    ASSERT_FALSE(tree.findNoSplay(31));
     
     
 }
@@ -255,10 +255,10 @@ int main() {
 
 
 
-//    RUN_TEST(testBasicTreeInsert);
-//    RUN_TEST(testFind);
-//    //    RUN_TEST(testFindAdvanced);
-//    RUN_TEST(testInsertAdvanced);
+    RUN_TEST(testBasicTreeInsert);
+    RUN_TEST(testFind);
+//        RUN_TEST(testFindAdvanced);
+    RUN_TEST(testInsertAdvanced);
 	return 0;
 }
 
