@@ -101,8 +101,18 @@ public:
 			}
 		}
 		
-		// pointer conga line
-		Node* grandFather = father;
+		Node* grandFather  = head;
+		Node** pGrandFather = NULL;
+//		while
+//		 pointer conga line
+		if (pGrandFather == NULL) {
+			pGrandFather = &head;
+		} else {
+			pGrandFather = findDirection(grandFather, father);
+		}
+		
+		
+		grandFather = father;
 		father = current;
 		current = findNext(father, val);
 		
@@ -111,7 +121,7 @@ public:
 			cout << "LL" << endl;
 			return;
 		case LR:
-			cout << "LR" << endl;
+			ZigZagLR(pGrandFather, grandFather, father, current);
 			return;
 		case RL:
 			cout << "RL" << endl;
@@ -263,6 +273,16 @@ private:
 		child->lChild = father;
 	}
 	
+	static void  ZigZagLR(Node** greatGrandFather, Node* grandFather,
+						  Node* father, Node* child) {
+		*greatGrandFather = child;
+		father->rChild = child->lChild;
+		grandFather->lChild = child->rChild;
+		child->lChild = father;
+		child->rChild = grandFather;
+	}
+
+	
 	
 	static Order findOrder(Node* grandFather, Node* father, Node* current) {
 		if (*(grandFather->data) < *(father->data) ) {
@@ -280,6 +300,16 @@ private:
 		}
 
 	}
+	
+	Node** findDirection(Node* grandFather, Node* father){
+		if (*(grandFather->data) < *(father->data)) {
+			return &(grandFather->rChild);
+		} else {
+			return &(grandFather->lChild);
+		}
+	}
+
+	
 	
 	Node* head;
 	

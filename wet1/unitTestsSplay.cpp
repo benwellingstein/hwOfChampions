@@ -103,15 +103,11 @@ void testSplayLeftRight() {
 	
 	std::stringstream out1;
 	tree.print(out1);
-
 	ASSERT_TRUE(out1.str() == "6 2 1 4 3 5 7 |1 2 3 4 5 6 7 |1 3 5 4 2 7 6 |");
 	
 	tree.splay(4);
 	std::stringstream out2;
 	
-	tree.print(cout);
-	cout << endl;
-
 	tree.print(out2);
 	ASSERT_TRUE(out2.str() == "4 2 1 3 6 5 7 |1 2 3 4 5 6 7 |1 3 2 5 7 6 4 |");
 	
@@ -251,9 +247,9 @@ int main() {
 	RUN_TEST(testSplayLeft);
 	RUN_TEST(testSplayRight);
 	RUN_TEST(testSplayLeftRight);
-	RUN_TEST(testSplayRightLeft);
-//	RUN_TEST(testSplayLeftLeft);
-	RUN_TEST(testSplayRightRight);
+//	RUN_TEST(testSplayRightLeft);
+////	RUN_TEST(testSplayLeftLeft);
+//	RUN_TEST(testSplayRightRight);
 
 
 
