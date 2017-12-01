@@ -20,24 +20,7 @@ class SplayTree {
 public:
 	SplayTree() {}
 	
-	// RR(Y rotates to the right)
-	splay* RR_Rotate(splay* k2)
-	{
-		splay* k1 = k2->lchild;
-		k2->lchild = k1->rchild;
-		k1->rchild = k2;
-		return k1;
-	}
-	
-	// LL(Y rotates to the left)
-	splay* LL_Rotate(splay* k2)
-	{
-		splay* k1 = k2->rchild;
-		k2->rchild = k1->lchild;
-		k1->lchild = k2;
-		return k1;
-	}
-	
+x1
 	// An implementation of top-down splay tree
 	splay* Splay(int key, splay* root) {
 		if (!root)
