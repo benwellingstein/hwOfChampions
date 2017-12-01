@@ -1,10 +1,9 @@
-//
-//  SplayTree.hpp
-//  wet1
-//
-//  Created by Ben on 28/11/2017.
-//  Copyright © 2017 Ben. All rights reserved.
-//
+//TODO
+//insert
+//remove
+//find
+//add double pointers
+
 
 #ifndef SplayTree_hpp
 #define SplayTree_hpp
@@ -122,19 +121,18 @@ public:
 	switch (findOrder(grandFather, father, current)) {
 		case LL:
 			ZigZigLL(pGrandFather, grandFather, father, current);
-			return;
+			break;
 		case LR:
 			ZigZagLR(pGrandFather, grandFather, father, current);
-			return;
+			break;
 		case RL:
 			ZigZagRL(pGrandFather, grandFather, father, current);
-			return;
+			break;
 		case RR:
 			ZigZigRR(pGrandFather, grandFather, father, current);
-			return;
-
-		
+			break;
 		}
+		splay(val);
 	
 	}
 	
@@ -443,8 +441,6 @@ private:
 //
 //	void inOrder(splay* root);
 //};
-
-
 
 
 

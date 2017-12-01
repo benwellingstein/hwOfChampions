@@ -171,9 +171,10 @@ void testAdvancedSplayLeftLeft() {
 		ASSERT_TRUE(out1.str() == "8 6 4 2 1 3 5 7 1000 500 9999 |1 2 3 4 5 6 7 8 500 1000 9999 |1 3 2 5 4 7 6 500 9999 1000 8 |");
 	
 	tree.splay(2);
-		std::stringstream out2;
+	std::stringstream out2;
 	tree.print(out2);
-	ASSERT_TRUE(out2.str() == "8 2 1 4 3 6 5 7 1000 500 9999 |1 2 3 4 5 6 7 8 500 1000 9999 |1 3 5 7 6 4 2 500 9999 1000 8 |");
+
+	ASSERT_TRUE(out2.str() == "2 1 8 4 3 6 5 7 1000 500 9999 |1 2 3 4 5 6 7 8 500 1000 9999 |1 3 5 7 6 4 500 9999 1000 8 2 |");
 }
 
 
