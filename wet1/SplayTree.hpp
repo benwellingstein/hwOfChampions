@@ -153,7 +153,9 @@ public:
         Node* current = head;
         Node* father = NULL;
         Node* grandFather = NULL;
+        Node* greatGrandFather = NULL;
         while( *(current->data) != val ) {
+            greatGrandFather = grandFather;
             grandFather = father;
             father = current;
             current = findNext(current, val);
@@ -162,11 +164,10 @@ public:
             //case3
             Node** pGrandFather = NULL;
             do{
-                
-                if (pGrandFather == NULL) {
+                if (grandFather->father == NULL) {
                     pGrandFather = &head;
                 } else {
-                    pGrandFather = findDirection(grandFather, father);
+                    pGrandFather = findDirection(greatGrandFather, grandFather);
                 }
                 
                 switch (findOrder(grandFather, father, current)) {
@@ -183,9 +184,11 @@ public:
                         ZigZigRR(pGrandFather, grandFather, father, current);
                         break;
                 }
-
+                father = current->father;
+                if(father != NULL) {
+                    grandFather = father->father;
+                }
             }while ( current != head && current->father != head );
-            //splay(val);
         }
         //case2
         if(head != current) {
@@ -346,6 +349,9 @@ private:
 		grandFather->lChild = child->rChild;
 		child->lChild = father;
 		child->rChild = grandFather;
+        child->father = grandFather->father;
+        grandFather->father = child;
+        father->father = child;
 	}
 
 	static void  ZigZagRL(Node** greatGrandFather, Node* grandFather,
@@ -355,6 +361,10 @@ private:
 		grandFather->rChild = child->lChild;
 		child->rChild = father;
 		child->lChild = grandFather;
+        child->father = grandFather->father;
+        grandFather->father = child;
+        father->father = child;
+
 	}
 
 	static void  ZigZigRR(Node** greatGrandFather, Node* grandFather,
@@ -364,6 +374,10 @@ private:
 		father->rChild = child->lChild;
 		child->lChild = father;
 		father->lChild = grandFather;
+        child->father = grandFather->father;
+        grandFather->father = father;
+        father->father = child;
+
 	}
 	
 	static void  ZigZigLL(Node** greatGrandFather, Node* grandFather,
@@ -373,6 +387,9 @@ private:
 		father->lChild = child->rChild;
 		child->rChild = father;
 		father->rChild = grandFather;
+        child->father = grandFather->father;
+        grandFather->father = father;
+        father->father = child;
 	}
     
 	
