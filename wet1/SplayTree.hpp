@@ -27,7 +27,7 @@ public:
 	
 	
 	
-	bool findNoSplay(const T& val) const {
+	bool exits(const T& val) const {
 		if (!head) return false;
 		
 		Node* currNode = head;
@@ -53,17 +53,16 @@ public:
 		if (!head)  return false;
 		
 		Node* nextNode = head;
-		while ((*nextNode->data) == val) {
-			nextNode = findNext(nextNode, val);
-		}
+		//while ((*nextNode->data) == val) {
+		//	nextNode = findNext(nextNode, val);
+		//}
+        return false;
 	}
 
-	
-	
-	
+
 	
 	bool insert(T* val) {
-		if (findNoSplay(*val)) return false;
+		if (exits(*val)) return false;
 		Node* newNode = new Node(val);
 		if (!head) {
 			head=newNode;
@@ -93,7 +92,7 @@ public:
 	}
 	
 	void splay(const T& val) {
-		if (!findNoSplay(val)) return;
+		if (!exits(val)) return;
 		//case 1
 		if (*(head->data) == val) return;
 		
@@ -148,15 +147,7 @@ public:
 	}
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
 	
 	
 	

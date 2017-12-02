@@ -227,9 +227,9 @@ void testFind() {
     tree.insert(a);
     tree.insert(c);
     
-    ASSERT_TRUE(tree.findNoSplay(3));
-    ASSERT_TRUE(tree.findNoSplay(1));
-    ASSERT_FALSE(tree.findNoSplay(31));
+    ASSERT_TRUE(tree.exits(3));
+    ASSERT_TRUE(tree.exits(1));
+    ASSERT_FALSE(tree.exits(31));
     
     
 }
@@ -272,14 +272,14 @@ void testFindAdvanced() {
     tree.insert(k);
     tree.insert(l);
     
-    ASSERT_TRUE(tree.find(35));
-    ASSERT_TRUE(tree.find(39));
-    ASSERT_TRUE(tree.find(100));
-    ASSERT_TRUE(tree.find(99));
-    ASSERT_TRUE(tree.find(69));
-    ASSERT_FALSE(tree.find(131));
-    ASSERT_FALSE(tree.find(41));
-    ASSERT_FALSE(tree.find(60));
+    ASSERT_TRUE(tree.exits(35));
+    ASSERT_TRUE(tree.exits(39));
+    ASSERT_TRUE(tree.exits(100));
+    ASSERT_TRUE(tree.exits(99));
+    ASSERT_TRUE(tree.exits(69));
+    ASSERT_FALSE(tree.exits(131));
+    ASSERT_FALSE(tree.exits(41));
+    ASSERT_FALSE(tree.exits(60));
     //    tree.inOrder();
 }
 
