@@ -1,8 +1,8 @@
 //TODO
-//insert
+//DONE insert
 //remove
-//find
-//add double pointers
+//DONE find
+//DONE add double pointers
 
 
 #ifndef SplayTree_hpp
@@ -66,7 +66,7 @@ public:
         return NULL;
 	}
 
-	bool insert(T* val) {
+	bool insertBT(T* val) {
 		if (exist(*val)) return false;
 		if (!head) {
             Node* newNode = new Node(val, NULL);
@@ -152,6 +152,16 @@ public:
         }
     }
     
+    bool insert(T* val) {
+        if(exist(*val)) return false;
+        find(*val);
+        //Node* newNode = new Node(val, NULL);
+        //Node* newNode = new Node(val, NULL, NULL, NULL);
+        Node* newNode = new Node(val, NULL, head, (head->rChild));
+        head->rChild = NULL;
+        head = newNode;
+        return true;
+    }
     
 	ostream& inOrder(ostream& os) const{
 		inOrderRecPrint(head,os);
@@ -184,7 +194,7 @@ private:
 	
 	struct Node {
 		
-		Node(T* data, Node* father): data(data), father(father), lChild(NULL), rChild(NULL) {}
+		Node(T* data, Node* father, Node* left = NULL, Node* right = NULL): data(data), father(father), lChild(left), rChild(right) {}
 		
 		ostream& print(ostream& os) const {
 //			os << "---------" << std::endl;
@@ -441,7 +451,7 @@ private:
 //
 //	splay* newNode(int key);
 //
-//	splay* insert(int key, splay* root);
+//	splay* insertBTint key, splay* root);
 //
 //	splay* remove(int key, splay* root);
 //

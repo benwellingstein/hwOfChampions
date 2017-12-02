@@ -5,7 +5,7 @@
 #include "BinaryTree.hpp"
 
 
-void testBasicTreeInsert() {
+void testBasicTreeinsertBT) {
 	int* a = new int(1);
 	int* b = new int(2);
 	int* c = new int(3);
@@ -22,9 +22,9 @@ void testFind() {
 	int* a = new int(1);
 	int* b = new int(2);
 	int* c = new int(3);
-	tree.insert(b);
-	tree.insert(a);
-	tree.insert(c);
+	tree.insertBTb);
+	tree.insertBTa);
+	tree.insertBTc);
 
 	ASSERT_TRUE(tree.find(3));
 	ASSERT_TRUE(tree.find(1));
