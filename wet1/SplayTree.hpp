@@ -60,11 +60,10 @@ public:
 	}
 
 
-	
 	bool insert(T* val) {
 		if (exits(*val)) return false;
-		Node* newNode = new Node(val);
 		if (!head) {
+            Node* newNode = new Node(val, NULL);
 			head=newNode;
 			return true;
 		} else {
@@ -74,6 +73,7 @@ public:
 					if ((*currNode).lChild) {
 						currNode = currNode->lChild;
 					} else {
+                        Node* newNode = new Node(val, currNode);
 						(currNode->lChild = newNode);
 						return true;
 					}
@@ -81,6 +81,7 @@ public:
 					if ((*currNode).rChild ) {
 						currNode = currNode->rChild;
 					} else {
+                        Node* newNode = new Node(val, currNode);
 						(currNode->rChild = newNode);
 						return true;
 					}
@@ -162,7 +163,8 @@ public:
 		os << "|";
 		return os;
 	}
-	ostream& preOrder(ostream& os) const{
+	
+    ostream& preOrder(ostream& os) const{
 		preOrderRecPrint(head,os);
 		os << "|";
 		return os;
@@ -182,7 +184,7 @@ private:
 	
 	struct Node {
 		
-		Node(T* data): data(data), lChild(NULL), rChild(NULL) {}
+		Node(T* data, Node* father): data(data), father(father), lChild(NULL), rChild(NULL) {}
 		
 		ostream& print(ostream& os) const {
 //			os << "---------" << std::endl;
@@ -206,6 +208,7 @@ private:
 		}
 		
 		T* data;
+        Node* father;
 		Node* lChild;
 		Node* rChild;
 	};
