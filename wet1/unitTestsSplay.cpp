@@ -42,7 +42,6 @@ void testSplayLeft() {
 	
 }
 
-
 void testSplayRight() {
 	SplayTree<int> tree;
 	int* a = new int(1);
@@ -78,8 +77,6 @@ void testSplayRight() {
 //1		3
 	
 }
-
-
 
 
 void testSplayLeftRight() {
@@ -174,6 +171,35 @@ void testAdvancedSplayLeftLeft() {
 
 	ASSERT_TRUE(out2.str() == "2 1 8 4 3 6 5 7 1000 500 9999 |1 2 3 4 5 6 7 8 500 1000 9999 |1 3 5 7 6 4 500 9999 1000 8 2 |");
 }
+
+void testSplayRightRight() {
+    SplayTree<int> tree;
+    int* a = new int(1);
+    int* b = new int(2);
+    int* c = new int(3);
+    int* d = new int(4);
+    int* e = new int(5);
+    int* f = new int(6);
+    int* g = new int(7);
+    tree.insert(b);
+    tree.insert(a);
+    tree.insert(d);
+    tree.insert(c);
+    tree.insert(f);
+    tree.insert(e);
+    tree.insert(g);
+    
+    std::stringstream out1;
+    tree.print(out1);
+    ASSERT_TRUE(out1.str() == "2 1 4 3 6 5 7 |1 2 3 4 5 6 7 |1 3 5 7 6 4 2 |");
+    
+    tree.splay(6);
+    std::stringstream out2;
+    tree.print(out2);
+    ASSERT_TRUE(out2.str() == "6 4 2 1 3 5 7 |1 2 3 4 5 6 7 |1 3 2 5 4 7 6 |");
+    
+}
+
 
 
 void testAdvancedSplay1() {
@@ -331,8 +357,6 @@ void testAdvancedSplay2() {
     ASSERT_TRUE(out2.str() == "2 1 20 5 3 10 7 6 8 15 12 11 13 17 16 18 30 25 22 21 23 27 26 28 35 32 31 33 37 36 38 |1 2 3 5 6 7 8 10 11 12 13 15 16 17 18 20 21 22 23 25 26 27 28 30 31 32 33 35 36 37 38 |1 3 6 8 7 11 13 12 16 18 17 15 10 5 21 23 22 26 28 27 25 31 33 32 36 38 37 35 30 20 2 |");
 }
 
-
-
 void testAdvancedSplay3() {
     SplayTree<int> tree;
     int* a = new int(20);
@@ -410,7 +434,6 @@ void testAdvancedSplay3() {
     tree.print(out2);
     ASSERT_TRUE(out2.str() == "3 2 1 10 5 7 6 8 20 15 12 11 13 17 16 18 30 25 22 21 23 27 26 28 35 32 31 33 37 36 38 |1 2 3 5 6 7 8 10 11 12 13 15 16 17 18 20 21 22 23 25 26 27 28 30 31 32 33 35 36 37 38 |1 2 6 8 7 5 11 13 12 16 18 17 15 21 23 22 26 28 27 25 31 33 32 36 38 37 35 30 20 10 3 |");
 }
-
 
 void testAdvancedSplay6() {
     SplayTree<int> tree;
@@ -647,34 +670,6 @@ void testAdvancedSplay8() {
 }
 
 
-void testSplayRightRight() {
-	SplayTree<int> tree;
-	int* a = new int(1);
-	int* b = new int(2);
-	int* c = new int(3);
-	int* d = new int(4);
-	int* e = new int(5);
-	int* f = new int(6);
-	int* g = new int(7);
-	tree.insert(b);
-	tree.insert(a);
-	tree.insert(d);
-	tree.insert(c);
-	tree.insert(f);
-	tree.insert(e);
-	tree.insert(g);
-
-	std::stringstream out1;
-		tree.print(out1);
-		ASSERT_TRUE(out1.str() == "2 1 4 3 6 5 7 |1 2 3 4 5 6 7 |1 3 5 7 6 4 2 |");
-	
-	tree.splay(6);
-		std::stringstream out2;
-		tree.print(out2);
-		ASSERT_TRUE(out2.str() == "6 4 2 1 3 5 7 |1 2 3 4 5 6 7 |1 3 2 5 4 7 6 |");
-
-}
-
 void testBasicTreeInsert() {
     int* a = new int(1);
     int* b = new int(2);
@@ -687,22 +682,6 @@ void testBasicTreeInsert() {
     //    tree.inOrder()
 }
 
-void testFind() {
-    SplayTree<int> tree;
-    int* a = new int(1);
-    int* b = new int(2);
-    int* c = new int(3);
-    tree.insert(b);
-    tree.insert(a);
-    tree.insert(c);
-    
-    ASSERT_TRUE(tree.exits(3));
-    ASSERT_TRUE(tree.exits(1));
-    ASSERT_FALSE(tree.exits(31));
-    
-    
-}
-
 void testInsertAdvanced(){
     SplayTree<int> tree;
     int* a = new int(1);
@@ -710,6 +689,161 @@ void testInsertAdvanced(){
     ASSERT_FALSE(tree.insert(a));
     //    tree.inOrder();
     
+}
+
+
+void testFind1() {
+    SplayTree<int> tree;
+    int* a = new int(20);
+    int* b1 = new int(10);
+    int* b2 = new int(30);
+    int* c1 = new int(5);
+    int* c2 = new int(15);
+    int* c3 = new int(25);
+    int* c4 = new int(35);
+    int* d1 = new int(2);
+    int* d2 = new int(7);
+    int* d3 = new int(12);
+    int* d4 = new int(17);
+    int* d5 = new int(22);
+    int* d6 = new int(27);
+    int* d7 = new int(32);
+    int* d8 = new int(37);
+    int* e01 = new int(1);
+    int* e02 = new int(3);
+    int* e03 = new int(6);
+    int* e04 = new int(8);
+    int* e05 = new int(11);
+    int* e06 = new int(13);
+    int* e07 = new int(16);
+    int* e08 = new int(18);
+    int* e09 = new int(21);
+    int* e10 = new int(23);
+    int* e11 = new int(26);
+    int* e12 = new int(28);
+    int* e13 = new int(31);
+    int* e14 = new int(33);
+    int* e15 = new int(36);
+    int* e16 = new int(38);
+    
+    
+    tree.insert(a);
+    tree.insert(b1);
+    tree.insert(b2);
+    tree.insert(c1);
+    tree.insert(c2);
+    tree.insert(c3);
+    tree.insert(c4);
+    tree.insert(d1);
+    tree.insert(d2);
+    tree.insert(d3);
+    tree.insert(d4);
+    tree.insert(d5);
+    tree.insert(d6);
+    tree.insert(d7);
+    tree.insert(d8);
+    tree.insert(e01);
+    tree.insert(e02);
+    tree.insert(e03);
+    tree.insert(e04);
+    tree.insert(e05);
+    tree.insert(e06);
+    tree.insert(e07);
+    tree.insert(e08);
+    tree.insert(e09);
+    tree.insert(e10);
+    tree.insert(e11);
+    tree.insert(e12);
+    tree.insert(e13);
+    tree.insert(e14);
+    tree.insert(e15);
+    tree.insert(e16);
+    
+    std::stringstream out1;
+    tree.print(out1);
+    
+    ASSERT_TRUE(out1.str() == "20 10 5 2 1 3 7 6 8 15 12 11 13 17 16 18 30 25 22 21 23 27 26 28 35 32 31 33 37 36 38 |1 2 3 5 6 7 8 10 11 12 13 15 16 17 18 20 21 22 23 25 26 27 28 30 31 32 33 35 36 37 38 |1 3 2 6 8 7 5 11 13 12 16 18 17 15 10 21 23 22 26 28 27 25 31 33 32 36 38 37 35 30 20 |");
+    tree.find(1);
+    std::stringstream out2;
+    tree.print(out2);
+    ASSERT_TRUE(out2.str() == "1 10 2 5 3 7 6 8 20 15 12 11 13 17 16 18 30 25 22 21 23 27 26 28 35 32 31 33 37 36 38 |1 2 3 5 6 7 8 10 11 12 13 15 16 17 18 20 21 22 23 25 26 27 28 30 31 32 33 35 36 37 38 |3 6 8 7 5 2 11 13 12 16 18 17 15 21 23 22 26 28 27 25 31 33 32 36 38 37 35 30 20 10 1 |");
+}
+
+void testFind4() {
+    SplayTree<int> tree;
+    int* a = new int(20);
+    int* b1 = new int(10);
+    int* b2 = new int(30);
+    int* c1 = new int(5);
+    int* c2 = new int(15);
+    int* c3 = new int(25);
+    int* c4 = new int(35);
+    int* d1 = new int(2);
+    int* d2 = new int(7);
+    int* d3 = new int(12);
+    int* d4 = new int(17);
+    int* d5 = new int(22);
+    int* d6 = new int(27);
+    int* d7 = new int(32);
+    int* d8 = new int(37);
+    int* e01 = new int(1);
+    int* e02 = new int(3);
+    int* e03 = new int(6);
+    int* e04 = new int(8);
+    int* e05 = new int(11);
+    int* e06 = new int(13);
+    int* e07 = new int(16);
+    int* e08 = new int(18);
+    int* e09 = new int(21);
+    int* e10 = new int(23);
+    int* e11 = new int(26);
+    int* e12 = new int(28);
+    int* e13 = new int(31);
+    int* e14 = new int(33);
+    int* e15 = new int(36);
+    int* e16 = new int(38);
+    
+    
+    tree.insert(a);
+    tree.insert(b1);
+    tree.insert(b2);
+    tree.insert(c1);
+    tree.insert(c2);
+    tree.insert(c3);
+    tree.insert(c4);
+    tree.insert(d1);
+    tree.insert(d2);
+    tree.insert(d3);
+    tree.insert(d4);
+    tree.insert(d5);
+    tree.insert(d6);
+    tree.insert(d7);
+    tree.insert(d8);
+    tree.insert(e01);
+    tree.insert(e02);
+    tree.insert(e03);
+    tree.insert(e04);
+    tree.insert(e05);
+    tree.insert(e06);
+    tree.insert(e07);
+    tree.insert(e08);
+    tree.insert(e09);
+    tree.insert(e10);
+    tree.insert(e11);
+    tree.insert(e12);
+    tree.insert(e13);
+    tree.insert(e14);
+    tree.insert(e15);
+    tree.insert(e16);
+    
+    std::stringstream out1;
+    tree.print(out1);
+    
+    ASSERT_TRUE(out1.str() == "20 10 5 2 1 3 7 6 8 15 12 11 13 17 16 18 30 25 22 21 23 27 26 28 35 32 31 33 37 36 38 |1 2 3 5 6 7 8 10 11 12 13 15 16 17 18 20 21 22 23 25 26 27 28 30 31 32 33 35 36 37 38 |1 3 2 6 8 7 5 11 13 12 16 18 17 15 10 21 23 22 26 28 27 25 31 33 32 36 38 37 35 30 20 |");
+    tree.find(4);
+    std::stringstream out2;
+    tree.print(out2);
+    ASSERT_TRUE(out2.str() == "3 2 1 10 5 7 6 8 20 15 12 11 13 17 16 18 30 25 22 21 23 27 26 28 35 32 31 33 37 36 38 |1 2 3 5 6 7 8 10 11 12 13 15 16 17 18 20 21 22 23 25 26 27 28 30 31 32 33 35 36 37 38 |1 2 6 8 7 5 11 13 12 16 18 17 15 21 23 22 26 28 27 25 31 33 32 36 38 37 35 30 20 10 3 |");
 }
 
 void testFindAdvanced() {
@@ -741,14 +875,14 @@ void testFindAdvanced() {
     tree.insert(k);
     tree.insert(l);
     
-    ASSERT_TRUE(tree.exits(35));
-    ASSERT_TRUE(tree.exits(39));
-    ASSERT_TRUE(tree.exits(100));
-    ASSERT_TRUE(tree.exits(99));
-    ASSERT_TRUE(tree.exits(69));
-    ASSERT_FALSE(tree.exits(131));
-    ASSERT_FALSE(tree.exits(41));
-    ASSERT_FALSE(tree.exits(60));
+    ASSERT_TRUE(tree.exist(35));
+    ASSERT_TRUE(tree.exist(39));
+    ASSERT_TRUE(tree.exist(100));
+    ASSERT_TRUE(tree.exist(99));
+    ASSERT_TRUE(tree.exist(69));
+    ASSERT_FALSE(tree.exist(131));
+    ASSERT_FALSE(tree.exist(41));
+    ASSERT_FALSE(tree.exist(60));
     //    tree.inOrder();
 }
 
@@ -767,7 +901,8 @@ int main() {
     RUN_TEST(testAdvancedSplay7);
     RUN_TEST(testAdvancedSplay8);
     RUN_TEST(testBasicTreeInsert);
-    RUN_TEST(testFind);
+    RUN_TEST(testFind1);
+    RUN_TEST(testFind4);
     RUN_TEST(testFindAdvanced);
     RUN_TEST(testInsertAdvanced);
 	return 0;
