@@ -30,8 +30,6 @@ void testSplayLeft() {
 //			3		6
 //				5		7
 	
-	
-	
 	std::stringstream out1;
 	tree.print(out1);
 	ASSERT_TRUE(out1.str() == "4 2 1 3 6 5 7 |1 2 3 4 5 6 7 |1 3 2 5 7 6 4 |");

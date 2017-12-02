@@ -59,7 +59,6 @@ public:
         return false;
 	}
 
-
 	bool insert(T* val) {
 		if (exits(*val)) return false;
 		if (!head) {
@@ -91,8 +90,8 @@ public:
 		assert(false);
 		return false;
 	}
-	
-	void splay(const T& val) {
+
+/*	void splay(const T& val) {
 		if (!exits(val)) return;
 		//case 1
 		if (*(head->data) == val) return;
@@ -121,7 +120,6 @@ public:
 			pGrandFather = findDirection(grandFather, father);
 		}
 			
-		
 		grandFather = father;
 		father = current;
 		current = findNext(father, val);
@@ -148,8 +146,62 @@ public:
 	}
 	
 	
+*/
+    
+    void splay(const T& val) {
+        if (!exits(val)) return;
+        Node* current = head;
+        Node* father = NULL;
+        Node* grandFather = NULL;
+        while( *(current->data) != val ) {
+            grandFather = father;
+            father = current;
+            current = findNext(current, val);
+        }
+        if(grandFather != NULL) {
+            //case3
+            Node** pGrandFather = NULL;
+            do{
+                
+                if (pGrandFather == NULL) {
+                    pGrandFather = &head;
+                } else {
+                    pGrandFather = findDirection(grandFather, father);
+                }
+                
+                switch (findOrder(grandFather, father, current)) {
+                    case LL:
+                        ZigZigLL(pGrandFather, grandFather, father, current);
+                        break;
+                    case LR:
+                        ZigZagLR(pGrandFather, grandFather, father, current);
+                        break;
+                    case RL:
+                        ZigZagRL(pGrandFather, grandFather, father, current);
+                        break;
+                    case RR:
+                        ZigZigRR(pGrandFather, grandFather, father, current);
+                        break;
+                }
 
+            }while ( current != head && current->father != head );
+            //splay(val);
+        }
+        //case2
+        if(head != current) {
+            if (*(father->data) < val)  {
+                ZigR(&head, father, current);
+                return;
+            } else {
+                ZigL(&head, father, current);
+                return;
+            }
+        }
+    }
+    
 	
+    
+    
 	
 	
 	ostream& inOrder(ostream& os) const{
@@ -275,12 +327,16 @@ private:
 		*grandFather = child;
 		father->lChild = child->rChild;
 		child->rChild = father;
+        child->father = NULL;
+        father->father = child;
 	}
 	
 	static void ZigR(Node** grandFather, Node* father, Node* child ) {
 		*grandFather = child;
 		father->rChild = child->lChild;
 		child->lChild = father;
+        child->father = NULL;
+        father->father = child;
 	}
 	
 	static void  ZigZagLR(Node** greatGrandFather, Node* grandFather,
@@ -318,7 +374,7 @@ private:
 		child->rChild = father;
 		father->rChild = grandFather;
 	}
-
+    
 	
 	static Order findOrder(Node* grandFather, Node* father, Node* current) {
 		if (*(grandFather->data) < *(father->data) ) {
