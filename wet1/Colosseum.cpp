@@ -89,7 +89,45 @@ StatusType Colosseum::FreeGladiator(int gladiatorID) {
 	return SUCCESS;
 }
 
+
+/* Description:   Increases the level of a gladiator.
+ * Input:         gladiatorID - The ID of the gladiator.
+ *		          levelIncrease - The increase in level.
+ * Output:        None.
+ * Return Values: ALLOCATION_ERROR - In case of an allocation error.
+ *                INVALID_INPUT - If gladiatorID<=0, or if levelIncrease<=0
+ *                FAILURE - If gladiatorID isn't in the Colosseum.
+ *                SUCCESS - Otherwise.
+ */
 StatusType Colosseum::LevelUp(int gladiatorID, int levelIncrease){
+	if (gladiatorID<=0 || levelIncrease <= 0 ) return INVALID_INPUT;
+	PointingGladiator dummy(gladiatorID, 100, NULL);
+	if (!gladiatorIdTree.exist(dummy)) return FAILURE;
+	try {
+		PointingGladiator* gladiatorToFree = gladiatorIdTree.find(dummy);
+		int newGladiatorLevel = levelIncrease + gladiatorToFree->level;
+		Trainer* pTrainer = gladiatorToFree->owner;
+		
+		FreeGladiator(gladiatorID);
+
+		//todo make names nicer
+		Gladiator* gladiatorToAddToTrainer = new Gladiator(gladiatorID,
+												 newGladiatorLevel);
+		Gladiator* gladiatorToAddToLevelTree = new Gladiator(gladiatorID, newGladiatorLevel);
+		
+		PointingGladiator* gladiatorToAddToIDTree = new PointingGladiator(gladiatorID, newGladiatorLevel, pTrainer);
+		
+		
+		pTrainer->gladiators.insert(gladiatorToAddToTrainer);
+		gladiatorIdTree.insert(gladiatorToAddToIDTree);
+		gladiatorLevelTree.insert(gladiatorToAddToLevelTree);
+		
+		
+	}
+	catch (const bad_alloc& e) {
+		return ALLOCATION_ERROR;
+	}
+	
 	return SUCCESS;
 }
 
