@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B52E38391FD3D65C00718A5B /* SplayTree.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B5FB3BC21FCDBE38000E0F49 /* SplayTree.cpp */; };
-		B52E383A1FD3D65C00718A5B /* unitTestsSplay.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B5FB3BC51FCDBE78000E0F49 /* unitTestsSplay.cpp */; };
+		B51890231FD3FF5800CC4B61 /* SplayTree.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B5FB3BC21FCDBE38000E0F49 /* SplayTree.cpp */; };
+		B51890241FD3FF5800CC4B61 /* unitTestsSplay.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B5FB3BC51FCDBE78000E0F49 /* unitTestsSplay.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -73,8 +73,8 @@
 		B52E38381FD3D22F00718A5B /* TrainerList */ = {
 			isa = PBXGroup;
 			children = (
-				B52E38291FD1FF5400718A5B /* TrainerList.cpp */,
 				B52E382A1FD1FF5400718A5B /* TrainerList.hpp */,
+				B52E38291FD1FF5400718A5B /* TrainerList.cpp */,
 			);
 			name = TrainerList;
 			sourceTree = "<group>";
@@ -216,8 +216,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B52E38391FD3D65C00718A5B /* SplayTree.cpp in Sources */,
-				B52E383A1FD3D65C00718A5B /* unitTestsSplay.cpp in Sources */,
+				B51890231FD3FF5800CC4B61 /* SplayTree.cpp in Sources */,
+				B51890241FD3FF5800CC4B61 /* unitTestsSplay.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

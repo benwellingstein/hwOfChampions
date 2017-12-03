@@ -47,6 +47,16 @@ void testTrainersCreation() {
 
 }
 
+//void testGladiatorPrint() {
+//	SplayTree<Gladiator> gladTree;
+//	Gladiator* glad2Insert = new Gladiator(1,100);
+//	gladTree.insert(glad2Insert);
+//
+//	gladTree.print(cout);
+//}
+
+
+
 
 void testAddTrainer() {
 	Colosseum col;
@@ -68,6 +78,7 @@ void testAddGladiator() {
 
 	col.AddTrainer(1);
 	ASSERT_EQUALS(col.BuyGladiator(1337, 1, 10) , SUCCESS);
+	
 	ASSERT_EQUALS(col.BuyGladiator(1337, 1, 10) , FAILURE);
 	ASSERT_EQUALS(col.BuyGladiator(1, 666, 10) , FAILURE);
 }
@@ -189,8 +200,9 @@ int main() {
 	RUN_TEST(testPointingGladiatorSorting);
 	RUN_TEST(testTrainersCreation);
 
+//	RUN_TEST(testGladiatorPrint);
     RUN_TEST(testAddTrainer);
-//	RUN_TEST(testAddGladiator);
+	RUN_TEST(testAddGladiator);
 //	RUN_TEST(testFreeGladiator);
 //	RUN_TEST(testLevelUp);
 //	RUN_TEST(testUpgradeGladiator);

@@ -134,11 +134,16 @@ public:
                         ZigZigRR(pGrandFather, grandFather, father, current);
                         break;
                 }
+				
+				//TODO Greatgrandfather updating?
                 father = current->father;
                 if(father != NULL) {
                     grandFather = father->father;
+					if (grandFather != NULL) {
+						greatGrandFather = grandFather->father;
+					}
                 }
-            }while ( current != head && current->father != head );
+            } while ( current != head && current->father != head );
         }
         //case2
         if(head != current) {
@@ -153,11 +158,14 @@ public:
     }
     
     bool insert(T* val) {
+		if (!head) {
+			Node* newNode = new Node(val);
+			head = newNode;
+			return true;
+		}
         if(exist(*val)) return false;
         find(*val);
-        //Node* newNode = new Node(val, NULL);
-        //Node* newNode = new Node(val, NULL, NULL, NULL);
-        Node* newNode = new Node(val, NULL, head, (head->rChild));
+        Node* newNode = new Node(val, NULL, head, head->rChild);
         head->rChild = NULL;
         head = newNode;
         return true;
@@ -194,7 +202,7 @@ private:
 	
 	struct Node {
 		
-		Node(T* data, Node* father, Node* left = NULL, Node* right = NULL): data(data), father(father), lChild(left), rChild(right) {}
+		Node(T* data, Node* father = NULL, Node* left = NULL, Node* right = NULL): data(data), father(father), lChild(left), rChild(right) {}
 		
 		ostream& print(ostream& os) const {
 //			os << "---------" << std::endl;
@@ -205,15 +213,15 @@ private:
 			return os;
 		}
 		
-		bool operator<(const Node& other) {
+		bool operator<(const Node& other) const {
 			return *data < *other.data;
 		}
 		
-		bool operator==(const Node& other) {
+		bool operator==(const Node& other) const {
 			return *data == *other.data;
 		}
 		
-		bool operator!=(const Node& other) {
+		bool operator!=(const Node& other) const {
 			return !(this == other);
 		}
 		

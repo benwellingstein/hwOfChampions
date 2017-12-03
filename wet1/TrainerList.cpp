@@ -27,15 +27,27 @@ TrainerList::~TrainerList() {
 
 
 bool TrainerList::exists(int trainerID) {
-	Trainer* current = head;
-	while (current) {
-		if (current->id == trainerID) return true;
-		current = current->next;
-	}
-	return false;
+	return (findTrainer(trainerID));
 }
 
-//void TrainerList::addGladiator(int trainerID, int gladiatorID, int gladiatorLevel);
+Trainer* TrainerList::findTrainer(int trainerID){
+	Trainer* current = head;
+	while (current) {
+		if (current->id == trainerID) return current;
+		current = current->next;
+	}
+	return NULL;
+}
+
+
+
+
+
+void TrainerList::addGladiator(int trainerID, int gladiatorID, int gladiatorLevel) {
+	Trainer* trainer = findTrainer(trainerID);
+	Gladiator* newGladiator = new Gladiator(gladiatorID,gladiatorLevel);
+	trainer->gladiators.insert(newGladiator);
+}
 //void TrainerList::removeGladiator(int trainerID, int gladiatorID, int gladiatorLevel);
 ////returns ID of top gladiator of trainer
 //int TrainerList::getTopGladiator(int trainerID) const;

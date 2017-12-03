@@ -14,7 +14,6 @@ ostream& PointingGladiator::print(ostream& os) const {
 	return os;
 	
 }
-
 ostream& operator<<(ostream& os, const PointingGladiator& gladiator) {
 	gladiator.print(os);
 	return os;
@@ -26,15 +25,15 @@ ostream& operator<<(ostream& os, const PointingGladiator& gladiator) {
 //			|			  |
 //		lower 			higher
 //
-bool PointingGladiator::operator<(const PointingGladiator& other) {
+bool PointingGladiator::operator<(const PointingGladiator& other) const {
 	return id < other.id;
 }
 
-bool PointingGladiator::operator==(const PointingGladiator& other) {
+bool PointingGladiator::operator==(const PointingGladiator& other) const {
 	return (id == other.id);
 }
 
-bool PointingGladiator::operator!=(const PointingGladiator& other) {
+bool PointingGladiator::operator!=(const PointingGladiator& other) const {
 	return !(*this==other);
 }
 

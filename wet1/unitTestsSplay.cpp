@@ -972,6 +972,65 @@ void testFindAdvanced() {
 }
 
 
+void testShoeLace(){
+	SplayTree<int> tree;
+	int* _1 = new int(1);
+	int* _2 = new int(2);
+	int* _3 = new int(3);
+	int* _4 = new int(4);
+	int* _5 = new int(5);
+	int* _6 = new int(6);
+	int* _7 = new int(7);
+	int* _8 = new int(8);
+	int* _9 = new int(9);
+	int* _10 = new int(10);
+	int* _11 = new int(11);
+	int* _12 = new int(12);
+	int* _13 = new int(13);
+	int* _14 = new int(14);
+	int* _15 = new int(15);
+	
+	tree.insertBT(_1);
+	tree.insertBT(_2);
+	tree.insertBT(_3);
+	tree.insertBT(_4);
+	tree.insertBT(_5);
+	tree.insertBT(_6);
+	tree.insertBT(_7);
+	tree.insertBT(_8);
+	tree.insertBT(_9);
+	tree.insertBT(_10);
+	tree.insertBT(_11);
+	tree.insertBT(_12);
+	tree.insertBT(_13);
+	tree.insertBT(_14);
+	tree.insertBT(_15);
+
+	tree.splay(15);
+	std::stringstream out1;
+	tree.print(out1);
+	ASSERT_TRUE(out1.str() == "15 2 1 4 3 6 5 8 7 10 9 12 11 14 13 |1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 |1 3 5 7 9 11 13 14 12 10 8 6 4 2 15 |");
+
+//	expected
+//			15
+//	  	  /
+//		2
+//	   / \
+//	  1   4
+//		 / \
+//		3   6
+//		   / \
+//		  5   8
+//			 / \
+//			7   10
+//			   / \
+//			  9  12
+//				 / \
+//				11 14
+//				   /
+//				  13
+}
+
 int main() {
 	RUN_TEST(testSplayLeft);
 	RUN_TEST(testSplayRight);
@@ -991,6 +1050,7 @@ int main() {
     RUN_TEST(testInsert4);
     RUN_TEST(testFindAdvanced);
     RUN_TEST(testInsertBTAdvanced);
+	RUN_TEST(testShoeLace);
 	return 0;
 }
 

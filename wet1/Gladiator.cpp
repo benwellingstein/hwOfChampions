@@ -22,20 +22,23 @@ ostream& operator<<(ostream& os, const Gladiator& gladiator) {
 //			|			  |
 //		higher 			lower
 //
-bool Gladiator::operator<(const Gladiator& other) {
+bool Gladiator::operator<(const Gladiator& other) const {
 	if (level < other.level) return true;
 	if (other.level < level ) return false;
 	if (id < other.id) return false;
 	return true;
 }
 
-bool Gladiator::operator==(const Gladiator& other) {
+bool Gladiator::operator==(const Gladiator& other) const {
 	return (id == other.id) && (level == other.level);
 }
 
-bool Gladiator::operator!=(const Gladiator& other) {
+bool Gladiator::operator!=(const Gladiator& other) const {
 	return !(*this==other);
 }
+
+
+
 
 
 

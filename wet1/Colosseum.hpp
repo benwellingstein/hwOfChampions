@@ -127,12 +127,18 @@ public:
 	StatusType UpdateLevels(int stimulantCode, int stimulantFactor);
 	
 	
-
+	// for debugging TODO remove at end
+	
+//	ostream& print(ostream& os) const {
+////		gladiatorIdTree.print(os);
+//		gladiatorLevelTree.print(os);
+//		return os;
+//	}
 
 private:
 	TrainerList trainers;
 	SplayTree<PointingGladiator> gladiatorIdTree;
-	SplayTree<Gladiator> GladiatorLevelTree;
+	SplayTree<Gladiator> gladiatorLevelTree;
 };
 
 

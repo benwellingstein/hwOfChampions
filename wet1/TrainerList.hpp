@@ -32,6 +32,9 @@ public:
 	int** getAllGlaidatorByLevel(int trainerID, int* numOfGladiators);//TODO
 	
 	bool exists(int trainerID);
+	
+	//returns pointer to trainer
+	Trainer* findTrainer(int trainerID);
 private:
 	
 	Trainer* head;
