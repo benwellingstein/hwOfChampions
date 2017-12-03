@@ -136,8 +136,28 @@ StatusType Colosseum::UpgradeGladiator(int gladiatorID, int upgradedID){
 	return SUCCESS;
 }
 
-
+/* Description:   Returns the gladiator with the highest level from trainerID
+ * 			If trainerID < 0, returns the top gladiator in the entire DS.
+ * Input:         DS - A pointer to the data structure.
+ *                trainerID - The trainer that we'd like to get the data for.
+ * Output:        gladiatorID - A pointer to a variable that should be updated
+ *					to the ID of the top gladiator.
+ * Return Values: ALLOCATION_ERROR - In case of an allocation error.
+ *                INVALID_INPUT - If DS==NULL, or if gladiatorID == NULL, or
+ *					if trainerID == 0.
+ *                SUCCESS - Otherwise.
+ */
 StatusType Colosseum::GetTopGladiator(int trainerID, int *gladiatorID){
+	if (!gladiatorID || trainerID == 0) return INVALID_INPUT;
+	if (trainerID > 0 || !trainers.exists(trainerID)) return FAILURE;
+	
+	if (trainerID > 0) {
+		Trainer* trainer = trainers.findTrainer(trainerID);
+		*gladiatorID = trainer->gladiators.getTop()->id;
+		return SUCCESS;
+	}
+	
+	*gladiatorID = gladiatorLevelTree.getTop()->id;
 	return SUCCESS;
 }
 

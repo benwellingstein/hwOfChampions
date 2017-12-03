@@ -4,6 +4,7 @@
 //DONE find
 //DONE add double pointers
 
+//todo splay on delete/insert?
 
 #ifndef SplayTree_hpp
 #define SplayTree_hpp
@@ -23,7 +24,7 @@ private:
     struct Node;
     
 public:
-	SplayTree(Node* root = NULL): head(root) {}
+	SplayTree(Node* root = NULL): head(root), top(NULL) {}
 	
 	~SplayTree() {
 		inOrderRecDestroy(head);
@@ -56,6 +57,7 @@ public:
         splay(val);
 		if (!head->lChild && !head->rChild) {
 			head = NULL;
+			top = NULL;
 			return true;
 		}
 		if (!head->lChild) {
@@ -83,9 +85,31 @@ public:
 				head->rChild->father = head;
 				tempTree.head = NULL;
 		}
+		top = findMax(head);
 		return true;
     }
 	
+	
+	bool insert(T* val) {
+		if (!head) {
+			Node* newNode = new Node(val);
+			head = newNode;
+			top = head;
+			return true;
+		}
+		if(exist(*val)) return false;
+		find(*val);
+		Node* newNode = new Node(val, NULL, head, head->rChild);
+		head->rChild = NULL;
+		head = newNode;
+		if (top && top->data < val) top = newNode;
+		return true;
+	}
+	
+	T* getTop() {
+		if (!top) return NULL;
+		return top->data;
+	}
 	
 	
 	static Node* findMax(Node* top) {
@@ -208,20 +232,9 @@ public:
         }
     }
     
-    bool insert(T* val) {
-		if (!head) {
-			Node* newNode = new Node(val);
-			head = newNode;
-			return true;
-		}
-        if(exist(*val)) return false;
-        find(*val);
-        Node* newNode = new Node(val, NULL, head, head->rChild);
-        head->rChild = NULL;
-        head = newNode;
-        return true;
-    }
-    
+
+	
+	
 	ostream& inOrder(ostream& os) const{
 		inOrderRecPrint(head,os);
 		os << "|";
@@ -422,6 +435,7 @@ private:
 
 	
 	Node* head;
+	Node* top;
 	
 };
 
