@@ -102,7 +102,7 @@ public:
 		Node* newNode = new Node(val, NULL, head, head->rChild);
 		head->rChild = NULL;
 		head = newNode;
-		if (top && top->data < val) top = newNode;
+		if (top && *(top->data) < *val) top = newNode;
 		return true;
 	}
 	

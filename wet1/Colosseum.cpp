@@ -149,7 +149,7 @@ StatusType Colosseum::UpgradeGladiator(int gladiatorID, int upgradedID){
  */
 StatusType Colosseum::GetTopGladiator(int trainerID, int *gladiatorID){
 	if (!gladiatorID || trainerID == 0) return INVALID_INPUT;
-	if (trainerID > 0 || !trainers.exists(trainerID)) return FAILURE;
+	if (trainerID > 0 && !trainers.exists(trainerID)) return FAILURE;
 	
 	if (trainerID > 0) {
 		Trainer* trainer = trainers.findTrainer(trainerID);

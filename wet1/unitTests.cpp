@@ -198,17 +198,17 @@ void testUpdateLevels() {
 
 int main() {
 	
-//	RUN_TEST(testGladiatorSorting);
-//	RUN_TEST(testPointingGladiatorSorting);
-//	RUN_TEST(testTrainersCreation);
-//
-////	RUN_TEST(testGladiatorPrint);
-//    RUN_TEST(testAddTrainer);
-//	RUN_TEST(testAddGladiator);
-//	RUN_TEST(testFreeGladiator);
-//	RUN_TEST(testLevelUp);
-////	RUN_TEST(testUpgradeGladiator);
-//	RUN_TEST(testGetTopGladiator);
+	RUN_TEST(testGladiatorSorting);
+	RUN_TEST(testPointingGladiatorSorting);
+	RUN_TEST(testTrainersCreation);
+
+//	RUN_TEST(testGladiatorPrint);
+    RUN_TEST(testAddTrainer);
+	RUN_TEST(testAddGladiator);
+	RUN_TEST(testFreeGladiator);
+	RUN_TEST(testLevelUp);
+//	RUN_TEST(testUpgradeGladiator);
+	RUN_TEST(testGetTopGladiator);
 //	RUN_TEST(tetsGetAllGladiatorsByLevel);
 //	RUN_TEST(testUpdateLevels);
 	

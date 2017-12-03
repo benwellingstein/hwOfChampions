@@ -1207,9 +1207,6 @@ void testTop() {
 //	int* b1 = new int(10);
 	//int* b2 = new int(30);
 	int* c1 = new int(5);
-//	int* c2 = new int(15);
-	//int* c3 = new int(25);
-	//int* c4 = new int(35);
 	int* d1 = new int(2);
 //	int* d2 = new int(7);
 //	int* d3 = new int(12);
@@ -1238,7 +1235,7 @@ void testTop() {
 	tree.insert(c1);
 	ASSERT_TRUE(*tree.getTop() == 5);
 	tree.remove(5);
-//	ASSERT_TRUE(tree.getTop() == NULL);
+	ASSERT_TRUE(tree.getTop() == NULL);
 	tree.insert(e01);
 	ASSERT_TRUE(*tree.getTop() == 1);
 
@@ -1253,12 +1250,12 @@ void testTop() {
 
 	tree.insert(e05);
 	ASSERT_TRUE(*tree.getTop() == 11);
-//	tree.remove(11);
-//	ASSERT_TRUE(*tree.getTop() == 8);
-//	tree.remove(6);
-//	ASSERT_TRUE(*tree.getTop() == 8);
-//	tree.remove(8);
-//	ASSERT_TRUE(*tree.getTop() == 3);
+	tree.remove(11);
+	ASSERT_TRUE(*tree.getTop() == 8);
+	tree.remove(6);
+	ASSERT_TRUE(*tree.getTop() == 8);
+	tree.remove(8);
+	ASSERT_TRUE(*tree.getTop() == 3);
 
 	tree.insert(e06);
 	ASSERT_TRUE(*tree.getTop() == 13);
@@ -1281,26 +1278,26 @@ void testTop() {
 
 int splayTests() {
 	cout << "-------SPLAY TESTS-----------" << endl;
-//	RUN_TEST(testSplayLeft);
-//	RUN_TEST(testSplayRight);
-//	RUN_TEST(testSplayLeftRight);
-//	RUN_TEST(testSplayRightLeft);
-//	RUN_TEST(testAdvancedSplayLeftLeft);
-//	RUN_TEST(testSplayRightRight);
-//    RUN_TEST(testAdvancedSplay1);
-//    RUN_TEST(testAdvancedSplay2);
-//    RUN_TEST(testAdvancedSplay3);
-//    RUN_TEST(testAdvancedSplay6);
-//    RUN_TEST(testAdvancedSplay7);
-//    RUN_TEST(testAdvancedSplay8);
-//    RUN_TEST(testBasicTreeinsertBT);
-//    RUN_TEST(testFind1);
-//    RUN_TEST(testFind4);
-//    RUN_TEST(testInsert4);
-//    RUN_TEST(testFindAdvanced);
-//    RUN_TEST(testInsertBTAdvanced);
-//	RUN_TEST(testShoeLace);
-//	RUN_TEST(testRemove);
+	RUN_TEST(testSplayLeft);
+	RUN_TEST(testSplayRight);
+	RUN_TEST(testSplayLeftRight);
+	RUN_TEST(testSplayRightLeft);
+	RUN_TEST(testAdvancedSplayLeftLeft);
+	RUN_TEST(testSplayRightRight);
+    RUN_TEST(testAdvancedSplay1);
+    RUN_TEST(testAdvancedSplay2);
+    RUN_TEST(testAdvancedSplay3);
+    RUN_TEST(testAdvancedSplay6);
+    RUN_TEST(testAdvancedSplay7);
+    RUN_TEST(testAdvancedSplay8);
+    RUN_TEST(testBasicTreeinsertBT);
+    RUN_TEST(testFind1);
+    RUN_TEST(testFind4);
+    RUN_TEST(testInsert4);
+    RUN_TEST(testFindAdvanced);
+    RUN_TEST(testInsertBTAdvanced);
+	RUN_TEST(testShoeLace);
+	RUN_TEST(testRemove);
 	RUN_TEST(testTop);
 	return 0;
 }
