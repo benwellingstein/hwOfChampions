@@ -99,7 +99,7 @@ public:
         return current;
     }
     
-	Node* find(const T& val) {
+	T* find(const T& val) {
 		if (!head)  return NULL;
         Node* current = head;
         Node* next = findNext( current, val);
@@ -108,9 +108,12 @@ public:
             next = findNext(current, val);
         }
         splay(*(current->data));
-        if(next == NULL) {
-            return current;
+		
+		//TODO danger?
+        if (next != NULL) {
+            return current->data;
         }
+		
         return NULL;
 	}
 

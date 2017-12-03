@@ -24,7 +24,7 @@ public:
 	~TrainerList();
 	void addTrainer(int trainerID);
 	
-	void addGladiator(int trainerID, int gladiatorID, int gladiatorLevel);	//TODO
+	void addGladiator(int trainerID, int gladiatorID, int gladiatorLevel);
 	void removeGladiator(int trainerID, int gladiatorID, int gladiatorLevel);//TODO
 	//returns ID of top gladiator of trainer
 	int getTopGladiator(int trainerID) const;//TODO

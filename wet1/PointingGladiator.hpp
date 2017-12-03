@@ -9,14 +9,13 @@
 #ifndef PointingGladiator_hpp
 #define PointingGladiator_hpp
 
-class PointingGladiator {
+struct PointingGladiator {
 public:
 	PointingGladiator(int id, int level, Trainer* owner) : id(id), level(level), owner(owner) {}
 	bool operator<(const PointingGladiator& other) const;
 	bool operator==(const PointingGladiator& other) const;
 	bool operator!=(const PointingGladiator& other) const;
 	ostream& print(ostream& os) const;
-private:
 	int id;
 	int level;
 	Trainer* owner;

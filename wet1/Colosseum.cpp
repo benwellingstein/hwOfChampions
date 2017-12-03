@@ -65,7 +65,27 @@ StatusType Colosseum::BuyGladiator(int gladiatorID, int trainerID, int level) {
 	return SUCCESS;
 }
 
+
+
+/* Description:   Removes an existing gladiator.
+ * Input:		  gladiatorID - The ID of the gladiator to remove.
+ * Output:        None.
+ * Return Values: ALLOCATION_ERROR - In case of an allocation error.
+ *                INVALID_INPUT - If gladiatorID <= 0.
+ *                FAILURE - If gladiatorID isn't in the Colosseum.
+ *                SUCCESS - Otherwise.
+ */
+
 StatusType Colosseum::FreeGladiator(int gladiatorID) {
+	if (gladiatorID <= 0) return INVALID_INPUT;
+	PointingGladiator dummy(gladiatorID, 100, NULL);
+	if (!gladiatorIdTree.exist(dummy)) return FAILURE;
+	PointingGladiator* gladiatorToFree = gladiatorIdTree.find(dummy);
+	Gladiator dummy2(gladiatorID, gladiatorToFree->level);
+	gladiatorIdTree.remove(dummy);
+	gladiatorLevelTree.remove(dummy2);
+	trainers.removeGladiator(gladiatorToFree->owner->id, gladiatorID,
+							 gladiatorToFree->level);
 	return SUCCESS;
 }
 

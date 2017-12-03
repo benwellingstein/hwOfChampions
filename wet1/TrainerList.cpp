@@ -48,7 +48,13 @@ void TrainerList::addGladiator(int trainerID, int gladiatorID, int gladiatorLeve
 	Gladiator* newGladiator = new Gladiator(gladiatorID,gladiatorLevel);
 	trainer->gladiators.insert(newGladiator);
 }
-//void TrainerList::removeGladiator(int trainerID, int gladiatorID, int gladiatorLevel);
+
+void TrainerList::removeGladiator(int trainerID, int gladiatorID,
+								  int gladiatorLevel) {
+	Trainer* trainer = findTrainer(trainerID);
+	Gladiator dummy(gladiatorID, gladiatorLevel);
+	trainer->gladiators.remove(dummy);
+}
 ////returns ID of top gladiator of trainer
 //int TrainerList::getTopGladiator(int trainerID) const;
 ////returns array of gladiators sorted by level
