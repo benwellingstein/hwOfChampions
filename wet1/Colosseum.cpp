@@ -7,15 +7,56 @@
 //
 
 #include "Colosseum.hpp"
+#include "Gladiator.hpp"
+using std::bad_alloc;
 
-
+/* Description:   Adds a new trainer.
+ * Input:         trainerID - The ID of the trainer to add.
+ * Output:        None.
+ * Return Values: ALLOCATION_ERROR - In case of an allocation error.
+ *                INVALID_INPUT - if trainerID <= 0.
+ *                FAILURE - If trainerID is already in the Colosseum.
+ *                SUCCESS - Otherwise.
+ */
 StatusType Colosseum::AddTrainer(int trainerID) {
-	if (trainerID <= 0)  return FAILURE;
+	if (trainerID <= 0) return INVALID_INPUT;
+	if (trainers.exists(trainerID)) return FAILURE;
+	try {
+		trainers.addTrainer(trainerID);
+	}
+	catch (const bad_alloc& e) {
+		return ALLOCATION_ERROR;
+	};
 	return SUCCESS;
 }
 
 
+/* Description:   Adds a new gladiator to the system.
+ * Input:		  gladiatorID - ID of the gladiator to add.
+ *                trainerID - The ID of the gladiator's trainer
+ *                level - The gladiator's level
+ * Output:        None.
+ * Return Values: ALLOCATION_ERROR - In case of an allocation error.
+ *                INVALID_INPUT - if gladiatorID <=0, or if trainerID <=0,
+ *				  or if level <= 0
+ *                FAILURE - If gladiatorID is already in the Colosseum,
+ *				  or trainerID isn't in the Colosseum.
+ *                SUCCESS - Otherwise.
+ */
 StatusType Colosseum::BuyGladiator(int gladiatorID, int trainerID, int level) {
+	if ((gladiatorID<=0) || (trainerID <=0) || (level<0)) return INVALID_INPUT;
+	if ( gladiatorIdTree.exists(gladiatorID) || (!trainers.exists(trainerID)) )
+		return FAILURE;
+	try {
+		trainers.addGladiator(trainerID, gladiatorID, level);
+		
+	}
+	catch (const bad_alloc& e) {
+		return ALLOCATION_ERROR;
+	};
+	
+	
+	
 	return SUCCESS;
 }
 
@@ -42,7 +83,6 @@ StatusType Colosseum::GetAllGladiatorsByLevel(int trainerID, int **gladiators,
 								   int *numOfGladiator){
 	return SUCCESS;
 }
-
 
 
 StatusType Colosseum	::UpdateLevels(int stimulantCode, int stimulantFactor){

@@ -3,6 +3,49 @@
 #include "unitTests.h"
 
 #include "Colosseum.hpp"
+#include "Gladiator.hpp"
+#include "TrainerList.hpp"
+#include "PointingGladiator.hpp"
+
+void testGladiatorSorting() {
+	Gladiator a(5,100);
+	Gladiator b(3, 50);
+	Gladiator c(2, 150);
+	Gladiator d(3, 150);
+	Gladiator e(1, 150);
+	Gladiator cCopy(2, 150);
+	ASSERT_TRUE(b<a);
+	ASSERT_TRUE(b<c);
+	ASSERT_TRUE(d<c);
+	ASSERT_TRUE(d<e);
+	ASSERT_TRUE(cCopy==c);
+	ASSERT_TRUE(a!=e);
+}
+
+void testPointingGladiatorSorting() {
+	PointingGladiator a(1, 100, NULL);
+	PointingGladiator b(2, 399, NULL);
+	PointingGladiator bCopy(2, 399, NULL);
+
+	ASSERT_TRUE(a<b);
+	ASSERT_TRUE(b==bCopy);
+	ASSERT_FALSE(a==b);
+	ASSERT_TRUE(a!=b);
+
+}
+
+void testTrainersCreation() {
+	TrainerList trainers;
+	trainers.addTrainer(1);
+	trainers.addTrainer(2);
+	trainers.addTrainer(3);
+	ASSERT_TRUE(trainers.exists(1));
+	ASSERT_TRUE(trainers.exists(2));
+	ASSERT_TRUE(trainers.exists(3));
+	ASSERT_FALSE(trainers.exists(4));
+
+
+}
 
 
 void testAddTrainer() {
@@ -142,13 +185,17 @@ void testUpdateLevels() {
 
 
 int main() {
+	RUN_TEST(testGladiatorSorting);
+	RUN_TEST(testPointingGladiatorSorting);
+	RUN_TEST(testTrainersCreation);
+
     RUN_TEST(testAddTrainer);
-	RUN_TEST(testAddGladiator);
-	RUN_TEST(testFreeGladiator);
-	RUN_TEST(testLevelUp);
-	RUN_TEST(testUpgradeGladiator);
-	RUN_TEST(testGetTopGladiator);
-	RUN_TEST(tetsGetAllGladiatorsByLevel);
-	RUN_TEST(testUpdateLevels);
+//	RUN_TEST(testAddGladiator);
+//	RUN_TEST(testFreeGladiator);
+//	RUN_TEST(testLevelUp);
+//	RUN_TEST(testUpgradeGladiator);
+//	RUN_TEST(testGetTopGladiator);
+//	RUN_TEST(tetsGetAllGladiatorsByLevel);
+//	RUN_TEST(testUpdateLevels);
 	return 0;
 }

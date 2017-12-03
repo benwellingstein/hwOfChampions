@@ -7,8 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B5FB3BD81FD03F62000E0F49 /* unitTestsSplay.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B5FB3BC51FCDBE78000E0F49 /* unitTestsSplay.cpp */; };
-		B5FB3BD91FD03F62000E0F49 /* SplayTree.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B5FB3BC21FCDBE38000E0F49 /* SplayTree.cpp */; };
+		B52E382E1FD2802700718A5B /* unitTests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B5FB3BBD1FCB5C22000E0F49 /* unitTests.cpp */; };
+		B52E382F1FD2803200718A5B /* Colosseum.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B5FB3BB61FCB44C7000E0F49 /* Colosseum.cpp */; };
+		B52E38311FD2808A00718A5B /* Gladiator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B5FB3BDA1FD1FDF4000E0F49 /* Gladiator.cpp */; };
+		B52E38331FD3CB5200718A5B /* TrainerList.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B52E38291FD1FF5400718A5B /* TrainerList.cpp */; };
+		B52E38361FD3CD9B00718A5B /* PointingGladiator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B52E38341FD3CD9B00718A5B /* PointingGladiator.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -24,6 +27,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		B52E38291FD1FF5400718A5B /* TrainerList.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = TrainerList.cpp; sourceTree = "<group>"; };
+		B52E382A1FD1FF5400718A5B /* TrainerList.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = TrainerList.hpp; sourceTree = "<group>"; };
+		B52E38341FD3CD9B00718A5B /* PointingGladiator.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = PointingGladiator.cpp; sourceTree = "<group>"; };
+		B52E38351FD3CD9B00718A5B /* PointingGladiator.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = PointingGladiator.hpp; sourceTree = "<group>"; };
 		B5FB3BA91FCB4117000E0F49 /* wet1 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = wet1; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5FB3BAC1FCB4117000E0F49 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		B5FB3BB31FCB4280000E0F49 /* library1.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = library1.h; sourceTree = "<group>"; };
@@ -40,6 +47,8 @@
 		B5FB3BD01FD0165E000E0F49 /* BinaryTree.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = BinaryTree.hpp; sourceTree = "<group>"; };
 		B5FB3BD31FD01682000E0F49 /* binaryTest.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = binaryTest.cpp; sourceTree = "<group>"; };
 		B5FB3BD61FD0320F000E0F49 /* testGenericBinary.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = testGenericBinary.cpp; sourceTree = "<group>"; };
+		B5FB3BDA1FD1FDF4000E0F49 /* Gladiator.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Gladiator.cpp; sourceTree = "<group>"; };
+		B5FB3BDB1FD1FDF4000E0F49 /* Gladiator.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Gladiator.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +62,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B52E38371FD3D22600718A5B /* Gladiators */ = {
+			isa = PBXGroup;
+			children = (
+				B5FB3BDA1FD1FDF4000E0F49 /* Gladiator.cpp */,
+				B5FB3BDB1FD1FDF4000E0F49 /* Gladiator.hpp */,
+				B52E38341FD3CD9B00718A5B /* PointingGladiator.cpp */,
+				B52E38351FD3CD9B00718A5B /* PointingGladiator.hpp */,
+			);
+			name = Gladiators;
+			sourceTree = "<group>";
+		};
+		B52E38381FD3D22F00718A5B /* TrainerList */ = {
+			isa = PBXGroup;
+			children = (
+				B52E38291FD1FF5400718A5B /* TrainerList.cpp */,
+				B52E382A1FD1FF5400718A5B /* TrainerList.hpp */,
+			);
+			name = TrainerList;
+			sourceTree = "<group>";
+		};
 		B5FB3BA01FCB4117000E0F49 = {
 			isa = PBXGroup;
 			children = (
@@ -114,8 +143,10 @@
 			isa = PBXGroup;
 			children = (
 				B5FB3BBD1FCB5C22000E0F49 /* unitTests.cpp */,
-				B5FB3BB61FCB44C7000E0F49 /* Colosseum.cpp */,
 				B5FB3BB71FCB44C7000E0F49 /* Colosseum.hpp */,
+				B5FB3BB61FCB44C7000E0F49 /* Colosseum.cpp */,
+				B52E38381FD3D22F00718A5B /* TrainerList */,
+				B52E38371FD3D22600718A5B /* Gladiators */,
 			);
 			name = Colosseum;
 			sourceTree = "<group>";
@@ -188,8 +219,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B5FB3BD81FD03F62000E0F49 /* unitTestsSplay.cpp in Sources */,
-				B5FB3BD91FD03F62000E0F49 /* SplayTree.cpp in Sources */,
+				B52E38361FD3CD9B00718A5B /* PointingGladiator.cpp in Sources */,
+				B52E38331FD3CB5200718A5B /* TrainerList.cpp in Sources */,
+				B52E38311FD2808A00718A5B /* Gladiator.cpp in Sources */,
+				B52E382F1FD2803200718A5B /* Colosseum.cpp in Sources */,
+				B52E382E1FD2802700718A5B /* unitTests.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
