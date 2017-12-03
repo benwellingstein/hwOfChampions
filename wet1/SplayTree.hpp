@@ -99,18 +99,36 @@ public:
 		}
 		if(exist(*val)) return false;
 		find(*val);
-		Node* newNode = new Node(val, NULL, head, head->rChild);
+		Node* newNode = new Node(val);
 		if( *val < *(head->data) ) {
 			Node* oldHead = head;
+			newNode->rChild = oldHead;
+			newNode->lChild = oldHead->lChild;
+			oldHead->father = newNode;
+
+			if (oldHead->lChild) {
+				oldHead->lChild->father = newNode;
+				oldHead->lChild = NULL;
+			}
+			newNode->father = NULL;
 			head = newNode;
-			head->rChild = oldHead;
-			head->lChild = NULL;
-			oldHead->father = head;
+
 		} else {
-			head->rChild = NULL;
+			Node* oldHead = head;
+			newNode->lChild = oldHead;
+			newNode->rChild = oldHead->rChild;
+			oldHead->father = newNode;
+			
+			if (oldHead->rChild) {
+				oldHead->rChild->father = newNode;
+				oldHead->rChild = NULL;
+			}
+			
 			head = newNode;
 			if (top && *(top->data) < *val) top = newNode;
+
 		}
+
 		return true;
 	}
 	
@@ -134,7 +152,7 @@ public:
 	T* find(const T& val) {
 		if (!head)  return NULL;
         Node* current = head;
-        Node* next = findNext( current, val);
+        Node* next = findNext(current, val);
         while(next != NULL && current != next) {
             current = next;
             next = findNext(current, val);

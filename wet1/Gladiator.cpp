@@ -30,7 +30,7 @@ bool Gladiator::operator<(const Gladiator& other) const {
 }
 
 bool Gladiator::operator==(const Gladiator& other) const {
-	return (id == other.id) && (level == other.level);
+	return (id == other.id);
 }
 
 bool Gladiator::operator!=(const Gladiator& other) const {

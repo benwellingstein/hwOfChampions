@@ -1203,18 +1203,8 @@ void testRemove() {
 
 void testTop() {
 	SplayTree<int> tree;
-	//int* a = new int(20);
-//	int* b1 = new int(10);
-	//int* b2 = new int(30);
 	int* c1 = new int(5);
 	int* d1 = new int(2);
-//	int* d2 = new int(7);
-//	int* d3 = new int(12);
-//	int* d4 = new int(17);
-//	//int* d5 = new int(22);
-	//int* d6 = new int(27);
-	//int* d7 = new int(32);
-	//int* d8 = new int(37);
 	int* e01 = new int(1);
 	int* e02 = new int(3);
 	int* e03 = new int(6);
@@ -1222,14 +1212,7 @@ void testTop() {
 	int* e05 = new int(11);
 	int* e06 = new int(13);
 	int* e07 = new int(16);
-//	int* e08 = new int(18);
-	//int* e09 = new int(21);
-	//int* e10 = new int(23);
-	//int* e11 = new int(26);
-	//int* e12 = new int(28);
-	//int* e13 = new int(31);
-	//int* e14 = new int(33);
-	//int* _5 = new int(5)
+
 	
 	ASSERT_TRUE(tree.getTop() == NULL);
 	tree.insert(c1);
@@ -1266,6 +1249,7 @@ void testTop() {
 	tree.insert(d1);
 	ASSERT_TRUE(*tree.getTop() == 16);
 
+	
 }
 
 void testInsertLowest() {
@@ -1289,6 +1273,30 @@ void testInsertLowest() {
 	
 }
 
+void testLeftInsert() {
+	SplayTree<int> tree;
+	
+	int* one = new int(1);
+	int* two = new int(2);
+	int* three = new int(3);
+	int* four = new int(4);
+	int* five = new int(5);
+	int* six = new int(6);
+	
+	tree.insertBT(two);
+	tree.insertBT(one);
+	tree.insertBT(five);
+	tree.insertBT(four);
+	tree.insertBT(six);
+
+	tree.insert(three);
+
+	std::stringstream out1;
+	tree.print(out1);
+	ASSERT_TRUE(out1.str() == "3 2 1 4 5 6 |1 2 3 4 5 6 |1 2 6 5 4 3 |");
+
+}
+
 
 int splayTests() {
 	cout << "-------SPLAY TESTS-----------" << endl;
@@ -1307,13 +1315,14 @@ int splayTests() {
     RUN_TEST(testBasicTreeinsertBT);
     RUN_TEST(testFind1);
     RUN_TEST(testFind4);
-    RUN_TEST(testInsert4);
+    RUN_TEST(testInsert4); 
     RUN_TEST(testFindAdvanced);
     RUN_TEST(testInsertBTAdvanced);
 	RUN_TEST(testShoeLace);
 	RUN_TEST(testRemove);
 	RUN_TEST(testTop);
 	RUN_TEST(testInsertLowest);
+	RUN_TEST(testLeftInsert);
 	return 0;
 }
 

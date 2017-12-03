@@ -179,19 +179,24 @@ void testGetTopGladiator() {
 void testsGetAllGladiatorsByLevel() {
 	Colosseum col;
 	col.AddTrainer(1);
-//	col.BuyGladiator(1337, 1, 1);
 	col.AddTrainer(2);
-	col.BuyGladiator(1338, 2, 3);
-//	col.BuyGladiator(1339, 2, 2);
-//	col.BuyGladiator(1340, 2, 1);
-	col.BuyGladiator(1341, 2, 999);
-
-	col.BuyGladiator(1342, 2, 998);
 	col.AddTrainer(3);
-	col.BuyGladiator(665, 3, 99999);
 	col.AddTrainer(4);
+
 	
-	col.BuyGladiator(1343, 4, 13);
+	
+	
+	
+	
+	col.BuyGladiator(1337, 1, 1);
+	col.BuyGladiator(1338, 2, 3);
+	col.BuyGladiator(1339, 2, 2);
+	col.BuyGladiator(1340, 2, 1);
+	
+	col.BuyGladiator(1341, 2, 999);
+//	col.BuyGladiator(1342, 2, 998);
+//	col.BuyGladiator(665, 3, 99999);
+//	col.BuyGladiator(1343, 4, 13);
 //	col.BuyGladiator(8888, 4, 1300);
 //	col.BuyGladiator(1000, 4, 1300);
 //	col.BuyGladiator(1345, 4, 1300);
