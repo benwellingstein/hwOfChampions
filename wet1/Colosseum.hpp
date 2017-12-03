@@ -9,6 +9,10 @@
 #ifndef Colosseum_hpp
 #define Colosseum_hpp
 #include "library1.h" // ???????????????????
+#include "TrainerList.hpp"
+#include "Gladiator.hpp"
+#include "PointingGladiator.hpp"
+#include "SplayTree.hpp"
 #include <stdio.h>
 
 class Colosseum {
@@ -123,10 +127,18 @@ public:
 	StatusType UpdateLevels(int stimulantCode, int stimulantFactor);
 	
 	
-
+	// for debugging TODO remove at end
+	
+//	ostream& print(ostream& os) const {
+////		gladiatorIdTree.print(os);
+//		gladiatorLevelTree.print(os);
+//		return os;
+//	}
 
 private:
-	int dummy;
+	TrainerList trainers;
+	SplayTree<PointingGladiator> gladiatorIdTree;
+	SplayTree<Gladiator> gladiatorLevelTree;
 };
 
 
