@@ -38,6 +38,15 @@ bool Gladiator::operator!=(const Gladiator& other) const {
 }
 
 
+Gladiator& Gladiator::operator=(const Gladiator& other){
+	if (*this == other) return *this;
+	Gladiator* newGladiator = new Gladiator();
+	newGladiator->id = other.id;
+	newGladiator->level = other.level;
+	return *newGladiator;
+}
+
+
 
 
 

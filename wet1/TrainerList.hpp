@@ -25,11 +25,8 @@ public:
 	void addTrainer(int trainerID);
 	
 	void addGladiator(int trainerID, int gladiatorID, int gladiatorLevel);
-	void removeGladiator(int trainerID, int gladiatorID, int gladiatorLevel);//TODO
-	//returns ID of top gladiator of trainer
-	int getTopGladiator(int trainerID) const;//TODO
+	void removeGladiator(int trainerID, int gladiatorID, int gladiatorLevel);
 	//returns array of gladiators sorted by level
-	int** getAllGlaidatorByLevel(int trainerID, int* numOfGladiators);//TODO
 	
 	bool exists(int trainerID);
 	

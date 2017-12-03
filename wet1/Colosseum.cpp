@@ -206,38 +206,49 @@ StatusType Colosseum::GetTopGladiator(int trainerID, int *gladiatorID){
 	return SUCCESS;
 }
 
-/* Description:   Returns all the gladiators from trainerID sorted by their
- *				  level.
- *           	  If trainerID < 0, returns all the gladiators in the
- *				  entire Colosseum sorted by their level.
- * Input:		  trainerID - The trainer that we'd like to get the data
- *				  for.
- * Output:        gladiators - A pointer to a to an array that you should
- *			      update with the gladiators' IDs sorted by their level,
- *			      in case two gladiators have same level they should be
- *				  sorted by their ID.
- *                numOfGladiator - A pointer to a variable that should be
- *				  updated to the number of gladiators.
- * Return Values: ALLOCATION_ERROR - In case of an allocation error.
- *                INVALID_INPUT - If any of the arguments is NULL or if
- *				  trainerID == 0.
- *                SUCCESS - Otherwise.
- */
+//todo try catch
 StatusType Colosseum::GetAllGladiatorsByLevel(int trainerID, int **gladiators,
 								   int *numOfGladiator){
 	if (trainerID==0 || !gladiators || !numOfGladiator ) return INVALID_INPUT;
 	if (trainerID>0 && !trainers.exists(trainerID)) return FAILURE;
-	bool result;
+	
+	Gladiator* gladiatorList = NULL;
+	int arrSize = -1;
 	if (trainerID<0) {
-		result = gladiatorLevelTree.exportArr(gladiators,  numOfGladiator);
-		if (!result) return ALLOCATION_ERROR;
-	} else {
-		result = trainers.findTrainer(trainerID)->gladiators.exportArr(gladiators, numOfGladiator);
-		if (!result) return ALLOCATION_ERROR;
+		
+		//get number of gladiators
+		*numOfGladiator = gladiatorLevelTree.size();
+		arrSize = *numOfGladiator;
+		gladiatorList = new Gladiator[arrSize];
+		
+		//make new array of Gladiators
+		//result =
+		gladiatorLevelTree.exportArr(gladiatorList);
+	//	if (!result) return ALLOCATION_ERROR;
+	//} else {
+	//	Trainer* trainer = trainers.findTrainer(trainerID);
+//		result = trainer ->gladiators.exportArr(gladiators, numOfGladiator);
+	//	if (!result) return ALLOCATION_ERROR;
 	}
 	
+	//turn gladiator array into output array;
+	
+	*gladiators = (int*)malloc(sizeof(int)*(arrSize));
+	if (!*gladiators) return ALLOCATION_ERROR;
+	
+	for (int i = 0; i < arrSize; ++i) {
+		*gladiators[i] = gladiatorList[i].id;
+	}
+	
+//		cout << gladiatorList[0].id << endl;
+//		cout << gladiatorList[1].id << endl;
+//		cout << gladiatorList[2].id << endl;
+//		cout << gladiatorList[3].id << endl;
 	return SUCCESS;
 }
+
+
+
 
 /* Description:   Updates the level of the gladiators where
  *				  gladiatorID % stimulantCode == 0.

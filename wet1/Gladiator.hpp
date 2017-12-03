@@ -12,7 +12,9 @@ using std::ostream;
 
 struct Gladiator {
 public:
+	Gladiator() {}
 	Gladiator(int id, int level) : id(id), level(level) {}
+	Gladiator& operator=(const Gladiator& other);
 	bool operator<(const Gladiator& other) const;
 	bool operator==(const Gladiator& other) const;
 	bool operator!=(const Gladiator& other) const;

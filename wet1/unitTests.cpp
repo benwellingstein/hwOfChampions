@@ -192,15 +192,14 @@ void testsGetAllGladiatorsByLevel() {
 	col.BuyGladiator(1338, 2, 3);
 	col.BuyGladiator(1339, 2, 2);
 	col.BuyGladiator(1340, 2, 1);
-	
 	col.BuyGladiator(1341, 2, 999);
-//	col.BuyGladiator(1342, 2, 998);
-//	col.BuyGladiator(665, 3, 99999);
-//	col.BuyGladiator(1343, 4, 13);
-//	col.BuyGladiator(8888, 4, 1300);
-//	col.BuyGladiator(1000, 4, 1300);
-//	col.BuyGladiator(1345, 4, 1300);
-//	col.BuyGladiator(2, 4, 80000);
+	col.BuyGladiator(1342, 2, 998);
+	col.BuyGladiator(665, 3, 99999);
+	col.BuyGladiator(1343, 4, 13);
+	col.BuyGladiator(8888, 4, 1300);
+	col.BuyGladiator(1000, 4, 1300);
+	col.BuyGladiator(1345, 4, 1300);
+	col.BuyGladiator(2, 4, 80000);
 	
 	
 	
@@ -320,7 +319,7 @@ void testUpdateLevels() {
 
 
 int main() {
-	splayTests();
+	cout << "-------COLOSSEUM TESTS-----------" << endl;
 
 	RUN_TEST(testGladiatorSorting);
 	RUN_TEST(testPointingGladiatorSorting);
@@ -335,7 +334,9 @@ int main() {
 	RUN_TEST(testGetTopGladiator);
 	RUN_TEST(testsGetAllGladiatorsByLevel);
 	RUN_TEST(testUpdateLevels);
-	
+	cout << endl;
+	splayTests();
+
 	
 	return 0;
 }

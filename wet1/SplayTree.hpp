@@ -1,8 +1,4 @@
-//TODO
-//DONE insert
-//remove
-//DONE find
-//DONE add double pointers
+
 
 //todo splay on delete/insert?
 
@@ -257,28 +253,50 @@ public:
             }
         }
     }
-    
-	bool exportArr(int **gladiators, int *numOfGladiator) {
-		//count number of nodes
-		
-		*numOfGladiator = countNodes(head);
-		//make array of that length
-		*gladiators = (int*)malloc(sizeof(int)*(*numOfGladiator));
-		//fill it up
-		
-		recursiveFill(gladiators,head,0);
-		return true;
+	
+	
+	
+	void exportArr(T arr[]) {
+		int i = 0;
+		recursiveFill(arr, head, &i);
 	}
 	
-	static void recursiveFill(int **gladiators,Node* node,int i) {
+	int size() {
+		return countNodes(head);
+	}
+	
+	static void recursiveFill(T arr[], Node* node, int* i) {
 		if (node) {
-			recursiveFill(gladiators, node->lChild, i);
-			
-			recursiveFill(gladiators, node->lChild, i );
-
+			recursiveFill(arr, node->lChild, i);
+			cout << *i << endl;
+//			arr[1]= NULL;
+//			arr[*i] = node->data;
+			*i = *i + 1 ;
+			recursiveFill(arr, node->rChild, i);
 		}
 	}
+	
+//	static int recursiveFill(int **gladiators,Node* node) {
+//		if (node) {
+//			int i = recursiveFill(gladiators, node->lChild);
+//
+//			recursiveFill(gladiators, node->lChild, i+1 );
+//
+//		}
+//	}
 
+//	static int recursiveFill(int **gladiators,Node* node) {
+//		int count = 0;
+//		if (node) {
+//			count += countNodes(node->lChild);
+//			*gladiators[i] = node->data;
+//			count ++;
+//
+//			count += countNodes(node->rChild);
+//		}
+//		return count;
+//	}
+	
 	
 	static int countNodes(Node* node) {
 		int count = 0;
