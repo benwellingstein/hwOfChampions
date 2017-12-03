@@ -1,7 +1,7 @@
 #include <assert.h>
 #include <iostream>
 #include "unitTests.h"
-
+#include "unitTestsSplay.cpp"
 #include "Colosseum.hpp"
 #include "Gladiator.hpp"
 #include "TrainerList.hpp"
@@ -47,13 +47,14 @@ void testTrainersCreation() {
 
 }
 
-//void testGladiatorPrint() {
-//	SplayTree<Gladiator> gladTree;
-//	Gladiator* glad2Insert = new Gladiator(1,100);
-//	gladTree.insert(glad2Insert);
-//
-//	gladTree.print(cout);
-//}
+void testGladiatorPrint() {
+	SplayTree<Gladiator> gladTree;
+	
+	Gladiator* glad2Insert = new Gladiator(1,100);
+	gladTree.insert(glad2Insert);
+
+	gladTree.print(cout);
+}
 
 
 
@@ -196,11 +197,11 @@ void testUpdateLevels() {
 
 
 int main() {
+	cout << "--------COLOSSEUM TESTS--------" << endl;
 	RUN_TEST(testGladiatorSorting);
 	RUN_TEST(testPointingGladiatorSorting);
 	RUN_TEST(testTrainersCreation);
-
-//	RUN_TEST(testGladiatorPrint);
+	RUN_TEST(testGladiatorPrint);
     RUN_TEST(testAddTrainer);
 	RUN_TEST(testAddGladiator);
 //	RUN_TEST(testFreeGladiator);
@@ -209,5 +210,7 @@ int main() {
 //	RUN_TEST(testGetTopGladiator);
 //	RUN_TEST(tetsGetAllGladiatorsByLevel);
 //	RUN_TEST(testUpdateLevels);
+	splayTests();
+
 	return 0;
 }

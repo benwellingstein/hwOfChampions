@@ -14,10 +14,7 @@ ostream& PointingGladiator::print(ostream& os) const {
 	return os;
 	
 }
-ostream& operator<<(ostream& os, const PointingGladiator& gladiator) {
-	gladiator.print(os);
-	return os;
-}
+
 
 
 //Sorts by id only

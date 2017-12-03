@@ -22,6 +22,12 @@ private:
 	Trainer* owner;
 };
 
+
+ostream& operator<<(ostream& os, const PointingGladiator& gladiator) {
+	gladiator.print(os);
+	return os;
+}
+
 #include <stdio.h>
 
 #endif /* PointingGladiator_hpp */

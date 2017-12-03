@@ -1205,7 +1205,8 @@ void testRemove() {
 
 
 
-int main() {
+int splayTests() {
+	cout << "--------SPLAY TESTS--------" << endl;
 	RUN_TEST(testSplayLeft);
 	RUN_TEST(testSplayRight);
 	RUN_TEST(testSplayLeftRight);

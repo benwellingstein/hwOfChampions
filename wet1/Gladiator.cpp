@@ -6,10 +6,6 @@ ostream& Gladiator::print(ostream& os) const {
 	
 }
 
-ostream& operator<<(ostream& os, const Gladiator& gladiator) {
-	gladiator.print(os);
-	return os;
-}
 
 //Sorts by level and then by id
 //			------Level----

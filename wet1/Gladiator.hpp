@@ -22,4 +22,10 @@ public:
 };
 
 
+ostream& operator<<(ostream& os, const Gladiator& gladiator) {
+	gladiator.print(os);
+	return os;
+}
+
+
 #endif /* Gladiator_hpp */
