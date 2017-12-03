@@ -92,7 +92,7 @@ x1
 		return p_node;
 	}
 	
-	splay* Insert(int key, splay* root)
+	splay* insertBTint key, splay* root)
 	{
 		static splay* p_node = NULL;
 		if (!p_node)
@@ -190,7 +190,7 @@ int main()
 	const int length = 10;
 	int i;
 	for(i = 0; i < length; i++)
-		root = st.Insert(vector[i], root);
+		root = st.insertBTvector[i], root);
 	cout<<"\nInOrder: \n";
 	st.InOrder(root);
 	int input, choice;
@@ -208,7 +208,7 @@ int main()
 			case 1:
 				cout<<"Enter value to be inserted: ";
 				cin>>input;
-				root = st.Insert(input, root);
+				root = st.insertBTinput, root);
 				cout<<"\nAfter Insert: "<<input<<endl;
 				st.InOrder(root);
 				break;

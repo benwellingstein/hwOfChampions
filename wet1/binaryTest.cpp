@@ -5,7 +5,7 @@
 #include "BinaryTree.hpp"
 
 
-void testBasicTreeInsert() {
+void testBasicTreeinsertBT) {
 	BinaryTree<int> tree;
 	tree.insert(2);
 	tree.insert(1);
@@ -52,8 +52,8 @@ void testFindAdvanced() {
 
 void testInsertAdvanced(){
 	BinaryTree<int> tree;
-	ASSERT_TRUE(tree.insert(2));
-	ASSERT_FALSE(tree.insert(2));
+	ASSERT_TRUE(tree.insertBT2));
+	ASSERT_FALSE(tree.insertBT2));
 	//	tree.inOrder();
 
 }
