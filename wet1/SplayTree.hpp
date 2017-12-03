@@ -23,7 +23,7 @@ private:
     struct Node;
     
 public:
-	SplayTree(): head(NULL) {}
+	SplayTree(Node* root = NULL): head(root) {}
 	
 	~SplayTree() {
 		inOrderRecDestroy(head);
@@ -50,7 +50,25 @@ public:
 			}
 		}
 	}
-	
+    
+    bool remove(const T& val) {
+        if(!exist(val)) return false;
+        splay(val);
+        
+        
+    }
+    
+    static Node* findMax(const Node* top) {
+        if(top == NULL) return NULL;
+        Node* current = top;
+        Node* next = current->rChild;
+        while(next != NULL) {
+            current = next;
+            next = current->rChild;
+        }
+        return current;
+    }
+    
 	Node* find(const T& val) {
 		if (!head)  return NULL;
         Node* current = head;
