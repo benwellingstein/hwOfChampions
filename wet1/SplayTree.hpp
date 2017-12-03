@@ -54,22 +54,40 @@ public:
     bool remove(const T& val) {
         if(!exist(val)) return false;
         splay(val);
-		Node* lMax = findMax(head->lChild);
-		SplayTree tempTree(head->lChild);
-		
-		tempTree.head->father = NULL;
-		tempTree.splay(*(lMax->data));
-		Node* oldHead = head;
-		head = tempTree.head;
-		head->rChild = oldHead->rChild;
-		delete oldHead;
-		head->father = NULL;
-		head->rChild->father = head;
-		tempTree.head = NULL;
+		if (!head->lChild && !head->rChild) {
+			head = NULL;
+			return true;
+		}
+		if (!head->lChild) {
+			Node* oldHead = head;
+			head = head->rChild;
+			head->father = NULL;
+			delete oldHead;
+		} else
+			if (!head->rChild) {
+				Node* oldHead = head;
+				head = head->lChild;
+				head->father = NULL;
+				delete oldHead;
+			} else {
+				Node* lMax = findMax(head->lChild);
+				SplayTree tempTree(head->lChild);
+				
+				tempTree.head->father = NULL;
+				tempTree.splay(*(lMax->data));
+				Node* oldHead = head;
+				head = tempTree.head;
+				head->rChild = oldHead->rChild;
+				head->father = NULL;
+				delete oldHead;
+				head->rChild->father = head;
+				tempTree.head = NULL;
+		}
 		return true;
-        
     }
-    
+	
+	
+	
 	static Node* findMax(Node* top) {
         if(top == NULL) return NULL;
         Node* current = top;

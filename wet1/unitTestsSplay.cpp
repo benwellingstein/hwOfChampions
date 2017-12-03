@@ -1196,7 +1196,7 @@ void testRemove() {
 	tree.remove(7);
 	std::stringstream out2;
 	tree.print(out2);
-	ASSERT_TRUE(out2.str() == " | | |");
+	ASSERT_TRUE(out2.str() == "|||");
 	
 }
 
