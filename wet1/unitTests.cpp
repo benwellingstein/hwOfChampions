@@ -130,6 +130,8 @@ void testUpgradeGladiator() {
 	ASSERT_EQUALS(col.UpgradeGladiator(666, 999), FAILURE);
 	ASSERT_EQUALS(col.UpgradeGladiator(1337, 321), SUCCESS);
 	ASSERT_EQUALS(col.UpgradeGladiator(1338, 321), FAILURE);
+	ASSERT_EQUALS(col.UpgradeGladiator(321, 321), FAILURE);
+
 }
 
 
@@ -207,7 +209,7 @@ int main() {
 	RUN_TEST(testAddGladiator);
 	RUN_TEST(testFreeGladiator);
 	RUN_TEST(testLevelUp);
-//	RUN_TEST(testUpgradeGladiator);
+	RUN_TEST(testUpgradeGladiator);
 	RUN_TEST(testGetTopGladiator);
 //	RUN_TEST(tetsGetAllGladiatorsByLevel);
 //	RUN_TEST(testUpdateLevels);

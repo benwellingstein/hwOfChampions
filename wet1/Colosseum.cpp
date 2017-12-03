@@ -132,7 +132,47 @@ StatusType Colosseum::LevelUp(int gladiatorID, int levelIncrease){
 }
 
 
+/* Description:   Upgrades a gladiator, updating his ID, while maintaining
+ *				  his level.
+ * Input:         gladiatorID - The original ID of the gladiator.
+ *                upgradedID - The new ID of the gladiator.
+ * Output:        None.
+ * Return Values: ALLOCATION_ERROR - In case of an allocation error.
+ *                INVALID_INPUT -If gladiatorID<=0, or if upgradedID<=0.
+ *                FAILURE - If gladiatorID isn't in the Colosseum, or
+ *				  upgradedID is in the Colosseum.
+ *                SUCCESS - Otherwise.
+ */
 StatusType Colosseum::UpgradeGladiator(int gladiatorID, int upgradedID){
+	if (gladiatorID <= 0 || upgradedID <= 0) return INVALID_INPUT;
+	if (!gladiatorIdTree.find(PointingGladiator(gladiatorID,100,NULL)) ||
+		gladiatorIdTree.find(PointingGladiator(upgradedID, 100, NULL)) ||
+		gladiatorID==upgradedID) return FAILURE;
+	
+	PointingGladiator* oldGladiator=  gladiatorIdTree.find(PointingGladiator
+											(gladiatorID,100,NULL));
+	Trainer* trainer = oldGladiator->owner;
+	int gladiatorLevel = oldGladiator->level;
+	
+	gladiatorIdTree.remove(PointingGladiator(gladiatorID,100,NULL));
+	gladiatorLevelTree.remove(Gladiator(gladiatorID,gladiatorLevel));
+	trainer->gladiators.remove(Gladiator(gladiatorID,gladiatorLevel));
+	
+	
+	Gladiator* gladiatorToAddToTrainer = new Gladiator(upgradedID,
+													   gladiatorLevel);
+	Gladiator* gladiatorToAddToLevelTree = new Gladiator(upgradedID,
+														 gladiatorLevel);
+	
+	PointingGladiator* gladiatorToAddToIDTree = new PointingGladiator
+										(upgradedID, gladiatorLevel, trainer);
+	
+	
+	trainer->gladiators.insert(gladiatorToAddToTrainer);
+	gladiatorIdTree.insert(gladiatorToAddToIDTree);
+	gladiatorLevelTree.insert(gladiatorToAddToLevelTree);
+	
+	
 	return SUCCESS;
 }
 
