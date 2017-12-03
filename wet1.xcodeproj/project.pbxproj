@@ -7,11 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B52E382E1FD2802700718A5B /* unitTests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B5FB3BBD1FCB5C22000E0F49 /* unitTests.cpp */; };
-		B52E382F1FD2803200718A5B /* Colosseum.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B5FB3BB61FCB44C7000E0F49 /* Colosseum.cpp */; };
-		B52E38311FD2808A00718A5B /* Gladiator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B5FB3BDA1FD1FDF4000E0F49 /* Gladiator.cpp */; };
-		B52E38331FD3CB5200718A5B /* TrainerList.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B52E38291FD1FF5400718A5B /* TrainerList.cpp */; };
-		B52E38361FD3CD9B00718A5B /* PointingGladiator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B52E38341FD3CD9B00718A5B /* PointingGladiator.cpp */; };
+		B52E38391FD3D65C00718A5B /* SplayTree.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B5FB3BC21FCDBE38000E0F49 /* SplayTree.cpp */; };
+		B52E383A1FD3D65C00718A5B /* unitTestsSplay.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B5FB3BC51FCDBE78000E0F49 /* unitTestsSplay.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -219,11 +216,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B52E38361FD3CD9B00718A5B /* PointingGladiator.cpp in Sources */,
-				B52E38331FD3CB5200718A5B /* TrainerList.cpp in Sources */,
-				B52E38311FD2808A00718A5B /* Gladiator.cpp in Sources */,
-				B52E382F1FD2803200718A5B /* Colosseum.cpp in Sources */,
-				B52E382E1FD2802700718A5B /* unitTests.cpp in Sources */,
+				B52E38391FD3D65C00718A5B /* SplayTree.cpp in Sources */,
+				B52E383A1FD3D65C00718A5B /* unitTestsSplay.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
