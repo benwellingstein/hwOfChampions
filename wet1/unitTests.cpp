@@ -1,7 +1,7 @@
 #include <assert.h>
 #include <iostream>
 #include "unitTests.h"
-
+#include "unitTestsSplay.cpp"
 #include "Colosseum.hpp"
 #include "Gladiator.hpp"
 #include "TrainerList.hpp"
@@ -196,6 +196,7 @@ void testUpdateLevels() {
 
 
 int main() {
+	
 	RUN_TEST(testGladiatorSorting);
 	RUN_TEST(testPointingGladiatorSorting);
 	RUN_TEST(testTrainersCreation);
@@ -209,5 +210,8 @@ int main() {
 //	RUN_TEST(testGetTopGladiator);
 //	RUN_TEST(tetsGetAllGladiatorsByLevel);
 //	RUN_TEST(testUpdateLevels);
+	
+	
+	splayTests();
 	return 0;
 }

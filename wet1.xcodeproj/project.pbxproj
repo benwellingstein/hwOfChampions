@@ -7,8 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B51890231FD3FF5800CC4B61 /* SplayTree.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B5FB3BC21FCDBE38000E0F49 /* SplayTree.cpp */; };
-		B51890241FD3FF5800CC4B61 /* unitTestsSplay.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B5FB3BC51FCDBE78000E0F49 /* unitTestsSplay.cpp */; };
+		B50F1AE11FD4302C00DF832C /* SplayTree.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B5FB3BC21FCDBE38000E0F49 /* SplayTree.cpp */; };
+		B50F1AE21FD4302C00DF832C /* unitTests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B5FB3BBD1FCB5C22000E0F49 /* unitTests.cpp */; };
+		B50F1AE31FD4302C00DF832C /* Colosseum.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B5FB3BB61FCB44C7000E0F49 /* Colosseum.cpp */; };
+		B50F1AE41FD4302C00DF832C /* TrainerList.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B52E38291FD1FF5400718A5B /* TrainerList.cpp */; };
+		B50F1AE51FD4302C00DF832C /* Gladiator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B5FB3BDA1FD1FDF4000E0F49 /* Gladiator.cpp */; };
+		B50F1AE61FD4302C00DF832C /* PointingGladiator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B52E38341FD3CD9B00718A5B /* PointingGladiator.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -216,8 +220,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B51890231FD3FF5800CC4B61 /* SplayTree.cpp in Sources */,
-				B51890241FD3FF5800CC4B61 /* unitTestsSplay.cpp in Sources */,
+				B50F1AE11FD4302C00DF832C /* SplayTree.cpp in Sources */,
+				B50F1AE21FD4302C00DF832C /* unitTests.cpp in Sources */,
+				B50F1AE31FD4302C00DF832C /* Colosseum.cpp in Sources */,
+				B50F1AE41FD4302C00DF832C /* TrainerList.cpp in Sources */,
+				B50F1AE51FD4302C00DF832C /* Gladiator.cpp in Sources */,
+				B50F1AE61FD4302C00DF832C /* PointingGladiator.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
