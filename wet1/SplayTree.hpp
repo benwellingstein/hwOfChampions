@@ -100,9 +100,17 @@ public:
 		if(exist(*val)) return false;
 		find(*val);
 		Node* newNode = new Node(val, NULL, head, head->rChild);
-		head->rChild = NULL;
-		head = newNode;
-		if (top && *(top->data) < *val) top = newNode;
+		if( *val < *(head->data) ) {
+			Node* oldHead = head;
+			head = newNode;
+			head->rChild = oldHead;
+			head->lChild = NULL;
+			oldHead->father = head;
+		} else {
+			head->rChild = NULL;
+			head = newNode;
+			if (top && *(top->data) < *val) top = newNode;
+		}
 		return true;
 	}
 	
@@ -232,8 +240,37 @@ public:
         }
     }
     
+	bool exportArr(int **gladiators, int *numOfGladiator) {
+		//count number of nodes
+		
+		*numOfGladiator = countNodes(head);
+		//make array of that length
+		*gladiators = (int*)malloc(sizeof(int)*(*numOfGladiator));
+		//fill it up
+		
+		recursiveFill(gladiators,head,0);
+		return true;
+	}
+	
+	static void recursiveFill(int **gladiators,Node* node,int i) {
+		if (node) {
+			recursiveFill(gladiators, node->lChild, i);
+			
+			recursiveFill(gladiators, node->lChild, i );
+
+		}
+	}
 
 	
+	static int countNodes(Node* node) {
+		int count = 0;
+		if (node) {
+			count ++;
+			count += countNodes(node->lChild);
+			count += countNodes(node->rChild);
+		}
+		return count;
+	}
 	
 	ostream& inOrder(ostream& os) const{
 		inOrderRecPrint(head,os);

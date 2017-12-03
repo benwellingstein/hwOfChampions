@@ -6,6 +6,8 @@
 //  Copyright © 2017 Ben. All rights reserved.
 //
 
+//TODO fix code if memory allocation does not work.
+
 #include "Colosseum.hpp"
 #include "Gladiator.hpp"
 using std::bad_alloc;
@@ -158,7 +160,7 @@ StatusType Colosseum::UpgradeGladiator(int gladiatorID, int upgradedID){
 	gladiatorLevelTree.remove(Gladiator(gladiatorID,gladiatorLevel));
 	trainer->gladiators.remove(Gladiator(gladiatorID,gladiatorLevel));
 	
-	
+	try {
 	Gladiator* gladiatorToAddToTrainer = new Gladiator(upgradedID,
 													   gladiatorLevel);
 	Gladiator* gladiatorToAddToLevelTree = new Gladiator(upgradedID,
@@ -167,11 +169,14 @@ StatusType Colosseum::UpgradeGladiator(int gladiatorID, int upgradedID){
 	PointingGladiator* gladiatorToAddToIDTree = new PointingGladiator
 										(upgradedID, gladiatorLevel, trainer);
 	
-	
-	trainer->gladiators.insert(gladiatorToAddToTrainer);
-	gladiatorIdTree.insert(gladiatorToAddToIDTree);
-	gladiatorLevelTree.insert(gladiatorToAddToLevelTree);
-	
+
+		trainer->gladiators.insert(gladiatorToAddToTrainer);
+		gladiatorIdTree.insert(gladiatorToAddToIDTree);
+		gladiatorLevelTree.insert(gladiatorToAddToLevelTree);
+	}
+	catch (const bad_alloc& e) {
+		return ALLOCATION_ERROR;
+	}
 	
 	return SUCCESS;
 }
@@ -201,13 +206,76 @@ StatusType Colosseum::GetTopGladiator(int trainerID, int *gladiatorID){
 	return SUCCESS;
 }
 
-
+/* Description:   Returns all the gladiators from trainerID sorted by their
+ *				  level.
+ *           	  If trainerID < 0, returns all the gladiators in the
+ *				  entire Colosseum sorted by their level.
+ * Input:		  trainerID - The trainer that we'd like to get the data
+ *				  for.
+ * Output:        gladiators - A pointer to a to an array that you should
+ *			      update with the gladiators' IDs sorted by their level,
+ *			      in case two gladiators have same level they should be
+ *				  sorted by their ID.
+ *                numOfGladiator - A pointer to a variable that should be
+ *				  updated to the number of gladiators.
+ * Return Values: ALLOCATION_ERROR - In case of an allocation error.
+ *                INVALID_INPUT - If any of the arguments is NULL or if
+ *				  trainerID == 0.
+ *                SUCCESS - Otherwise.
+ */
 StatusType Colosseum::GetAllGladiatorsByLevel(int trainerID, int **gladiators,
 								   int *numOfGladiator){
+	if (trainerID==0 || !gladiators || !numOfGladiator ) return INVALID_INPUT;
+	if (trainerID>0 && !trainers.exists(trainerID)) return FAILURE;
+	bool result;
+	if (trainerID<0) {
+		result = gladiatorLevelTree.exportArr(gladiators,  numOfGladiator);
+		if (!result) return ALLOCATION_ERROR;
+	} else {
+		result = trainers.findTrainer(trainerID)->gladiators.exportArr(gladiators, numOfGladiator);
+		if (!result) return ALLOCATION_ERROR;
+	}
+	
 	return SUCCESS;
 }
 
+/* Description:   Updates the level of the gladiators where
+ *				  gladiatorID % stimulantCode == 0.
+ * 			      For each matching gladiator, multiplies its level
+ *				  by stimulantFactor.
+ * Input:         stimulantCode - The basis that the stimulant works on
+ *          	  stimulantFactor - The multiply factor of the level
+ * Output:        None.
+ * Return Values: ALLOCATION_ERROR - In case of an allocation error.
+ *                INVALID_INPUT - If stimulantCode < 1 or
+ *				  if stimulantFactor <1
+ *                SUCCESS - Otherwise.
+ */
+//
+//template <class T>
+//class Stimulant {
+//public:
+//	Stimulant(int stimulantCode , int stimulantFactor) : stimulantCode(stimulantCode),
+//	stimulantFactor(stimulantFactor) {}
+//	
+//	bool operator(const T& val) {
+//		if ( val % stimulantCode == 0) {
+//			
+//		}
+//	}
+//private:
+//	int stimulantCode;
+//	int stimulantFactor;
+//};
 
-StatusType Colosseum	::UpdateLevels(int stimulantCode, int stimulantFactor){
+StatusType Colosseum::UpdateLevels(int stimulantCode, int stimulantFactor) {
+//	if (stimulantCode < 1 || stimulantFactor < 1) return INVALID_INPUT;
+//	try {
+//		PointingGladiator* currentGladiator = gladiatorIdTree.runFunction()
+//
+//	}
+//	catch (const bad_alloc& e) {
+//		return ALLOCATION_ERROR;
+//	}
 	return SUCCESS;
 }

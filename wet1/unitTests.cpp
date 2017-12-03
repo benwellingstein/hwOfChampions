@@ -176,8 +176,77 @@ void testGetTopGladiator() {
  *				  trainerID == 0.
  *                SUCCESS - Otherwise.
  */
-void tetsGetAllGladiatorsByLevel() {
-	ASSERT_EQUALS(1, 1);
+void testsGetAllGladiatorsByLevel() {
+	Colosseum col;
+	col.AddTrainer(1);
+//	col.BuyGladiator(1337, 1, 1);
+	col.AddTrainer(2);
+	col.BuyGladiator(1338, 2, 3);
+//	col.BuyGladiator(1339, 2, 2);
+//	col.BuyGladiator(1340, 2, 1);
+	col.BuyGladiator(1341, 2, 999);
+
+	col.BuyGladiator(1342, 2, 998);
+	col.AddTrainer(3);
+	col.BuyGladiator(665, 3, 99999);
+	col.AddTrainer(4);
+	
+	col.BuyGladiator(1343, 4, 13);
+//	col.BuyGladiator(8888, 4, 1300);
+//	col.BuyGladiator(1000, 4, 1300);
+//	col.BuyGladiator(1345, 4, 1300);
+//	col.BuyGladiator(2, 4, 80000);
+	
+	
+	
+	int num = -3;
+	int* size = &num;
+	int** arr = &size;
+
+	ASSERT_EQUALS(col.GetAllGladiatorsByLevel(0, arr, size), INVALID_INPUT);
+	ASSERT_EQUALS(col.GetAllGladiatorsByLevel(1, NULL, size), INVALID_INPUT);
+	ASSERT_EQUALS(col.GetAllGladiatorsByLevel(1, arr, NULL), INVALID_INPUT);
+
+	
+	ASSERT_EQUALS(col.GetAllGladiatorsByLevel(10, arr, size), FAILURE);
+
+	ASSERT_EQUALS(col.GetAllGladiatorsByLevel(-4, arr, size), SUCCESS);
+
+	ASSERT_EQUALS(*size,5);
+	ASSERT_EQUALS(*(*arr+0), 2);
+	ASSERT_EQUALS(*(*arr+1), 1000);
+	ASSERT_EQUALS(*(*arr+0), 1345);
+	ASSERT_EQUALS(*(*arr+0), 8888);
+	ASSERT_EQUALS(*(*arr+0), 1343);
+	
+	col.FreeGladiator(2);
+	col.FreeGladiator(1345);
+	
+	int num2 = -3;
+	num2--;
+	int* size2 = &num;
+	int** arr2 = &size;
+	ASSERT_EQUALS(col.GetAllGladiatorsByLevel(-2, arr2, size2), SUCCESS);
+	ASSERT_EQUALS(*size,12);
+	ASSERT_EQUALS(*(*arr+0), 655);
+
+
+	
+	
+	
+	int num3 = -3;
+	num3--;
+	int* size3 = &num;
+	int** arr3 = &size;
+	
+	
+	ASSERT_EQUALS(col.GetAllGladiatorsByLevel(4, arr3, size3), SUCCESS);
+	ASSERT_EQUALS(*size2,3);
+
+
+
+	
+
 }
 
 
@@ -194,12 +263,60 @@ void tetsGetAllGladiatorsByLevel() {
  *                SUCCESS - Otherwise.
  */
 void testUpdateLevels() {
-	ASSERT_EQUALS(1, 0);
+	Colosseum col;
+	col.AddTrainer(1);
+	col.BuyGladiator(1337, 1, 1);
+	col.AddTrainer(2);
+	col.BuyGladiator(1338, 2, 3);
+	col.BuyGladiator(1339, 2, 2);
+	col.BuyGladiator(1340, 2, 1);
+	col.BuyGladiator(1341, 2, 999);
+	col.BuyGladiator(1342, 2, 998);
+	col.AddTrainer(3);
+	col.BuyGladiator(665, 3, 99999);
+	col.AddTrainer(4);
+	col.BuyGladiator(1343, 4, 13);
+	col.BuyGladiator(1344, 4, 130);
+	col.BuyGladiator(1345, 4, 1300);
+	col.BuyGladiator(1346, 4, 80000);
+
+	int returnValue ;
+	ASSERT_TRUE(col.GetTopGladiator(-2,&returnValue)==SUCCESS);
+	ASSERT_TRUE(returnValue == 665);
+	ASSERT_TRUE(col.GetTopGladiator(1,&returnValue)==SUCCESS);
+	ASSERT_TRUE(returnValue == 1337);
+	ASSERT_TRUE(col.GetTopGladiator(2,&returnValue)==SUCCESS);
+	ASSERT_TRUE(returnValue == 1341);
+	ASSERT_TRUE(col.GetTopGladiator(3,&returnValue)==SUCCESS);
+	ASSERT_TRUE(returnValue == 665);
+	ASSERT_TRUE(col.GetTopGladiator(4,&returnValue)==SUCCESS);
+	ASSERT_TRUE(returnValue == 1346);
+
+	ASSERT_TRUE(col.UpdateLevels(0, 3) == INVALID_INPUT);
+	ASSERT_TRUE(col.UpdateLevels(-10, 3) == INVALID_INPUT);
+
+	ASSERT_TRUE(col.UpdateLevels(1, 0) == INVALID_INPUT);
+	ASSERT_TRUE(col.UpdateLevels(1, -13) == INVALID_INPUT);
+
+	ASSERT_TRUE(col.UpdateLevels(2, 3) == SUCCESS);
+	
+	ASSERT_TRUE(col.GetTopGladiator(-2,&returnValue)==SUCCESS);
+	ASSERT_TRUE(returnValue == 1346);
+	ASSERT_TRUE(col.GetTopGladiator(1,&returnValue)==SUCCESS);
+	ASSERT_TRUE(returnValue == 1337);
+	ASSERT_TRUE(col.GetTopGladiator(2,&returnValue)==SUCCESS);
+	ASSERT_TRUE(returnValue == 1342);
+	ASSERT_TRUE(col.GetTopGladiator(3,&returnValue)==SUCCESS);
+	ASSERT_TRUE(returnValue == 665);
+	ASSERT_TRUE(col.GetTopGladiator(4,&returnValue)==SUCCESS);
+	ASSERT_TRUE(returnValue == 1346);
+	
 }
 
 
 int main() {
-	
+	splayTests();
+
 	RUN_TEST(testGladiatorSorting);
 	RUN_TEST(testPointingGladiatorSorting);
 	RUN_TEST(testTrainersCreation);
@@ -211,10 +328,9 @@ int main() {
 	RUN_TEST(testLevelUp);
 	RUN_TEST(testUpgradeGladiator);
 	RUN_TEST(testGetTopGladiator);
-//	RUN_TEST(tetsGetAllGladiatorsByLevel);
-//	RUN_TEST(testUpdateLevels);
+	RUN_TEST(testsGetAllGladiatorsByLevel);
+	RUN_TEST(testUpdateLevels);
 	
 	
-	splayTests();
 	return 0;
 }

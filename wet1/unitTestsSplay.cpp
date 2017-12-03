@@ -1266,14 +1266,28 @@ void testTop() {
 	tree.insert(d1);
 	ASSERT_TRUE(*tree.getTop() == 16);
 
-
-
-	
-
-
-
 }
 
+void testInsertLowest() {
+	SplayTree<int> tree;
+
+	int* a = new int(1);
+	int* b = new int(2);
+	int* c = new int(3);
+	int* d = new int(4);
+	
+	tree.insertBT(b);
+	tree.insertBT(c);
+	tree.insertBT(d);
+
+	tree.insert(a);
+	
+	std::stringstream out1;
+	tree.print(out1);
+	ASSERT_TRUE(out1.str() == "1 2 3 4 |1 2 3 4 |4 3 2 1 |");
+	
+	
+}
 
 
 int splayTests() {
@@ -1299,6 +1313,7 @@ int splayTests() {
 	RUN_TEST(testShoeLace);
 	RUN_TEST(testRemove);
 	RUN_TEST(testTop);
+	RUN_TEST(testInsertLowest);
 	return 0;
 }
 
