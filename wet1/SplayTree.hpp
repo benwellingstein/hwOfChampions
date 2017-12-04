@@ -24,6 +24,8 @@ public:
 	
 	~SplayTree() {
 		inOrderRecDestroy(head);
+		head = NULL;
+		top = NULL;
 	}
 	
 	bool exist(const T& val) const {
@@ -356,7 +358,9 @@ public:
 		runFunction(arrOriginal, arrChanged, arrNotChanged, updateFunction);
 		mergeSortArrays(arrChanged, arrNotChanged, arrFinal);
 		inOrderRecDestroy(head);
-		buildTreeFromArrays(head, arrFinal);
+		head = NULL;
+		top = NULL;
+		buildTreeFromArray(head, arrFinal);
 	}
 	
 	
@@ -370,11 +374,11 @@ private:
 
 	static void getDataRec(T** arr, Node* node, int* i) {
 		if (node) {
-			recursiveFill(arr, node->lChild, i);
+			getDataRec(arr, node->lChild, i);
 			//cout << *i << endl;
 			arr[*i] = new T(*(node->data));
 			*i = *i + 1 ;
-			recursiveFill(arr, node->rChild, i);
+			getDataRec(arr, node->rChild, i);
 		}
 	}
 	
@@ -423,7 +427,7 @@ private:
 
 	
 	
-	void buildTreeFromArrays(Node* head, T** arrFinal) {
+	void buildTreeFromArray(Node* head, T** arrFinal) {
 		for (int i = 0; arrFinal[i]; ++i ) {
 			insert(arrFinal[i]);
 		}

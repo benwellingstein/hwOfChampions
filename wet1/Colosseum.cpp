@@ -302,7 +302,7 @@ StatusType Colosseum::UpdateLevels(int stimulantCode, int stimulantFactor) {
 		gladiatorLevelTree.update(func);
 		Trainer* trainer = trainers.findTrainer(-1);
 		trainer = trainer->next;
-		while (!trainer) {
+		while (trainer) {
 			trainer->gladiators.update(func);
 			trainer = trainer->next;
 		}
