@@ -200,6 +200,9 @@ void testsGetAllGladiatorsByLevel() {
 	int num = -3;
 	int* size = &num;
     int numberOfGladiators = col.getNumberOfGladiators(-4);
+	
+	
+	
     //TODO check if not NULL
 	int** arr = (int**)malloc(sizeof(int*)*numberOfGladiators);
 
@@ -212,6 +215,9 @@ void testsGetAllGladiatorsByLevel() {
 
 	ASSERT_EQUALS(col.GetAllGladiatorsByLevel(-4, arr, size), SUCCESS);
 
+	
+	
+	
 	ASSERT_EQUALS(*size,12);
     //cout << *arr[0] << endl;
     //cout << *arr[5] << endl;
@@ -230,6 +236,45 @@ void testsGetAllGladiatorsByLevel() {
 	
 	col.FreeGladiator(2);
 	col.FreeGladiator(1345);
+	
+	
+	Colosseum col2;
+	col2.AddTrainer(1);
+	col2.AddTrainer(2);
+	col2.AddTrainer(3);
+	col2.AddTrainer(4);
+	col2.BuyGladiator(1337, 1, 1);
+	col2.BuyGladiator(1338, 2, 3);
+	col2.BuyGladiator(1339, 2, 2);
+	col2.BuyGladiator(1340, 2, 1);
+	col2.BuyGladiator(1341, 2, 999);
+	col2.BuyGladiator(1342, 2, 998);
+	col2.BuyGladiator(665, 3, 99999);
+
+	int num2 = -3;
+	int* size2 = &num2;
+	numberOfGladiators = col.getNumberOfGladiators(2);
+	int** arr2 = (int**)malloc(sizeof(int*)*numberOfGladiators);
+	
+	ASSERT_EQUALS(col.GetAllGladiatorsByLevel(2, arr2, size2), SUCCESS);
+
+	ASSERT_EQUALS(*size2,5);
+
+	ASSERT_EQUALS(*arr2[0], 1340);
+	ASSERT_EQUALS(*arr2[1], 1339);
+	ASSERT_EQUALS(*arr2[2], 1338);
+	ASSERT_EQUALS(*arr2[3], 1342);
+	ASSERT_EQUALS(*arr2[4], 1341);
+
+	
+	
+	
+	//TODO check if not NULL
+	
+	
+	
+	
+	
 /*
 	int num2 = -3;
 	num2--;
@@ -335,7 +380,7 @@ int main() {
 	RUN_TEST(testUpgradeGladiator);
 	RUN_TEST(testGetTopGladiator);
 	RUN_TEST(testsGetAllGladiatorsByLevel);
-	//RUN_TEST(testUpdateLevels);
+	RUN_TEST(testUpdateLevels);
 	cout << endl;
 	splayTests();
 

@@ -13,6 +13,7 @@
 #include "Gladiator.hpp"
 #include "PointingGladiator.hpp"
 #include "SplayTree.hpp"
+#include "updateFunction.hpp"
 #include <stdio.h>
 
 class Colosseum {
@@ -132,8 +133,8 @@ public:
 
 private:
 	TrainerList trainers;
-	SplayTree<PointingGladiator> gladiatorIdTree;
-	SplayTree<Gladiator> gladiatorLevelTree;
+	SplayTree<PointingGladiator,UpdateFunction> gladiatorIdTree;
+	SplayTree<Gladiator,UpdateFunction> gladiatorLevelTree;
 };
 
 

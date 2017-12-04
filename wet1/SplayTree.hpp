@@ -13,7 +13,7 @@ using std::cout;
 using std::ostream;
 using std::endl;
 
-template <class T>
+template <class T, class UpdateFunction = std::unary_function<T,T>>
 class SplayTree {
     
 private:
@@ -256,7 +256,7 @@ public:
 	
 	
 	
-	void exportArr(T** arr, const int number) {
+	void exportArr(T** arr) {
 		int i = 0;
 		recursiveFill(arr, head, &i);
 	}
@@ -336,8 +336,105 @@ public:
 		return os;
 	}
 	
+	
+	
+	void update(UpdateFunction updateFunction) {
+		int arraySize = size();
+		T** arrOriginal = new T*[arraySize + 1]();
+		T** arrChanged = new T*[arraySize + 1]();
+		T** arrNotChanged = new T*[arraySize + 1]();
+		T** arrFinal = new T*[arraySize + 1]();
+
+		for (int i = 0; i < arraySize; i++) {
+			arrOriginal[i] = NULL;
+			arrChanged[i] = NULL;
+			arrNotChanged[i] = NULL;
+			arrFinal[i] = NULL;
+		}
+		
+		getData(arrOriginal);
+		runFunction(arrOriginal, arrChanged, arrNotChanged, updateFunction);
+		mergeSortArrays(arrChanged, arrNotChanged, arrFinal);
+		inOrderRecDestroy(head);
+		buildTreeFromArrays(head, arrFinal);
+	}
+	
+	
 
 private:
+	void getData(T** arrOriginal) {
+		int i=0;
+		getDataRec(arrOriginal, head, &i);
+	}
+
+
+	static void getDataRec(T** arr, Node* node, int* i) {
+		if (node) {
+			recursiveFill(arr, node->lChild, i);
+			//cout << *i << endl;
+			arr[*i] = new T(*(node->data));
+			*i = *i + 1 ;
+			recursiveFill(arr, node->rChild, i);
+		}
+	}
+	
+	
+	//splits original into two arrays
+	void runFunction(T** arrOriginal, T** arrChanged,T**  arrNotChanged,
+					 UpdateFunction updateFunction) {
+		int i = 0;
+		int j = 0;
+		for (int k = 0; arrOriginal[k] != NULL; ++k) {
+			if (updateFunction(*arrOriginal[k]))  {
+				arrChanged[i] = arrOriginal[k];
+				i++;
+			} else {
+				arrNotChanged[j] = arrOriginal[k];
+				j++;
+			}
+		}
+	}
+	
+	void mergeSortArrays(T** arrChanged, T** arrNotChanged, T** arrFinal) {
+		int i = 0;
+		int j = 0;
+		int k = 0;
+		while (arrChanged[i] && arrNotChanged[j]) {
+			if (*arrChanged[i]< * arrNotChanged[j]) {
+				arrFinal[k] = arrChanged[i];
+				i++;
+			} else {
+				arrFinal[k] = arrNotChanged[j];
+				j++;
+			}
+			k++;
+		}
+		while (arrChanged[i]) {
+			arrFinal[k] = arrChanged[i];
+			i++;
+			k++;
+		}
+		while (arrNotChanged[j]) {
+			arrFinal[k] = arrNotChanged[j];
+			j++;
+			k++;
+		}
+	}
+
+	
+	
+	void buildTreeFromArrays(Node* head, T** arrFinal) {
+		for (int i = 0; arrFinal[i]; ++i ) {
+			insert(arrFinal[i]);
+		}
+	}
+
+	
+	
+	
+	
+
+	
 	enum Order { LL, LR, RL, RR} ;
 	
 	struct Node {

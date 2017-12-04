@@ -12,6 +12,19 @@
 #include "Gladiator.hpp"
 using std::bad_alloc;
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* Description:   Adds a new trainer.
  * Input:         trainerID - The ID of the trainer to add.
  * Output:        None.
@@ -211,19 +224,29 @@ StatusType Colosseum::GetAllGladiatorsByLevel(int trainerID, int **gladiators,
 								   int *numOfGladiator){
 	if (trainerID==0 || !gladiators || !numOfGladiator ) return INVALID_INPUT;
 	if (trainerID>0 && !trainers.exists(trainerID)) return FAILURE;
-
-    *numOfGladiator = gladiatorLevelTree.size();
-
-    int arrSize = *numOfGladiator;
-
-	Gladiator** gladiatorList = (Gladiator**)malloc(sizeof(Gladiator*)*arrSize);
-    gladiatorLevelTree.exportArr(gladiatorList, *numOfGladiator);
-
-	//*gladiators = (int*)malloc(sizeof(int)*(arrSize));
-	//if (!*gladiators) return ALLOCATION_ERROR;
+	int arrSize;
+	Gladiator** gladiatorList;
+	if (trainerID < 0) {
 	
+	
+		*numOfGladiator = gladiatorLevelTree.size();
+
+		arrSize = *numOfGladiator;
+
+		gladiatorList = (Gladiator**)malloc(sizeof(Gladiator*)*arrSize);
+		if (!gladiatorList) return ALLOCATION_ERROR;
+		gladiatorLevelTree.exportArr(gladiatorList);
+
+	} else {
+		Trainer* trainer = trainers.findTrainer(trainerID);
+		*numOfGladiator = trainer->gladiators.size();
+		arrSize = *numOfGladiator;
+		gladiatorList = (Gladiator**)malloc(sizeof(Gladiator*)*arrSize);
+		if (!gladiatorList) return ALLOCATION_ERROR;
+		trainer->gladiators.exportArr(gladiatorList);
+	}
+
 	for (int i = 0; i < arrSize; ++i) {
-        //cout << gladiatorList[i]->id << endl;
 		gladiators[i] = &gladiatorList[i]->id;
 	}
 	
@@ -238,18 +261,7 @@ int Colosseum::getNumberOfGladiators(int trainerID) {
 }
 
 
-/* Description:   Updates the level of the gladiators where
- *				  gladiatorID % stimulantCode == 0.
- * 			      For each matching gladiator, multiplies its level
- *				  by stimulantFactor.
- * Input:         stimulantCode - The basis that the stimulant works on
- *          	  stimulantFactor - The multiply factor of the level
- * Output:        None.
- * Return Values: ALLOCATION_ERROR - In case of an allocation error.
- *                INVALID_INPUT - If stimulantCode < 1 or
- *				  if stimulantFactor <1
- *                SUCCESS - Otherwise.
- */
+
 //
 //template <class T>
 //class Stimulant {
@@ -267,14 +279,43 @@ int Colosseum::getNumberOfGladiators(int trainerID) {
 //	int stimulantFactor;
 //};
 
+
+
+
+/* Description:   Updates the level of the gladiators where
+ *				  gladiatorID % stimulantCode == 0.
+ * 			      For each matching gladiator, multiplies its level
+ *				  by stimulantFactor.
+ * Input:         stimulantCode - The basis that the stimulant works on
+ *          	  stimulantFactor - The multiply factor of the level
+ * Output:        None.
+ * Return Values: ALLOCATION_ERROR - In case of an allocation error.
+ *                INVALID_INPUT - If stimulantCode < 1 or
+ *				  if stimulantFactor <1
+ *                SUCCESS - Otherwise.
+ */
 StatusType Colosseum::UpdateLevels(int stimulantCode, int stimulantFactor) {
 	if (stimulantCode < 1 || stimulantFactor < 1) return INVALID_INPUT;
-//	try {
-//		PointingGladiator* currentGladiator = gladiatorIdTree.runFunction()
-//
-//	}
-//	catch (const bad_alloc& e) {
-//		return ALLOCATION_ERROR;
-//	}
+	
+	UpdateFunction func = UpdateFunction(stimulantCode,stimulantFactor);
+	try {
+		gladiatorLevelTree.update(func);
+		Trainer* trainer = trainers.findTrainer(-1);
+		trainer = trainer->next;
+		while (!trainer) {
+			trainer->gladiators.update(func);
+			trainer = trainer->next;
+		}
+		//TODO update tree problem
+
+	}
+	catch (const bad_alloc& e) {
+		return ALLOCATION_ERROR;
+	}
 	return SUCCESS;
 }
+
+
+
+
+

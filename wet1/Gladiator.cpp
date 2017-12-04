@@ -47,6 +47,7 @@ Gladiator& Gladiator::operator=(const Gladiator& other){
 }
 
 
+Gladiator::Gladiator(const Gladiator& other) : id(other.id), level(other.level) {}
 
 
 

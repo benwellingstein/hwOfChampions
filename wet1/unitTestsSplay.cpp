@@ -3,10 +3,10 @@
 #include "unitTests.h"
 
 #include "SplayTree.hpp"
-
+#include "updateFunction.hpp"
 
 void testSplayLeft() {
-	SplayTree<int> tree;
+	SplayTree<int,UpdateFunction> tree;
 	int* a = new int(1);
 	int* b = new int(2);
 	int* c = new int(3);
@@ -43,7 +43,7 @@ void testSplayLeft() {
 }
 
 void testSplayRight() {
-	SplayTree<int> tree;
+	SplayTree<int,UpdateFunction> tree;
 	int* a = new int(1);
 	int* b = new int(2);
 	int* c = new int(3);
@@ -80,7 +80,7 @@ void testSplayRight() {
 
 
 void testSplayLeftRight() {
-	SplayTree<int> tree;
+	SplayTree<int,UpdateFunction> tree;
 	int* a = new int(1);
 	int* b = new int(2);
 	int* c = new int(3);
@@ -109,7 +109,7 @@ void testSplayLeftRight() {
 }
 
 void testSplayRightLeft() {
-	SplayTree<int> tree;
+	SplayTree<int,UpdateFunction> tree;
 	int* a = new int(10);
 	int* b = new int(5);
 	int* c = new int(20);
@@ -136,7 +136,7 @@ void testSplayRightLeft() {
 }
 
 void testAdvancedSplayLeftLeft() {
-	SplayTree<int> tree;
+	SplayTree<int,UpdateFunction> tree;
 	int* a = new int(1);
 	int* b = new int(2);
 	int* c = new int(3);
@@ -173,7 +173,7 @@ void testAdvancedSplayLeftLeft() {
 }
 
 void testSplayRightRight() {
-    SplayTree<int> tree;
+	SplayTree<int,UpdateFunction> tree;
     int* a = new int(1);
     int* b = new int(2);
     int* c = new int(3);
@@ -203,7 +203,7 @@ void testSplayRightRight() {
 
 
 void testAdvancedSplay1() {
-    SplayTree<int> tree;
+	SplayTree<int,UpdateFunction> tree;
     int* a = new int(20);
     int* b1 = new int(10);
     int* b2 = new int(30);
@@ -280,7 +280,7 @@ void testAdvancedSplay1() {
 }
 
 void testAdvancedSplay2() {
-    SplayTree<int> tree;
+	SplayTree<int,UpdateFunction> tree;
     int* a = new int(20);
     int* b1 = new int(10);
     int* b2 = new int(30);
@@ -358,7 +358,7 @@ void testAdvancedSplay2() {
 }
 
 void testAdvancedSplay3() {
-    SplayTree<int> tree;
+	SplayTree<int,UpdateFunction> tree;
     int* a = new int(20);
     int* b1 = new int(10);
     int* b2 = new int(30);
@@ -436,7 +436,7 @@ void testAdvancedSplay3() {
 }
 
 void testFindMax() {
-    SplayTree<int> tree;
+	SplayTree<int,UpdateFunction> tree;
     int* a = new int(20);
     int* b1 = new int(10);
     int* b2 = new int(30);
@@ -511,7 +511,7 @@ void testFindMax() {
 }
 
 void testAdvancedSplay6() {
-    SplayTree<int> tree;
+	SplayTree<int,UpdateFunction> tree;
     int* a = new int(20);
     int* b1 = new int(10);
     int* b2 = new int(30);
@@ -589,7 +589,7 @@ void testAdvancedSplay6() {
 }
 
 void testAdvancedSplay7() {
-    SplayTree<int> tree;
+	SplayTree<int,UpdateFunction> tree;
     int* a = new int(20);
     int* b1 = new int(10);
     int* b2 = new int(30);
@@ -667,7 +667,7 @@ void testAdvancedSplay7() {
 }
 
 void testAdvancedSplay8() {
-    SplayTree<int> tree;
+	SplayTree<int,UpdateFunction> tree;
     int* a = new int(20);
     int* b1 = new int(10);
     int* b2 = new int(30);
@@ -750,7 +750,7 @@ void testBasicTreeinsertBT() {
     int* b = new int(2);
     int* c = new int(3);
     
-    SplayTree<int> tree;
+	SplayTree<int,UpdateFunction> tree;
     tree.insertBT(b);
     tree.insertBT(a);
     tree.insertBT(c);
@@ -758,7 +758,7 @@ void testBasicTreeinsertBT() {
 }
 
 void testInsertBTAdvanced(){
-    SplayTree<int> tree;
+	SplayTree<int,UpdateFunction> tree;
     int* a = new int(1);
     ASSERT_TRUE(tree.insertBT(a));
     ASSERT_FALSE(tree.insertBT(a));
@@ -768,7 +768,7 @@ void testInsertBTAdvanced(){
 
 
 void testFind1() {
-    SplayTree<int> tree;
+	SplayTree<int,UpdateFunction> tree;
     int* a = new int(20);
     int* b1 = new int(10);
     int* b2 = new int(30);
@@ -845,7 +845,7 @@ void testFind1() {
 }
 
 void testFind4() {
-    SplayTree<int> tree;
+	SplayTree<int,UpdateFunction> tree;
     int* a = new int(20);
     int* b1 = new int(10);
     int* b2 = new int(30);
@@ -922,7 +922,7 @@ void testFind4() {
 }
 
 void testInsert4() {
-    SplayTree<int> tree;
+	SplayTree<int,UpdateFunction> tree;
     //int* a = new int(20);
     int* b1 = new int(10);
     //int* b2 = new int(30);
@@ -1007,8 +1007,8 @@ void testInsert4() {
 
 
 void testFindAdvanced() {
-    SplayTree<int> tree;
-    
+	SplayTree<int,UpdateFunction> tree;
+
     int* a = new int(35);
     int* b = new int(9);
     int* c = new int(2);
@@ -1048,7 +1048,7 @@ void testFindAdvanced() {
 
 
 void testShoeLace(){
-	SplayTree<int> tree;
+	SplayTree<int,UpdateFunction> tree;
 	int* _1 = new int(1);
 	int* _2 = new int(2);
 	int* _3 = new int(3);
@@ -1108,7 +1108,7 @@ void testShoeLace(){
 
 
 void testRemove() {
-	SplayTree<int> tree;
+	SplayTree<int,UpdateFunction> tree;
 	//int* a = new int(20);
 	int* b1 = new int(10);
 	//int* b2 = new int(30);
@@ -1202,7 +1202,7 @@ void testRemove() {
 
 
 void testTop() {
-	SplayTree<int> tree;
+	SplayTree<int,UpdateFunction> tree;
 	int* c1 = new int(5);
 	int* d1 = new int(2);
 	int* e01 = new int(1);
@@ -1253,7 +1253,7 @@ void testTop() {
 }
 
 void testInsertLowest() {
-	SplayTree<int> tree;
+	SplayTree<int,UpdateFunction> tree;
 
 	int* a = new int(1);
 	int* b = new int(2);
@@ -1274,8 +1274,8 @@ void testInsertLowest() {
 }
 
 void testLeftInsert() {
-	SplayTree<int> tree;
-	
+	SplayTree<int,UpdateFunction> tree;
+
 	int* one = new int(1);
 	int* two = new int(2);
 	int* three = new int(3);
