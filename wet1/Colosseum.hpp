@@ -112,6 +112,9 @@ public:
 	StatusType GetAllGladiatorsByLevel(int trainerID, int **gladiators,
 									   int *numOfGladiator);
 	
+    
+    int getNumberOfGladiators(int trainerID);
+    
 	/* Description:   Updates the level of the gladiators where
 	 *				  gladiatorID % stimulantCode == 0.
 	 * 			      For each matching gladiator, multiplies its level

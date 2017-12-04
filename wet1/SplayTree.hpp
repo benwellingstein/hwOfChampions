@@ -256,25 +256,36 @@ public:
 	
 	
 	
-	void exportArr(T arr[]) {
+	void exportArr(T** arr, const int number) {
 		int i = 0;
 		recursiveFill(arr, head, &i);
 	}
+    
+    static void recursiveFill(T** arr, Node* node, int* i) {
+        if (node) {
+            recursiveFill(arr, node->lChild, i);
+            //cout << *i << endl;
+            arr[*i] = node->data;
+            *i = *i + 1 ;
+            recursiveFill(arr, node->rChild, i);
+        }
+    }
 	
 	int size() {
 		return countNodes(head);
 	}
-	
-	static void recursiveFill(T arr[], Node* node, int* i) {
-		if (node) {
-			recursiveFill(arr, node->lChild, i);
-			cout << *i << endl;
-//			arr[1]= NULL;
-//			arr[*i] = node->data;
-			*i = *i + 1 ;
-			recursiveFill(arr, node->rChild, i);
-		}
-	}
+    
+    static int countNodes(Node* node) {
+        int count = 0;
+        if (node) {
+            count ++;
+            count += countNodes(node->lChild);
+            count += countNodes(node->rChild);
+        }
+        return count;
+    }
+    
+
 	
 //	static int recursiveFill(int **gladiators,Node* node) {
 //		if (node) {
@@ -298,15 +309,7 @@ public:
 //	}
 	
 	
-	static int countNodes(Node* node) {
-		int count = 0;
-		if (node) {
-			count ++;
-			count += countNodes(node->lChild);
-			count += countNodes(node->rChild);
-		}
-		return count;
-	}
+
 	
 	ostream& inOrder(ostream& os) const{
 		inOrderRecPrint(head,os);

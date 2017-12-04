@@ -211,43 +211,31 @@ StatusType Colosseum::GetAllGladiatorsByLevel(int trainerID, int **gladiators,
 								   int *numOfGladiator){
 	if (trainerID==0 || !gladiators || !numOfGladiator ) return INVALID_INPUT;
 	if (trainerID>0 && !trainers.exists(trainerID)) return FAILURE;
-	
-	Gladiator* gladiatorList = NULL;
-	int arrSize = -1;
-	if (trainerID<0) {
-		
-		//get number of gladiators
-		*numOfGladiator = gladiatorLevelTree.size();
-		arrSize = *numOfGladiator;
-		gladiatorList = new Gladiator[arrSize];
-		
-		//make new array of Gladiators
-		//result =
-		gladiatorLevelTree.exportArr(gladiatorList);
-	//	if (!result) return ALLOCATION_ERROR;
-	//} else {
-	//	Trainer* trainer = trainers.findTrainer(trainerID);
-//		result = trainer ->gladiators.exportArr(gladiators, numOfGladiator);
-	//	if (!result) return ALLOCATION_ERROR;
-	}
-	
-	//turn gladiator array into output array;
-	
-	*gladiators = (int*)malloc(sizeof(int)*(arrSize));
-	if (!*gladiators) return ALLOCATION_ERROR;
+
+    *numOfGladiator = gladiatorLevelTree.size();
+
+    int arrSize = *numOfGladiator;
+
+	Gladiator** gladiatorList = (Gladiator**)malloc(sizeof(Gladiator*)*arrSize);
+    gladiatorLevelTree.exportArr(gladiatorList, *numOfGladiator);
+
+	//*gladiators = (int*)malloc(sizeof(int)*(arrSize));
+	//if (!*gladiators) return ALLOCATION_ERROR;
 	
 	for (int i = 0; i < arrSize; ++i) {
-		*gladiators[i] = gladiatorList[i].id;
+        //cout << gladiatorList[i]->id << endl;
+		gladiators[i] = &gladiatorList[i]->id;
 	}
 	
-//		cout << gladiatorList[0].id << endl;
-//		cout << gladiatorList[1].id << endl;
-//		cout << gladiatorList[2].id << endl;
-//		cout << gladiatorList[3].id << endl;
 	return SUCCESS;
 }
 
-
+int Colosseum::getNumberOfGladiators(int trainerID) {
+    if(trainerID == 0) return -1;
+    if(trainerID < 0) return gladiatorLevelTree.size();
+    Trainer* trainer = trainers.findTrainer(trainerID);
+    return trainer->gladiators.size();
+}
 
 
 /* Description:   Updates the level of the gladiators where
@@ -280,7 +268,7 @@ StatusType Colosseum::GetAllGladiatorsByLevel(int trainerID, int **gladiators,
 //};
 
 StatusType Colosseum::UpdateLevels(int stimulantCode, int stimulantFactor) {
-//	if (stimulantCode < 1 || stimulantFactor < 1) return INVALID_INPUT;
+	if (stimulantCode < 1 || stimulantFactor < 1) return INVALID_INPUT;
 //	try {
 //		PointingGladiator* currentGladiator = gladiatorIdTree.runFunction()
 //
