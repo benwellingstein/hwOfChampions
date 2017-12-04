@@ -13,7 +13,6 @@
 		B53A41261FD4A9D20059CB2A /* Gladiator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B5FB3BDA1FD1FDF4000E0F49 /* Gladiator.cpp */; };
 		B53A41271FD4A9D20059CB2A /* PointingGladiator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B52E38341FD3CD9B00718A5B /* PointingGladiator.cpp */; };
 		B53A412A1FD4AADB0059CB2A /* unitTests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B5FB3BBD1FCB5C22000E0F49 /* unitTests.cpp */; };
-		B53A412D1FD594C90059CB2A /* updateFunction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B53A412B1FD594C90059CB2A /* updateFunction.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -33,8 +32,6 @@
 		B52E382A1FD1FF5400718A5B /* TrainerList.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = TrainerList.hpp; sourceTree = "<group>"; };
 		B52E38341FD3CD9B00718A5B /* PointingGladiator.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = PointingGladiator.cpp; sourceTree = "<group>"; };
 		B52E38351FD3CD9B00718A5B /* PointingGladiator.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = PointingGladiator.hpp; sourceTree = "<group>"; };
-		B53A412B1FD594C90059CB2A /* updateFunction.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = updateFunction.cpp; sourceTree = "<group>"; };
-		B53A412C1FD594C90059CB2A /* updateFunction.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = updateFunction.hpp; sourceTree = "<group>"; };
 		B5FB3BA91FCB4117000E0F49 /* wet1 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = wet1; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5FB3BAC1FCB4117000E0F49 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		B5FB3BB31FCB4280000E0F49 /* library1.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = library1.h; sourceTree = "<group>"; };
@@ -69,8 +66,6 @@
 		B52E38371FD3D22600718A5B /* Gladiators */ = {
 			isa = PBXGroup;
 			children = (
-				B53A412B1FD594C90059CB2A /* updateFunction.cpp */,
-				B53A412C1FD594C90059CB2A /* updateFunction.hpp */,
 				B5FB3BDA1FD1FDF4000E0F49 /* Gladiator.cpp */,
 				B5FB3BDB1FD1FDF4000E0F49 /* Gladiator.hpp */,
 				B52E38341FD3CD9B00718A5B /* PointingGladiator.cpp */,
@@ -231,7 +226,6 @@
 				B53A41251FD4A9D20059CB2A /* TrainerList.cpp in Sources */,
 				B53A41261FD4A9D20059CB2A /* Gladiator.cpp in Sources */,
 				B53A41271FD4A9D20059CB2A /* PointingGladiator.cpp in Sources */,
-				B53A412D1FD594C90059CB2A /* updateFunction.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

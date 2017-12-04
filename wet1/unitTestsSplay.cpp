@@ -3,7 +3,7 @@
 #include "unitTests.h"
 
 #include "SplayTree.hpp"
-#include "updateFunction.hpp"
+#include "Gladiator.hpp"
 
 void testSplayLeft() {
 	SplayTree<int,UpdateFunction> tree;

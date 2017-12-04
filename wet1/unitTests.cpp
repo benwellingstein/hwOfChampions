@@ -371,8 +371,6 @@ int main() {
 	RUN_TEST(testGladiatorSorting);
 	RUN_TEST(testPointingGladiatorSorting);
 	RUN_TEST(testTrainersCreation);
-
-//	RUN_TEST(testGladiatorPrint);
     RUN_TEST(testAddTrainer);
 	RUN_TEST(testAddGladiator);
 	RUN_TEST(testFreeGladiator);
@@ -381,7 +379,6 @@ int main() {
 	RUN_TEST(testGetTopGladiator);
 	RUN_TEST(testsGetAllGladiatorsByLevel);
 	RUN_TEST(testUpdateLevels);
-	cout << endl;
 	splayTests();
 
 	

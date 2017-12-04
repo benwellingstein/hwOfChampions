@@ -24,5 +24,18 @@ public:
 	int level;
 };
 
+class UpdateFunction {
+public:
+	UpdateFunction(int code, int factor ) : code(code), factor(factor) {}
+	bool operator()(Gladiator& gladiator) {
+		if (gladiator.id % code != 0) return false;
+		gladiator.level *= factor;
+		return true;
+	}
+private:
+	int code;
+	int factor;
+};
+
 
 #endif /* Gladiator_hpp */

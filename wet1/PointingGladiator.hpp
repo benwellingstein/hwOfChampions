@@ -9,6 +9,10 @@
 #ifndef PointingGladiator_hpp
 #define PointingGladiator_hpp
 
+
+
+
+
 struct PointingGladiator {
 public:
 	PointingGladiator(int id, int level, Trainer* owner) : id(id), level(level), owner(owner) {}
@@ -23,4 +27,22 @@ public:
 
 #include <stdio.h>
 
+
+class UpdateFunctionPointing {
+public:
+	UpdateFunctionPointing(int code, int factor): code(code), factor(factor) {}
+	bool operator()(PointingGladiator& glad) {
+		if (glad.id % code != 0) return false;
+		glad.level *= factor;
+		return true;
+	}
+private:
+	int code;
+	int factor;
+};
+
+
+
+
 #endif /* PointingGladiator_hpp */
+

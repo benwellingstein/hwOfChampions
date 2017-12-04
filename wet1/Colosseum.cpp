@@ -306,8 +306,8 @@ StatusType Colosseum::UpdateLevels(int stimulantCode, int stimulantFactor) {
 			trainer->gladiators.update(func);
 			trainer = trainer->next;
 		}
-		//TODO update tree problem
-
+		UpdateFunctionPointing funcPointing = UpdateFunctionPointing(stimulantCode,stimulantFactor);
+		gladiatorIdTree.update(funcPointing);
 	}
 	catch (const bad_alloc& e) {
 		return ALLOCATION_ERROR;

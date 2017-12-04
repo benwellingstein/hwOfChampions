@@ -8,7 +8,6 @@
 #include <stdio.h>
 #include "SplayTree.hpp"
 #include "Gladiator.hpp"
-#include "updateFunction.hpp"
 
 struct Trainer {
 	Trainer(int id): id(id), gladiators(), next(NULL) {}
