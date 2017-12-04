@@ -199,15 +199,19 @@ void testsGetAllGladiatorsByLevel() {
 	
 	int num = -3;
 	int* size = &num;
-    int numberOfGladiators = col.getNumberOfGladiators(-4);
 	
+	int bla = -1337;
+	int* blap = &bla;
+	int** arr = &(blap);
+//    int numberOfGladiators = col.getNumberOfGladiators(-4);
+	int** nullArr = NULL;
 	
 	
     //TODO check if not NULL
-	int** arr = (int**)malloc(sizeof(int*)*numberOfGladiators);
+//	int** arr = (int**)malloc(sizeof(int*)*numberOfGladiators);
 
 	ASSERT_EQUALS(col.GetAllGladiatorsByLevel(0, arr, size), INVALID_INPUT);
-	ASSERT_EQUALS(col.GetAllGladiatorsByLevel(1, NULL, size), INVALID_INPUT);
+	ASSERT_EQUALS(col.GetAllGladiatorsByLevel(1, nullArr, size), INVALID_INPUT);
 	ASSERT_EQUALS(col.GetAllGladiatorsByLevel(1, arr, NULL), INVALID_INPUT);
 
 	
@@ -217,22 +221,21 @@ void testsGetAllGladiatorsByLevel() {
 
 	
 	
-	
 	ASSERT_EQUALS(*size,12);
     //cout << *arr[0] << endl;
     //cout << *arr[5] << endl;
 	ASSERT_EQUALS(*arr[0], 1340);
-	ASSERT_EQUALS(*arr[1], 1337);
-    ASSERT_EQUALS(*arr[2], 1339);
-    ASSERT_EQUALS(*arr[3], 1338);
-    ASSERT_EQUALS(*arr[4], 1343);
-    ASSERT_EQUALS(*arr[5], 1342);
-    ASSERT_EQUALS(*arr[6], 1341);
-    ASSERT_EQUALS(*arr[7], 8888);
-    ASSERT_EQUALS(*arr[8], 1345);
-    ASSERT_EQUALS(*arr[9], 1000);
-    ASSERT_EQUALS(*arr[10], 2);
-    ASSERT_EQUALS(*arr[11], 665);
+	ASSERT_EQUALS((*arr)[1], 1337);
+    ASSERT_EQUALS((*arr)[2], 1339);
+    ASSERT_EQUALS((*arr)[3], 1338);
+    ASSERT_EQUALS((*arr)[4], 1343);
+    ASSERT_EQUALS((*arr)[5], 1342);
+    ASSERT_EQUALS((*arr)[6], 1341);
+    ASSERT_EQUALS((*arr)[7], 8888);
+    ASSERT_EQUALS((*arr)[8], 1345);
+    ASSERT_EQUALS((*arr)[9], 1000);
+    ASSERT_EQUALS((*arr)[10], 2);
+    ASSERT_EQUALS((*arr)[11], 665);
 	
 	col.FreeGladiator(2);
 	col.FreeGladiator(1345);
@@ -251,20 +254,20 @@ void testsGetAllGladiatorsByLevel() {
 	col2.BuyGladiator(1342, 2, 998);
 	col2.BuyGladiator(665, 3, 99999);
 
+	int bla2 = -1337;
+	int* blap2 = &bla2;
+	int** arr2 = &(blap2);
 	int num2 = -3;
 	int* size2 = &num2;
-	numberOfGladiators = col.getNumberOfGladiators(2);
-	int** arr2 = (int**)malloc(sizeof(int*)*numberOfGladiators);
-	
 	ASSERT_EQUALS(col.GetAllGladiatorsByLevel(2, arr2, size2), SUCCESS);
 
 	ASSERT_EQUALS(*size2,5);
 
-	ASSERT_EQUALS(*arr2[0], 1340);
-	ASSERT_EQUALS(*arr2[1], 1339);
-	ASSERT_EQUALS(*arr2[2], 1338);
-	ASSERT_EQUALS(*arr2[3], 1342);
-	ASSERT_EQUALS(*arr2[4], 1341);
+	ASSERT_EQUALS((*arr2)[0], 1340);
+	ASSERT_EQUALS((*arr2)[1], 1339);
+	ASSERT_EQUALS((*arr2)[2], 1338);
+	ASSERT_EQUALS((*arr2)[3], 1342);
+	ASSERT_EQUALS((*arr2)[4], 1341);
 
 	
 	

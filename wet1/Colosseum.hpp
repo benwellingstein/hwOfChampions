@@ -109,12 +109,10 @@ public:
 	 *				  trainerID == 0.
 	 *                SUCCESS - Otherwise.
 	 */
-	StatusType GetAllGladiatorsByLevel(int trainerID, int **gladiators,
+	StatusType GetAllGladiatorsByLevel(int trainerID, int** gladiators,
 									   int *numOfGladiator);
 	
-    
-    int getNumberOfGladiators(int trainerID);
-    
+
 	/* Description:   Updates the level of the gladiators where
 	 *				  gladiatorID % stimulantCode == 0.
 	 * 			      For each matching gladiator, multiplies its level
@@ -130,6 +128,9 @@ public:
 	StatusType UpdateLevels(int stimulantCode, int stimulantFactor);
 	
 
+	int getNumberOfGladiators(int trainerID);
+	void exportByTrainerId(int trainerID, Gladiator** gladiatorList);
+	
 private:
 	TrainerList trainers;
 	SplayTree<PointingGladiator,UpdateFunctionPointing> gladiatorIdTree;

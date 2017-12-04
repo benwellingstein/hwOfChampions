@@ -13,7 +13,7 @@ using std::cout;
 using std::ostream;
 using std::endl;
 
-template <class T, class UpdateFunction = std::unary_function<T,T>>
+template <class T, class UpdateFunction>
 class SplayTree {
     
 private:

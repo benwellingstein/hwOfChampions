@@ -219,39 +219,61 @@ StatusType Colosseum::GetTopGladiator(int trainerID, int *gladiatorID){
 	return SUCCESS;
 }
 
+
+
+/* Description:   Returns all the gladiators from trainerID sorted by their
+ *				  level.
+ *           	  If trainerID < 0, returns all the gladiators in the
+ *				  entire Colosseum sorted by their level.
+ * Input:		  trainerID - The trainer that we'd like to get the data
+ *				  for.
+ * Output:        gladiators - A pointer to a to an array that you should
+ *			      update with the gladiators' IDs sorted by their level,
+ *			      in case two gladiators have same level they should be
+ *				  sorted by their ID.
+ *                numOfGladiator - A pointer to a variable that should be
+ *				  updated to the number of gladiators.
+ * Return Values: ALLOCATION_ERROR - In case of an allocation error.
+ *                INVALID_INPUT - If any of the arguments is NULL or if
+ *				  trainerID == 0.
+ *                SUCCESS - Otherwise.
+ */
+
+
 //todo try catch
-StatusType Colosseum::GetAllGladiatorsByLevel(int trainerID, int **gladiators,
+StatusType Colosseum::GetAllGladiatorsByLevel(int trainerID, int** gladiators,
 								   int *numOfGladiator){
 	if (trainerID==0 || !gladiators || !numOfGladiator ) return INVALID_INPUT;
 	if (trainerID>0 && !trainers.exists(trainerID)) return FAILURE;
-	int arrSize;
+	
+	int arrSize = getNumberOfGladiators(trainerID);
 	Gladiator** gladiatorList;
-	if (trainerID < 0) {
-	
-	
-		*numOfGladiator = gladiatorLevelTree.size();
-
-		arrSize = *numOfGladiator;
-
-		gladiatorList = (Gladiator**)malloc(sizeof(Gladiator*)*arrSize);
-		if (!gladiatorList) return ALLOCATION_ERROR;
-		gladiatorLevelTree.exportArr(gladiatorList);
-
-	} else {
-		Trainer* trainer = trainers.findTrainer(trainerID);
-		*numOfGladiator = trainer->gladiators.size();
-		arrSize = *numOfGladiator;
-		gladiatorList = (Gladiator**)malloc(sizeof(Gladiator*)*arrSize);
-		if (!gladiatorList) return ALLOCATION_ERROR;
-		trainer->gladiators.exportArr(gladiatorList);
+	try {
+		gladiatorList = (Gladiator**) new Gladiator[arrSize];
 	}
-
+	catch (const bad_alloc& e) {
+		return ALLOCATION_ERROR;
+	}
+	
+	exportByTrainerId(trainerID, gladiatorList);
+	
+	*gladiators = (int*)malloc(sizeof(int)*arrSize);
+	if (!gladiators) return ALLOCATION_ERROR;
+	
 	for (int i = 0; i < arrSize; ++i) {
-		gladiators[i] = &gladiatorList[i]->id;
+		(*gladiators)[i] = gladiatorList[i]->id;
 	}
 	
+	*numOfGladiator = arrSize;
+//	gladiators = &outputArr;
+	
+	delete [] gladiatorList;
 	return SUCCESS;
+	
+	//		Gladiator **gladiatorList = (Gladiator**)malloc(sizeof(Gladiator*)*arrSize);
+
 }
+
 
 int Colosseum::getNumberOfGladiators(int trainerID) {
     if(trainerID == 0) return -1;
@@ -259,6 +281,16 @@ int Colosseum::getNumberOfGladiators(int trainerID) {
     Trainer* trainer = trainers.findTrainer(trainerID);
     return trainer->gladiators.size();
 }
+
+void Colosseum::exportByTrainerId(int trainerID, Gladiator** gladiatorList) {
+	if (trainerID < 0 ) {
+		gladiatorLevelTree.exportArr(gladiatorList);
+	} else {
+		Trainer* trainer = trainers.findTrainer(trainerID);
+		trainer->gladiators.exportArr(gladiatorList);
+	}
+}
+
 
 
 
