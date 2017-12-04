@@ -131,6 +131,9 @@ void testUpgradeGladiator() {
 	ASSERT_EQUALS(col.UpgradeGladiator(1337, 321), SUCCESS);
 	ASSERT_EQUALS(col.UpgradeGladiator(1338, 321), FAILURE);
 	ASSERT_EQUALS(col.UpgradeGladiator(321, 321), FAILURE);
+	int returnVal= -2;
+	col.GetTopGladiator(-1, &returnVal);
+	ASSERT_EQUALS(returnVal, 321);
 
 }
 

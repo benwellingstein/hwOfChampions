@@ -90,15 +90,14 @@ public:
 	
 	
 	bool insert(T* val) {
+		Node* newNode = new Node(val);
 		if (!head) {
-			Node* newNode = new Node(val);
 			head = newNode;
 			top = head;
 			return true;
 		}
 		if(exist(*val)) return false;
 		find(*val);
-		Node* newNode = new Node(val);
 		if( *val < *(head->data) ) {
 			Node* oldHead = head;
 			newNode->rChild = oldHead;
