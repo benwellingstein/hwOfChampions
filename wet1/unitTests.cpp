@@ -109,7 +109,6 @@ void testLevelUp() {
 	col.BuyGladiator(1337, 1, 7);
 	ASSERT_EQUALS(col.LevelUp(321, 3), FAILURE);
 	ASSERT_EQUALS(col.LevelUp(1337, 3), SUCCESS);
-	//TODO - automate test
 }
 
 
@@ -206,13 +205,8 @@ void testsGetAllGladiatorsByLevel() {
 	int bla = -1337;
 	int* blap = &bla;
 	int** arr = &(blap);
-//    int numberOfGladiators = col.getNumberOfGladiators(-4);
 	int** nullArr = NULL;
 	
-	
-    //TODO check if not NULL
-//	int** arr = (int**)malloc(sizeof(int*)*numberOfGladiators);
-
 	ASSERT_EQUALS(col.GetAllGladiatorsByLevel(0, arr, size), INVALID_INPUT);
 	ASSERT_EQUALS(col.GetAllGladiatorsByLevel(1, nullArr, size), INVALID_INPUT);
 	ASSERT_EQUALS(col.GetAllGladiatorsByLevel(1, arr, NULL), INVALID_INPUT);
@@ -275,51 +269,10 @@ void testsGetAllGladiatorsByLevel() {
 	free(*arr);
 	free(*arr2);
 	
-	
-	//TODO check if not NULL
-	
-	
-	
-	
-	
-/*
-	int num2 = -3;
-	num2--;
-	int* size2 = &num;
-	int** arr2 = &size;
-	ASSERT_EQUALS(col.GetAllGladiatorsByLevel(-2, arr2, size2), SUCCESS);
-	ASSERT_EQUALS(*size,12);
-	ASSERT_EQUALS(*(*arr+0), 655);
-
-	
-	int num3 = -3;
-	num3--;
-	int* size3 = &num;
-	int** arr3 = &size;
-	*/
-	
-	//ASSERT_EQUALS(col.GetAllGladiatorsByLevel(4, arr3, size3), SUCCESS);
-	//ASSERT_EQUALS(*size2,3);
-
-
-
-	//TODO check for trainedID>0
-
 }
 
 
-/* Description:   Updates the level of the gladiators where
- *				  gladiatorID % stimulantCode == 0.
- * 			      For each matching gladiator, multiplies its level
- *				  by stimulantFactor.
- * Input:         stimulantCode - The basis that the stimulant works on
- *          	  stimulantFactor - The multiply factor of the level
- * Output:        None.
- * Return Values: ALLOCATION_ERROR - In case of an allocation error.
- *                INVALID_INPUT - If stimulantCode < 1 or
- *				  if stimulantFactor <1
- *                SUCCESS - Otherwise.
- */
+
 void testUpdateLevels() {
 	Colosseum col;
 	col.AddTrainer(1);

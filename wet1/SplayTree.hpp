@@ -1,7 +1,3 @@
-
-
-//todo splay on delete/insert?
-
 #ifndef SplayTree_hpp
 #define SplayTree_hpp
 
@@ -161,7 +157,6 @@ public:
         }
         splay(*(current->data));
 		
-		//TODO danger?
         if (next != NULL) {
             return current->data;
         }
@@ -238,7 +233,6 @@ public:
                         break;
                 }
 				
-				//TODO Greatgrandfather updating?
                 father = current->father;
                 if(father != NULL) {
                     grandFather = father->father;

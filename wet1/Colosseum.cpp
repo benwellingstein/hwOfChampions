@@ -1,29 +1,12 @@
-//
-//  Colosseum.cpp
-//  wet1
-//
-//  Created by Ben on 26/11/2017.
-//  Copyright © 2017 Ben. All rights reserved.
-//
 
+//TODO MASTER
 //TODO fix code if memory allocation does not work.
+//TODO Dry
+//TODO test The fuck out of it
 
 #include "Colosseum.hpp"
 #include "Gladiator.hpp"
 using std::bad_alloc;
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 /* Description:   Adds a new trainer.
  * Input:         trainerID - The ID of the trainer to add.
@@ -123,10 +106,7 @@ StatusType Colosseum::LevelUp(int gladiatorID, int levelIncrease){
 		PointingGladiator* gladiatorToFree = gladiatorIdTree.find(dummy);
 		int newGladiatorLevel = levelIncrease + gladiatorToFree->level;
 		Trainer* pTrainer = gladiatorToFree->owner;
-		
 		FreeGladiator(gladiatorID);
-
-		//todo make names nicer
 		Gladiator* gladiatorToAddToTrainer = new Gladiator(gladiatorID,
 												 newGladiatorLevel);
 		Gladiator* gladiatorToAddToLevelTree = new Gladiator(gladiatorID, newGladiatorLevel);
@@ -137,7 +117,6 @@ StatusType Colosseum::LevelUp(int gladiatorID, int levelIncrease){
 		pTrainer->gladiators.insert(gladiatorToAddToTrainer);
 		gladiatorIdTree.insert(gladiatorToAddToIDTree);
 		gladiatorLevelTree.insert(gladiatorToAddToLevelTree);
-		
 		
 	}
 	catch (const bad_alloc& e) {
@@ -249,7 +228,6 @@ StatusType Colosseum::GetTopGladiator(int trainerID, int *gladiatorID){
  */
 
 
-//todo try catch
 StatusType Colosseum::GetAllGladiatorsByLevel(int trainerID, int** gladiators,
 								   int *numOfGladiator){
 	if (trainerID==0 || !gladiators || !numOfGladiator ) return INVALID_INPUT;

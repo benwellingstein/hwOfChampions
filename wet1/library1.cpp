@@ -11,8 +11,6 @@
 #include "library1.h"
 #include "Colosseum.hpp"
 
-//TODO
-//IF GIVEN DS IS NULL - perhaps error checking on this level?
 
 
 void* Init() {
@@ -62,7 +60,6 @@ StatusType UpdateLevels(void *DS, int stimulantCode, int stimulantFactor) {
 }
 
 
-//TODO - when to run destructor? Not automatic?
 void Quit(void** DS) {
 	delete *((Colosseum**)DS);
 }
