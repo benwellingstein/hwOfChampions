@@ -54,6 +54,7 @@ public:
         if(!exist(val)) return false;
         splay(val);
 		if (!head->lChild && !head->rChild) {
+			delete head;
 			head = NULL;
 			top = NULL;
 			return true;
@@ -361,6 +362,10 @@ public:
 		head = NULL;
 		top = NULL;
 		buildTreeFromArray(head, arrFinal);
+		delete [] arrOriginal;
+		delete [] arrChanged;
+		delete [] arrNotChanged;
+		delete [] arrFinal;
 	}
 	
 	
@@ -615,112 +620,6 @@ private:
 	Node* top;
 	
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//#include <stdio.h>
-//#include "BinaryTree.hpp"
-//
-//
-//
-//template <class T>
-//class SplayTree : public BinaryTree<T> {
-//
-//public:
-//
-//	}
-////	find
-////  find max
-////  find min
-////
-////	insert
-////	split
-////	delete
-////	join
-//
-//private:
-//
-//
-//
-//
-//};
-//
-//
-//
-//
-//
-
-
-
-
-
-
-
-//struct splay
-//{
-//	int key;
-//	splay* lchild;
-//	splay* rchild;
-//};
-//
-//class SplayTree {
-//public:
-//	SplayTree() {}
-//
-//	// RR(Y rotates to the right)
-//	splay* RR_Rotate(splay* k2);
-//
-//	// LL(Y rotates to the left)
-//	splay* LL_Rotate(splay* k2);
-//
-//	// An implementation of top-down splay tree
-//	splay* Splay(int key, splay* root);
-//
-//
-//	splay* newNode(int key);
-//
-//	splay* insertBTint key, splay* root);
-//
-//	splay* remove(int key, splay* root);
-//
-//	splay* find(int key, splay* root);
-//
-//	void inOrder(splay* root);
-//};
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

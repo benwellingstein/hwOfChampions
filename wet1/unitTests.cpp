@@ -269,7 +269,8 @@ void testsGetAllGladiatorsByLevel() {
 	ASSERT_EQUALS((*arr2)[3], 1342);
 	ASSERT_EQUALS((*arr2)[4], 1341);
 
-	
+	free(*arr);
+	free(*arr2);
 	
 	
 	//TODO check if not NULL
