@@ -212,11 +212,19 @@ StatusType Colosseum::GetTopGladiator(int trainerID, int *gladiatorID){
 	
 	if (trainerID > 0) {
 		Trainer* trainer = trainers.findTrainer(trainerID);
-		*gladiatorID = trainer->gladiators.getTop()->id;
+		if (trainer->gladiators.getTop() == NULL) {
+			*gladiatorID = -1;
+		} else {
+			*gladiatorID = trainer->gladiators.getTop()->id;
+		}
 		return SUCCESS;
 	}
 	
-	*gladiatorID = gladiatorLevelTree.getTop()->id;
+	if (gladiatorLevelTree.getTop() == NULL ) {
+		*gladiatorID = -1;
+	} else {
+		*gladiatorID = gladiatorLevelTree.getTop()->id;
+	}
 	return SUCCESS;
 }
 
