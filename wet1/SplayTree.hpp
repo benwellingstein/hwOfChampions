@@ -54,6 +54,7 @@ public:
         if(!exist(val)) return false;
         splay(val);
 		if (!head->lChild && !head->rChild) {
+			delete head->data;
 			delete head;
 			head = NULL;
 			top = NULL;
@@ -63,12 +64,14 @@ public:
 			Node* oldHead = head;
 			head = head->rChild;
 			head->father = NULL;
+			delete oldHead->data;
 			delete oldHead;
 		} else
 			if (!head->rChild) {
 				Node* oldHead = head;
 				head = head->lChild;
 				head->father = NULL;
+				delete oldHead->data;
 				delete oldHead;
 			} else {
 				Node* lMax = findMax(head->lChild);
@@ -80,6 +83,7 @@ public:
 				head = tempTree.head;
 				head->rChild = oldHead->rChild;
 				head->father = NULL;
+				delete oldHead->data;
 				delete oldHead;
 				head->rChild->father = head;
 				tempTree.head = NULL;

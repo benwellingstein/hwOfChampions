@@ -97,10 +97,11 @@ StatusType Colosseum::FreeGladiator(int gladiatorID) {
 	if (!gladiatorIdTree.exist(dummy)) return FAILURE;
 	PointingGladiator* gladiatorToFree = gladiatorIdTree.find(dummy);
 	Gladiator dummy2(gladiatorID, gladiatorToFree->level);
-	gladiatorIdTree.remove(dummy);
-	gladiatorLevelTree.remove(dummy2);
 	trainers.removeGladiator(gladiatorToFree->owner->id, gladiatorID,
 							 gladiatorToFree->level);
+	gladiatorIdTree.remove(dummy);
+	gladiatorLevelTree.remove(dummy2);
+	
 	return SUCCESS;
 }
 

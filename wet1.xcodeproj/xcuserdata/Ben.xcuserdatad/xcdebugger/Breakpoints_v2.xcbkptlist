@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "wet1/SplayTree.hpp"
-            timestampString = "534104477.242694"
+            timestampString = "534105420.353189"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "263"
-            endingLineNumber = "263"
+            startingLineNumber = "267"
+            endingLineNumber = "267"
             landmarkName = "exportArr(T** arr)"
             landmarkType = "7">
          </BreakpointContent>
@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "wet1/SplayTree.hpp"
-            timestampString = "534104477.243161"
+            timestampString = "534105420.353387"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "353"
-            endingLineNumber = "353"
+            startingLineNumber = "357"
+            endingLineNumber = "357"
             landmarkName = "update(UpdateFunction updateFunction)"
             landmarkType = "7">
          </BreakpointContent>
@@ -42,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "wet1/SplayTree.hpp"
-            timestampString = "534104477.243499"
+            timestampString = "534105420.353526"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "358"
-            endingLineNumber = "358"
+            startingLineNumber = "362"
+            endingLineNumber = "362"
             landmarkName = "update(UpdateFunction updateFunction)"
             landmarkType = "7">
          </BreakpointContent>
@@ -58,11 +58,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "wet1/SplayTree.hpp"
-            timestampString = "534104477.243809"
+            timestampString = "534105420.353671"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "383"
-            endingLineNumber = "383"
+            startingLineNumber = "387"
+            endingLineNumber = "387"
             landmarkName = "getDataRec(T** arr, Node* node, int* i)"
             landmarkType = "7">
          </BreakpointContent>
@@ -74,11 +74,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "wet1/SplayTree.hpp"
-            timestampString = "534104477.244108"
+            timestampString = "534105420.353808"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "375"
-            endingLineNumber = "375"
+            startingLineNumber = "379"
+            endingLineNumber = "379"
             landmarkName = "getData(T** arrOriginal)"
             landmarkType = "7">
          </BreakpointContent>
@@ -90,11 +90,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "wet1/SplayTree.hpp"
-            timestampString = "534104477.244401"
+            timestampString = "534105420.353942"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "374"
-            endingLineNumber = "374"
+            startingLineNumber = "378"
+            endingLineNumber = "378"
             landmarkName = "getData(T** arrOriginal)"
             landmarkType = "7">
          </BreakpointContent>
@@ -106,11 +106,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "wet1/SplayTree.hpp"
-            timestampString = "534104477.244697"
+            timestampString = "534105420.354075"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "363"
-            endingLineNumber = "363"
+            startingLineNumber = "367"
+            endingLineNumber = "367"
             landmarkName = "update(UpdateFunction updateFunction)"
             landmarkType = "7">
          </BreakpointContent>
@@ -122,7 +122,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "wet1/unitTests.cpp"
-            timestampString = "534104477.24499"
+            timestampString = "534105420.354207"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "366"
@@ -138,11 +138,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "wet1/Colosseum.cpp"
-            timestampString = "534104477.245061"
+            timestampString = "534105420.35435"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "337"
-            endingLineNumber = "337"
+            startingLineNumber = "338"
+            endingLineNumber = "338"
             landmarkName = "Colosseum::UpdateLevels(int stimulantCode, int stimulantFactor)"
             landmarkType = "7">
          </BreakpointContent>
@@ -154,7 +154,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "wet1/unitTests.cpp"
-            timestampString = "534104477.245445"
+            timestampString = "534105420.355002"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "365"
@@ -170,7 +170,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "wet1/unitTests.cpp"
-            timestampString = "534104477.245541"
+            timestampString = "534105420.355149"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "359"
@@ -186,7 +186,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "wet1/unitTests.cpp"
-            timestampString = "534104477.245609"
+            timestampString = "534105420.35529"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "371"
@@ -202,7 +202,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "wet1/unitTests.cpp"
-            timestampString = "534104477.245667"
+            timestampString = "534105420.355425"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "370"
@@ -218,7 +218,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "wet1/unitTests.cpp"
-            timestampString = "534104477.245722"
+            timestampString = "534105420.355585"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "226"
@@ -234,7 +234,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "wet1/unitTests.cpp"
-            timestampString = "534104477.245776"
+            timestampString = "534105420.355719"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "225"
@@ -250,7 +250,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "wet1/unitTests.cpp"
-            timestampString = "534104477.245831"
+            timestampString = "534105420.355848"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "230"
@@ -266,7 +266,23 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "wet1/Colosseum.cpp"
-            timestampString = "534104477.245885"
+            timestampString = "534105420.355979"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "273"
+            endingLineNumber = "273"
+            landmarkName = "Colosseum::GetAllGladiatorsByLevel(int trainerID, int** gladiators, int *numOfGladiator)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "wet1/Colosseum.cpp"
+            timestampString = "534105420.356545"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "272"
@@ -282,27 +298,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "wet1/Colosseum.cpp"
-            timestampString = "534104477.2462"
+            timestampString = "534105420.357113"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "271"
-            endingLineNumber = "271"
-            landmarkName = "Colosseum::GetAllGladiatorsByLevel(int trainerID, int** gladiators, int *numOfGladiator)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "wet1/Colosseum.cpp"
-            timestampString = "534104477.246496"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "266"
-            endingLineNumber = "266"
+            startingLineNumber = "267"
+            endingLineNumber = "267"
             landmarkName = "Colosseum::GetAllGladiatorsByLevel(int trainerID, int** gladiators, int *numOfGladiator)"
             landmarkType = "7">
          </BreakpointContent>
@@ -314,7 +314,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "wet1/unitTests.cpp"
-            timestampString = "534104477.246907"
+            timestampString = "534105420.357726"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "231"
@@ -330,11 +330,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "wet1/Colosseum.cpp"
-            timestampString = "534104477.247051"
+            timestampString = "534105420.358017"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "263"
-            endingLineNumber = "263"
+            startingLineNumber = "264"
+            endingLineNumber = "264"
             landmarkName = "Colosseum::GetAllGladiatorsByLevel(int trainerID, int** gladiators, int *numOfGladiator)"
             landmarkType = "7">
          </BreakpointContent>
@@ -346,7 +346,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "wet1/unitTests.cpp"
-            timestampString = "534104477.247573"
+            timestampString = "534105420.358731"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "242"
@@ -362,7 +362,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "wet1/SplayTree.hpp"
-            timestampString = "534104477.247697"
+            timestampString = "534105420.358879"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "26"
@@ -425,7 +425,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "wet1/unitTests.cpp"
-            timestampString = "534104477.248233"
+            timestampString = "534105420.359031"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "133"
@@ -441,7 +441,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "wet1/unitTests.cpp"
-            timestampString = "534104477.248313"
+            timestampString = "534105420.359175"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "136"
@@ -457,7 +457,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "wet1/unitTests.cpp"
-            timestampString = "534104477.248377"
+            timestampString = "534105420.359306"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "124"
@@ -469,27 +469,27 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "wet1/SplayTree.hpp"
-            timestampString = "534104477.248435"
+            timestampString = "534105420.359437"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "93"
-            endingLineNumber = "93"
+            startingLineNumber = "97"
+            endingLineNumber = "97"
             landmarkName = "insert(T* val)"
             landmarkType = "7">
             <Locations>
                <Location
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "SplayTree&lt;int, UpdateFunction&gt;::insert(int*)"
                   moduleName = "wet1"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Ben/Documents/University/Mivne/newgit/hwOfChampions/wet1/SplayTree.hpp"
-                  timestampString = "534104477.645797"
+                  timestampString = "534104716.213417"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "93"
@@ -497,14 +497,14 @@
                   offsetFromSymbolStart = "20">
                </Location>
                <Location
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "SplayTree&lt;PointingGladiator, UpdateFunctionPointing&gt;::insert(PointingGladiator*)"
                   moduleName = "wet1"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Ben/Documents/University/Mivne/newgit/hwOfChampions/wet1/SplayTree.hpp"
-                  timestampString = "534104477.648444"
+                  timestampString = "534104716.216611"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "93"
@@ -512,14 +512,14 @@
                   offsetFromSymbolStart = "20">
                </Location>
                <Location
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "SplayTree&lt;Gladiator, UpdateFunction&gt;::insert(Gladiator*)"
                   moduleName = "wet1"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Ben/Documents/University/Mivne/newgit/hwOfChampions/wet1/SplayTree.hpp"
-                  timestampString = "534104477.652038"
+                  timestampString = "534104716.220931"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "93"
@@ -527,6 +527,54 @@
                   offsetFromSymbolStart = "20">
                </Location>
             </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "wet1/unitTests.cpp"
+            timestampString = "534105420.359559"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "200"
+            endingLineNumber = "200"
+            landmarkName = "testsGetAllGladiatorsByLevel()"
+            landmarkType = "9">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "wet1/unitTestsSplay.cpp"
+            timestampString = "534105420.359687"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "1195"
+            endingLineNumber = "1195"
+            landmarkName = "testTop()"
+            landmarkType = "9">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "wet1/unitTestsSplay.cpp"
+            timestampString = "534105420.36069"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "1219"
+            endingLineNumber = "1219"
+            landmarkName = "testTop()"
+            landmarkType = "9">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
