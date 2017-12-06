@@ -14,6 +14,9 @@
 #include "PointingGladiator.hpp"
 #include "SplayTree.hpp"
 #include <stdio.h>
+#include <cstdlib>
+#include <iostream>
+
 
 class Colosseum {
 public:
