@@ -529,6 +529,7 @@ private:
 		child->rChild = father;
         child->father = NULL;
         father->father = child;
+		if (father->lChild) father->lChild->father = father;
 	}
 	
 	static void ZigR(Node** grandFather, Node* father, Node* child ) {
@@ -537,6 +538,7 @@ private:
 		child->lChild = father;
         child->father = NULL;
         father->father = child;
+		if (father->rChild) father->rChild->father = father;
 	}
 	
 	static void ZigZagLR(Node** greatGrandFather, Node* grandFather, Node* father, Node* child) {
@@ -545,9 +547,11 @@ private:
 		grandFather->lChild = child->rChild;
 		child->lChild = father;
 		child->rChild = grandFather;
+		if (father->rChild) father->rChild->father = father;
+		if (grandFather->lChild) grandFather->lChild->father = grandFather;
+		father->father = child;
         child->father = grandFather->father;
         grandFather->father = child;
-        father->father = child;
 	}
 
 	static void ZigZagRL(Node** greatGrandFather, Node* grandFather, Node* father, Node* child) {
@@ -556,6 +560,8 @@ private:
 		grandFather->rChild = child->lChild;
 		child->rChild = father;
 		child->lChild = grandFather;
+		if (father->lChild) father->lChild->father = father;
+		if (grandFather->rChild) grandFather->rChild->father = grandFather;
         child->father = grandFather->father;
         grandFather->father = child;
         father->father = child;
@@ -571,19 +577,24 @@ private:
         child->father = grandFather->father;
         grandFather->father = father;
         father->father = child;
+		if (father->rChild) father->rChild->father = father;
+		if (grandFather->rChild) grandFather->rChild->father = grandFather;
+		
 
 	}
 	
 	static void ZigZigLL(Node** greatGrandFather, Node* grandFather,
 						  Node* father, Node* child) {
 		*greatGrandFather = child;
-		grandFather->lChild = father->rChild;
 		father->lChild = child->rChild;
 		child->rChild = father;
+		grandFather->lChild = father->rChild;
 		father->rChild = grandFather;
         child->father = grandFather->father;
         grandFather->father = father;
         father->father = child;
+		if (father->lChild) father->lChild->father = father;
+		if (grandFather->lChild) grandFather->lChild->father = grandFather;
 	}
     
 	

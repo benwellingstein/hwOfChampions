@@ -248,7 +248,7 @@ StatusType Colosseum::GetAllGladiatorsByLevel(int trainerID, int** gladiators,
 	if (!gladiators) return ALLOCATION_ERROR;
 	
 	for (int i = 0; i < arrSize; ++i) {
-		(*gladiators)[i] = gladiatorList[i]->id;
+		(*gladiators)[arrSize-i-1] = gladiatorList[i]->id;
 	}
 	
 	*numOfGladiator = arrSize;
