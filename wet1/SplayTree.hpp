@@ -154,6 +154,7 @@ public:
 		}
 		return current;
 	}
+	
 	//splay tree find function
 	T* find(const T& val) {
 		if (!head)  return NULL;

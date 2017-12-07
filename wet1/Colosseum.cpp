@@ -1,10 +1,3 @@
-/*
-//TODO
- * fix code if memory allocation does not work.
- * make splay tree look like code
- * Dry finish up
-*/
-
 #include "Colosseum.hpp"
 #include "Gladiator.hpp"
 using std::bad_alloc;
@@ -27,8 +20,8 @@ StatusType Colosseum::BuyGladiator(int gladiatorID, int trainerID, int level) {
 	PointingGladiator dummy(gladiatorID,level,NULL);
 	if ( gladiatorIdTree.exist(dummy) || (!trainers.exists(trainerID)) )
 		return FAILURE;
-	try {
 		Trainer* trainerP = trainers.findTrainer(trainerID);
+	try {
 		PointingGladiator* gladForIdTree = new PointingGladiator(gladiatorID,
 															  level, trainerP);
 		Gladiator* gladForLevelTree = new Gladiator(gladiatorID, level);
