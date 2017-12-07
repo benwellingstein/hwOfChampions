@@ -5,7 +5,7 @@
 #include "Colosseum.hpp"
 #include "Gladiator.hpp"
 #include "TrainerList.hpp"
-#include "PointingGladiator.hpp"
+//#include "PointingGladiator.hpp"
 
 void testGladiatorSorting() {
 	Gladiator a(5,100);
@@ -219,20 +219,20 @@ void testsGetAllGladiatorsByLevel() {
 	
 	
 	ASSERT_EQUALS(*size,12);
-    //cout << *arr[0] << endl;
+//    cout << *arr[0] << endl;
     //cout << *arr[5] << endl;
-	ASSERT_EQUALS(*arr[0], 1340);
-	ASSERT_EQUALS((*arr)[1], 1337);
-    ASSERT_EQUALS((*arr)[2], 1339);
-    ASSERT_EQUALS((*arr)[3], 1338);
-    ASSERT_EQUALS((*arr)[4], 1343);
-    ASSERT_EQUALS((*arr)[5], 1342);
-    ASSERT_EQUALS((*arr)[6], 1341);
-    ASSERT_EQUALS((*arr)[7], 8888);
-    ASSERT_EQUALS((*arr)[8], 1345);
-    ASSERT_EQUALS((*arr)[9], 1000);
-    ASSERT_EQUALS((*arr)[10], 2);
-    ASSERT_EQUALS((*arr)[11], 665);
+	ASSERT_EQUALS((*arr)[11], 1340);
+	ASSERT_EQUALS((*arr)[10], 1337);
+    ASSERT_EQUALS((*arr)[9], 1339);
+    ASSERT_EQUALS((*arr)[8], 1338);
+    ASSERT_EQUALS((*arr)[7], 1343);
+    ASSERT_EQUALS((*arr)[6], 1342);
+    ASSERT_EQUALS((*arr)[5], 1341);
+    ASSERT_EQUALS((*arr)[4], 8888);
+    ASSERT_EQUALS((*arr)[3], 1345);
+    ASSERT_EQUALS((*arr)[2], 1000);
+    ASSERT_EQUALS((*arr)[1], 2);
+    ASSERT_EQUALS((*arr)[0], 665);
 	
 	col.FreeGladiator(2);
 	col.FreeGladiator(1345);
@@ -260,11 +260,11 @@ void testsGetAllGladiatorsByLevel() {
 
 	ASSERT_EQUALS(*size2,5);
 
-	ASSERT_EQUALS((*arr2)[0], 1340);
-	ASSERT_EQUALS((*arr2)[1], 1339);
+	ASSERT_EQUALS((*arr2)[4], 1340);
+	ASSERT_EQUALS((*arr2)[3], 1339);
 	ASSERT_EQUALS((*arr2)[2], 1338);
-	ASSERT_EQUALS((*arr2)[3], 1342);
-	ASSERT_EQUALS((*arr2)[4], 1341);
+	ASSERT_EQUALS((*arr2)[1], 1342);
+	ASSERT_EQUALS((*arr2)[0], 1341);
 
 	free(*arr);
 	free(*arr2);

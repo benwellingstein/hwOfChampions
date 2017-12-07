@@ -1,14 +1,6 @@
-//
-//  Colosseum.hpp
-//  wet1
-//
-//  Created by Ben on 26/11/2017.
-//  Copyright © 2017 Ben. All rights reserved.
-//
-
 #ifndef Colosseum_hpp
 #define Colosseum_hpp
-#include "library1.h" // ???????????????????
+#include "library1.h"
 #include "TrainerList.hpp"
 #include "Gladiator.hpp"
 #include "PointingGladiator.hpp"
@@ -131,7 +123,14 @@ public:
 	StatusType UpdateLevels(int stimulantCode, int stimulantFactor);
 	
 
+	/*Returns number of gladiators that belong to trainerID,
+	 *If trainerID is negative returns number of all gladiators in system
+	 */
 	int getNumberOfGladiators(int trainerID);
+	
+	/*Returns an array of pointers to the gladiators that belong to trainer.
+	 *If Trainer is negative returns all gladiators in colosseum
+	 */
 	void exportByTrainerId(int trainerID, Gladiator** gladiatorList);
 	
 private:

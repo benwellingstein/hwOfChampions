@@ -1,21 +1,16 @@
-
-//TODO MASTER
-//TODO fix code if memory allocation does not work.
-//TODO Dry
-//TODO test The fuck out of it
+/*
+//TODO
+ * fix code if memory allocation does not work.
+* Change code of free gladiator
+ * make splay tree look like code
+ * Dry finish up
+*/
 
 #include "Colosseum.hpp"
 #include "Gladiator.hpp"
 using std::bad_alloc;
 
-/* Description:   Adds a new trainer.
- * Input:         trainerID - The ID of the trainer to add.
- * Output:        None.
- * Return Values: ALLOCATION_ERROR - In case of an allocation error.
- *                INVALID_INPUT - if trainerID <= 0.
- *                FAILURE - If trainerID is already in the Colosseum.
- *                SUCCESS - Otherwise.
- */
+
 StatusType Colosseum::AddTrainer(int trainerID) {
 	if (trainerID <= 0) return INVALID_INPUT;
 	if (trainers.exists(trainerID)) return FAILURE;
@@ -28,26 +23,12 @@ StatusType Colosseum::AddTrainer(int trainerID) {
 	return SUCCESS;
 }
 
-
-/* Description:   Adds a new gladiator to the system.
- * Input:		  gladiatorID - ID of the gladiator to add.
- *                trainerID - The ID of the gladiator's trainer
- *                level - The gladiator's level
- * Output:        None.
- * Return Values: ALLOCATION_ERROR - In case of an allocation error.
- *                INVALID_INPUT - if gladiatorID <=0, or if trainerID <=0,
- *				  or if level <= 0
- *                FAILURE - If gladiatorID is already in the Colosseum,
- *				  or trainerID isn't in the Colosseum.
- *                SUCCESS - Otherwise.
- */
 StatusType Colosseum::BuyGladiator(int gladiatorID, int trainerID, int level) {
 	if ((gladiatorID<=0) || (trainerID <=0) || (level<=0)) return INVALID_INPUT;
 	PointingGladiator dummy(gladiatorID,level,NULL);
 	if ( gladiatorIdTree.exist(dummy) || (!trainers.exists(trainerID)) )
 		return FAILURE;
 	try {
-		
 		Trainer* trainerP = trainers.findTrainer(trainerID);
 		PointingGladiator* gladForIdTree = new PointingGladiator(gladiatorID,
 															  level, trainerP);
@@ -55,24 +36,12 @@ StatusType Colosseum::BuyGladiator(int gladiatorID, int trainerID, int level) {
 		trainers.addGladiator(trainerID, gladiatorID, level);
 		gladiatorIdTree.insert(gladForIdTree);
 		gladiatorLevelTree.insert(gladForLevelTree);
-		
 	}
 	catch (const bad_alloc& e) {
 		return ALLOCATION_ERROR;
 	}
 	return SUCCESS;
 }
-
-
-
-/* Description:   Removes an existing gladiator.
- * Input:		  gladiatorID - The ID of the gladiator to remove.
- * Output:        None.
- * Return Values: ALLOCATION_ERROR - In case of an allocation error.
- *                INVALID_INPUT - If gladiatorID <= 0.
- *                FAILURE - If gladiatorID isn't in the Colosseum.
- *                SUCCESS - Otherwise.
- */
 
 StatusType Colosseum::FreeGladiator(int gladiatorID) {
 	if (gladiatorID <= 0) return INVALID_INPUT;
@@ -84,20 +53,9 @@ StatusType Colosseum::FreeGladiator(int gladiatorID) {
 							 gladiatorToFree->level);
 	gladiatorIdTree.remove(dummy);
 	gladiatorLevelTree.remove(dummy2);
-	
 	return SUCCESS;
 }
 
-
-/* Description:   Increases the level of a gladiator.
- * Input:         gladiatorID - The ID of the gladiator.
- *		          levelIncrease - The increase in level.
- * Output:        None.
- * Return Values: ALLOCATION_ERROR - In case of an allocation error.
- *                INVALID_INPUT - If gladiatorID<=0, or if levelIncrease<=0
- *                FAILURE - If gladiatorID isn't in the Colosseum.
- *                SUCCESS - Otherwise.
- */
 StatusType Colosseum::LevelUp(int gladiatorID, int levelIncrease){
 	if (gladiatorID<=0 || levelIncrease <= 0 ) return INVALID_INPUT;
 	PointingGladiator dummy(gladiatorID, 100, NULL);
@@ -110,34 +68,17 @@ StatusType Colosseum::LevelUp(int gladiatorID, int levelIncrease){
 		Gladiator* gladiatorToAddToTrainer = new Gladiator(gladiatorID,
 												 newGladiatorLevel);
 		Gladiator* gladiatorToAddToLevelTree = new Gladiator(gladiatorID, newGladiatorLevel);
-		
 		PointingGladiator* gladiatorToAddToIDTree = new PointingGladiator(gladiatorID, newGladiatorLevel, pTrainer);
-		
-		
 		pTrainer->gladiators.insert(gladiatorToAddToTrainer);
 		gladiatorIdTree.insert(gladiatorToAddToIDTree);
 		gladiatorLevelTree.insert(gladiatorToAddToLevelTree);
-		
 	}
 	catch (const bad_alloc& e) {
 		return ALLOCATION_ERROR;
 	}
-	
 	return SUCCESS;
 }
 
-
-/* Description:   Upgrades a gladiator, updating his ID, while maintaining
- *				  his level.
- * Input:         gladiatorID - The original ID of the gladiator.
- *                upgradedID - The new ID of the gladiator.
- * Output:        None.
- * Return Values: ALLOCATION_ERROR - In case of an allocation error.
- *                INVALID_INPUT -If gladiatorID<=0, or if upgradedID<=0.
- *                FAILURE - If gladiatorID isn't in the Colosseum, or
- *				  upgradedID is in the Colosseum.
- *                SUCCESS - Otherwise.
- */
 StatusType Colosseum::UpgradeGladiator(int gladiatorID, int upgradedID){
 	if (gladiatorID <= 0 || upgradedID <= 0) return INVALID_INPUT;
 	if (!gladiatorIdTree.find(PointingGladiator(gladiatorID,100,NULL)) ||
@@ -152,7 +93,7 @@ StatusType Colosseum::UpgradeGladiator(int gladiatorID, int upgradedID){
 	gladiatorIdTree.remove(PointingGladiator(gladiatorID,100,NULL));
 	gladiatorLevelTree.remove(Gladiator(gladiatorID,gladiatorLevel));
 	trainer->gladiators.remove(Gladiator(gladiatorID,gladiatorLevel));
-	
+
 	try {
 	Gladiator* gladiatorToAddToTrainer = new Gladiator(upgradedID,
 													   gladiatorLevel);
@@ -162,7 +103,6 @@ StatusType Colosseum::UpgradeGladiator(int gladiatorID, int upgradedID){
 	PointingGladiator* gladiatorToAddToIDTree = new PointingGladiator
 										(upgradedID, gladiatorLevel, trainer);
 	
-
 		trainer->gladiators.insert(gladiatorToAddToTrainer);
 		gladiatorIdTree.insert(gladiatorToAddToIDTree);
 		gladiatorLevelTree.insert(gladiatorToAddToLevelTree);
@@ -170,21 +110,9 @@ StatusType Colosseum::UpgradeGladiator(int gladiatorID, int upgradedID){
 	catch (const bad_alloc& e) {
 		return ALLOCATION_ERROR;
 	}
-	
 	return SUCCESS;
 }
 
-/* Description:   Returns the gladiator with the highest level from trainerID
- * 			If trainerID < 0, returns the top gladiator in the entire DS.
- * Input:         DS - A pointer to the data structure.
- *                trainerID - The trainer that we'd like to get the data for.
- * Output:        gladiatorID - A pointer to a variable that should be updated
- *					to the ID of the top gladiator.
- * Return Values: ALLOCATION_ERROR - In case of an allocation error.
- *                INVALID_INPUT - If DS==NULL, or if gladiatorID == NULL, or
- *					if trainerID == 0.
- *                SUCCESS - Otherwise.
- */
 StatusType Colosseum::GetTopGladiator(int trainerID, int *gladiatorID){
 	if (!gladiatorID || trainerID == 0) return INVALID_INPUT;
 	if (trainerID > 0 && !trainers.exists(trainerID)) return FAILURE;
@@ -198,7 +126,6 @@ StatusType Colosseum::GetTopGladiator(int trainerID, int *gladiatorID){
 		}
 		return SUCCESS;
 	}
-	
 	if (gladiatorLevelTree.getTop() == NULL ) {
 		*gladiatorID = -1;
 	} else {
@@ -206,27 +133,6 @@ StatusType Colosseum::GetTopGladiator(int trainerID, int *gladiatorID){
 	}
 	return SUCCESS;
 }
-
-
-
-/* Description:   Returns all the gladiators from trainerID sorted by their
- *				  level.
- *           	  If trainerID < 0, returns all the gladiators in the
- *				  entire Colosseum sorted by their level.
- * Input:		  trainerID - The trainer that we'd like to get the data
- *				  for.
- * Output:        gladiators - A pointer to a to an array that you should
- *			      update with the gladiators' IDs sorted by their level,
- *			      in case two gladiators have same level they should be
- *				  sorted by their ID.
- *                numOfGladiator - A pointer to a variable that should be
- *				  updated to the number of gladiators.
- * Return Values: ALLOCATION_ERROR - In case of an allocation error.
- *                INVALID_INPUT - If any of the arguments is NULL or if
- *				  trainerID == 0.
- *                SUCCESS - Otherwise.
- */
-
 
 StatusType Colosseum::GetAllGladiatorsByLevel(int trainerID, int** gladiators,
 								   int *numOfGladiator){
@@ -246,73 +152,15 @@ StatusType Colosseum::GetAllGladiatorsByLevel(int trainerID, int** gladiators,
 	
 	*gladiators = (int*)malloc(sizeof(int)*arrSize);
 	if (!gladiators) return ALLOCATION_ERROR;
-	
 	for (int i = 0; i < arrSize; ++i) {
 		(*gladiators)[arrSize-i-1] = gladiatorList[i]->id;
 	}
-	
 	*numOfGladiator = arrSize;
-//	gladiators = &outputArr;
-	
 	delete [] gladiatorList;
 	return SUCCESS;
-	
-	//		Gladiator **gladiatorList = (Gladiator**)malloc(sizeof(Gladiator*)*arrSize);
-
 }
 
 
-int Colosseum::getNumberOfGladiators(int trainerID) {
-    if(trainerID == 0) return -1;
-    if(trainerID < 0) return gladiatorLevelTree.size();
-    Trainer* trainer = trainers.findTrainer(trainerID);
-    return trainer->gladiators.size();
-}
-
-void Colosseum::exportByTrainerId(int trainerID, Gladiator** gladiatorList) {
-	if (trainerID < 0 ) {
-		gladiatorLevelTree.exportArr(gladiatorList);
-	} else {
-		Trainer* trainer = trainers.findTrainer(trainerID);
-		trainer->gladiators.exportArr(gladiatorList);
-	}
-}
-
-
-
-
-//
-//template <class T>
-//class Stimulant {
-//public:
-//	Stimulant(int stimulantCode , int stimulantFactor) : stimulantCode(stimulantCode),
-//	stimulantFactor(stimulantFactor) {}
-//	
-//	bool operator(const T& val) {
-//		if ( val % stimulantCode == 0) {
-//			
-//		}
-//	}
-//private:
-//	int stimulantCode;
-//	int stimulantFactor;
-//};
-
-
-
-
-/* Description:   Updates the level of the gladiators where
- *				  gladiatorID % stimulantCode == 0.
- * 			      For each matching gladiator, multiplies its level
- *				  by stimulantFactor.
- * Input:         stimulantCode - The basis that the stimulant works on
- *          	  stimulantFactor - The multiply factor of the level
- * Output:        None.
- * Return Values: ALLOCATION_ERROR - In case of an allocation error.
- *                INVALID_INPUT - If stimulantCode < 1 or
- *				  if stimulantFactor <1
- *                SUCCESS - Otherwise.
- */
 StatusType Colosseum::UpdateLevels(int stimulantCode, int stimulantFactor) {
 	if (stimulantCode < 1 || stimulantFactor < 1) return INVALID_INPUT;
 	
@@ -334,7 +182,18 @@ StatusType Colosseum::UpdateLevels(int stimulantCode, int stimulantFactor) {
 	return SUCCESS;
 }
 
+int Colosseum::getNumberOfGladiators(int trainerID) {
+    if(trainerID == 0) return -1;
+    if(trainerID < 0) return gladiatorLevelTree.size();
+    Trainer* trainer = trainers.findTrainer(trainerID);
+    return trainer->gladiators.size();
+}
 
-
-
-
+void Colosseum::exportByTrainerId(int trainerID, Gladiator** gladiatorList) {
+	if (trainerID < 0 ) {
+		gladiatorLevelTree.exportArr(gladiatorList);
+	} else {
+		Trainer* trainer = trainers.findTrainer(trainerID);
+		trainer->gladiators.exportArr(gladiatorList);
+	}
+}

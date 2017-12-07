@@ -10,9 +10,6 @@
 #define PointingGladiator_hpp
 
 
-
-
-
 struct PointingGladiator {
 public:
 	PointingGladiator(int id, int level, Trainer* owner) : id(id), level(level), owner(owner) {}

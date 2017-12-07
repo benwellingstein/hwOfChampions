@@ -7,13 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B50E84F11FD88376000F9594 /* unitTests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B5FB3BBD1FCB5C22000E0F49 /* unitTests.cpp */; };
+		B50E84F21FD88540000F9594 /* PointingGladiator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B52E38341FD3CD9B00718A5B /* PointingGladiator.cpp */; };
 		B53A41231FD4A9D20059CB2A /* SplayTree.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B5FB3BC21FCDBE38000E0F49 /* SplayTree.cpp */; };
 		B53A41241FD4A9D20059CB2A /* Colosseum.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B5FB3BB61FCB44C7000E0F49 /* Colosseum.cpp */; };
 		B53A41251FD4A9D20059CB2A /* TrainerList.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B52E38291FD1FF5400718A5B /* TrainerList.cpp */; };
 		B53A41261FD4A9D20059CB2A /* Gladiator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B5FB3BDA1FD1FDF4000E0F49 /* Gladiator.cpp */; };
-		B53A41271FD4A9D20059CB2A /* PointingGladiator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B52E38341FD3CD9B00718A5B /* PointingGladiator.cpp */; };
-		B5CF748D1FD5CFB100C39B1A /* library1.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B5FB3BB41FCB4417000E0F49 /* library1.cpp */; };
-		B5CF748E1FD5CFB100C39B1A /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B5FB3BAC1FCB4117000E0F49 /* main.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -221,13 +220,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B5CF748D1FD5CFB100C39B1A /* library1.cpp in Sources */,
-				B5CF748E1FD5CFB100C39B1A /* main.cpp in Sources */,
+				B50E84F21FD88540000F9594 /* PointingGladiator.cpp in Sources */,
+				B50E84F11FD88376000F9594 /* unitTests.cpp in Sources */,
 				B53A41231FD4A9D20059CB2A /* SplayTree.cpp in Sources */,
 				B53A41241FD4A9D20059CB2A /* Colosseum.cpp in Sources */,
 				B53A41251FD4A9D20059CB2A /* TrainerList.cpp in Sources */,
 				B53A41261FD4A9D20059CB2A /* Gladiator.cpp in Sources */,
-				B53A41271FD4A9D20059CB2A /* PointingGladiator.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
