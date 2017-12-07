@@ -1,7 +1,6 @@
 /*
 //TODO
  * fix code if memory allocation does not work.
-* Change code of free gladiator
  * make splay tree look like code
  * Dry finish up
 */
@@ -48,9 +47,9 @@ StatusType Colosseum::FreeGladiator(int gladiatorID) {
 	PointingGladiator dummy(gladiatorID, 100, NULL);
 	if (!gladiatorIdTree.exist(dummy)) return FAILURE;
 	PointingGladiator* gladiatorToFree = gladiatorIdTree.find(dummy);
+	Trainer* trainer = gladiatorToFree->owner;
 	Gladiator dummy2(gladiatorID, gladiatorToFree->level);
-	trainers.removeGladiator(gladiatorToFree->owner->id, gladiatorID,
-							 gladiatorToFree->level);
+	trainer->gladiators.remove(dummy2);
 	gladiatorIdTree.remove(dummy);
 	gladiatorLevelTree.remove(dummy2);
 	return SUCCESS;

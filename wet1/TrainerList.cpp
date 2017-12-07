@@ -24,8 +24,6 @@ TrainerList::~TrainerList() {
 	}
 }
 
-
-
 bool TrainerList::exists(int trainerID) {
 	return (findTrainer(trainerID));
 }
@@ -40,9 +38,6 @@ Trainer* TrainerList::findTrainer(int trainerID){
 }
 
 
-
-
-
 void TrainerList::addGladiator(int trainerID, int gladiatorID, int gladiatorLevel) {
 	Trainer* trainer = findTrainer(trainerID);
 	Gladiator* newGladiator = new Gladiator(gladiatorID,gladiatorLevel);
@@ -55,8 +50,4 @@ void TrainerList::removeGladiator(int trainerID, int gladiatorID,
 	Gladiator dummy(gladiatorID, gladiatorLevel);
 	trainer->gladiators.remove(dummy);
 }
-////returns ID of top gladiator of trainer
-//int TrainerList::getTopGladiator(int trainerID) const;
-////returns array of gladiators sorted by level
-//int** TrainerList::getAllGlaidatorByLevel(int trainerID, int* numOfGladiators);
 

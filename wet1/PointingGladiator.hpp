@@ -1,10 +1,3 @@
-//
-//  PointingGladiator.hpp
-//  wet1
-//
-//  Created by Ben on 03/12/2017.
-//  Copyright © 2017 Ben. All rights reserved.
-//
 #include "TrainerList.hpp"
 #ifndef PointingGladiator_hpp
 #define PointingGladiator_hpp
@@ -37,8 +30,6 @@ private:
 	int code;
 	int factor;
 };
-
-
 
 
 #endif /* PointingGladiator_hpp */

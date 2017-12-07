@@ -22,13 +22,9 @@ public:
 	TrainerList();
 	~TrainerList();
 	void addTrainer(int trainerID);
-	
 	void addGladiator(int trainerID, int gladiatorID, int gladiatorLevel);
 	void removeGladiator(int trainerID, int gladiatorID, int gladiatorLevel);
-	//returns array of gladiators sorted by level
-	
 	bool exists(int trainerID);
-	
 	//returns pointer to trainer
 	Trainer* findTrainer(int trainerID);
 private:
